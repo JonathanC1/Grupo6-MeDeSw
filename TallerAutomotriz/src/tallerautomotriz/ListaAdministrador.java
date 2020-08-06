@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListaAdministrador {
-    private List <Administrador> listaA;
+    public List <Administrador> listaA;
 
     public ListaAdministrador() {
         listaA= new ArrayList<Administrador>();
