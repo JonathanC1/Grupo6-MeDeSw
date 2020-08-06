@@ -25,8 +25,18 @@ public class StockVehiculos {
     }
     public int mostrarTamañoStock(){
         return stock.size();
+    }   
+    public Vehiculo buscarVehiculo(String a){
+        Vehiculo aux = new Vehiculo();
+        Vehiculo laux = new Vehiculo();
+        Iterator it = stock.iterator();
+        while(it.hasNext()){
+            aux = (Vehiculo) it.next();
+            if(a.equalsIgnoreCase(aux.getModelo()));
+            laux = aux;
+        }
+        return laux;
     }
-    
     public void detalleVehiculo(){
         Vehiculo aux = new Vehiculo();
         Iterator it = stock.iterator();

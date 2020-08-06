@@ -116,8 +116,8 @@ public class GestorTallerAutomotriz {
 
                                                 break;
                                             case 2:
-                                                VentaVehiculo vv1 = new VentaVehiculo();
-                                                vv1.menuVentas();
+                                        //        VentaVehiculo vv1 = new VentaVehiculo();
+                                        //        vv1.menuVentas();
                                                 break;
                                             case 3:
                                                 ServicioTecnico st = new ServicioTecnico();
