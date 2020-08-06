@@ -20,6 +20,8 @@ public class ServicioTecnico {
         this.cotizaciónDaño = cotizaciónDaño;
         talleres = new ArrayList<>();
     }
+    public ServicioTecnico() {
+    }
     public void añadirTaller(Taller a){
         talleres.add(a);
     }
