@@ -95,18 +95,23 @@ public class GestorTallerAutomotriz {
                                                             System.in.read();
                                                             break;
                                                         case 2:
+                                                            sc.nextLine();
                                                             String modeloM;
                                                             Vehiculo vM;
                                                             System.out.println("Ingrese el modelo que desea buscar");
                                                             modeloM = sc.nextLine();
                                                             vM = s1.buscarVehiculo(modeloM);
-                                                            vM.personalizar();
+                                                            if (modeloM.equalsIgnoreCase(vM.getModelo())) {
+                                                                vM.personalizar();
+                                                            }
+
                                                             break;
                                                         case 3:
+                                                            sc.nextLine();
                                                             String modelo;
                                                             System.out.println("Ingrese el modelo que desea buscar");
                                                             modelo = sc.nextLine();
-                                                            System.out.println(s1.buscarVehiculo(modelo));
+                                                            s1.buscarVehiculo(modelo).imprimir();
                                                             break;
                                                         case 0:
                                                             System.out.println("Adios!!!");
