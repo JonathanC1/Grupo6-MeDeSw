@@ -11,6 +11,7 @@ package tallerautomotriz;
  */
 public class Taller {
     private String nombre,especialidad,ubicacion;
+    private long numeroTel;
 
     public Taller(String nombre, String especialidad, String ubicacion) {
         this.nombre = nombre;

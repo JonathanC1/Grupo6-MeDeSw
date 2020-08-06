@@ -42,7 +42,6 @@ public class GestorTallerAutomotriz {
                         default:
                             System.out.println("Opcion Invalida");
                             break;
-
                     }
                     break;
                 case 2:
