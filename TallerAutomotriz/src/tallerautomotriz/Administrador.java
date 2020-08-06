@@ -28,7 +28,7 @@ public class Administrador extends Persona {
     public void registrarVehiculo() {
         Date fabricacion = new Date(120, 6, 17);
         Date año = new Date(120, 9, 17);
-        Vehiculo v2 = new Vehiculo("hyundai", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728, fabricacion, año);
+        Vehiculo v2 = new Vehiculo("hyundai", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728,true, fabricacion, año);
         StockVehiculos s1 = new StockVehiculos();
         s1.añadirVehiculo(v2);
 

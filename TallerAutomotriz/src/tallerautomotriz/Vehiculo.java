@@ -16,7 +16,7 @@ public class Vehiculo {
     private float precio;
     private boolean disponibilidad;
 
-    public Vehiculo(String marca, String modelo, String color, String tipoVehiculo, String tipoMotor, String tipoTransmision, String chasis, String materialInterior, String placa, String tipoLLanta, String tipoAros, int cilindraje, int numeroPuerta, int gradosPolarizado,float precio, Date añoFabricacion, Date añoMatricula) {
+    public Vehiculo(String marca, String modelo, String color, String tipoVehiculo, String tipoMotor, String tipoTransmision, String chasis, String materialInterior, String placa, String tipoLLanta, String tipoAros, int cilindraje, int numeroPuerta, int gradosPolarizado,float precio,boolean disponibilidad, Date añoFabricacion, Date añoMatricula) {
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
@@ -33,6 +33,7 @@ public class Vehiculo {
         this.gradosPolarizado = gradosPolarizado;
         this.añoFabricacion = añoFabricacion;
         this.añoMatricula = añoMatricula;
+        this.disponibilidad = disponibilidad;
     }
     public Vehiculo() {
     }
@@ -77,12 +78,12 @@ public class Vehiculo {
         this.tipoMotor = tipoMotor;
     }
 
-    public String getTipoTransmisión() {
+    public String getTipoTransmision() {
         return tipoTransmision;
     }
 
-    public void setTipoTransmisión(String tipoTransmisión) {
-        this.tipoTransmision = tipoTransmisión;
+    public void setTipoTransmision(String tipoTransmisión) {
+        this.tipoTransmision = tipoTransmision;
     }
 
     public String getChasis() {
@@ -108,8 +109,6 @@ public class Vehiculo {
     public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
-    
-    
 
     public String getPlaca() {
         return placa;
@@ -182,6 +181,7 @@ public class Vehiculo {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
+    
     public void personalizar(){
         int opc=0;
         Scanner sc = new Scanner(System.in);
@@ -285,9 +285,13 @@ public class Vehiculo {
             } 
             System.out.println("Desea cambiar otra opcion si (1) y no (0)");
             opc = sc.nextInt();
-        }while(opc != 0);
-        
+        }while(opc != 0);        
     }
+    
+    public void crearListaAutos(StockVehiculos a){
+        StockVehiculos aux = a;
+        aux.ingresarVehiculo(this.modelo, this.marca);
+    } 
     public String imprimir(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         return "Vehiculo{" + "marca=" + marca + ", modelo=" + modelo + ", color=" + color + 

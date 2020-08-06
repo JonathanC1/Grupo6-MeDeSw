@@ -24,11 +24,13 @@ public class GestorTallerAutomotriz {
         l1.registrarUsuario(u1);
         Date fabricacion = new Date(120, 6, 17);
         Date año = new Date(120, 9, 17);
-        Vehiculo v1 = new Vehiculo("hyundai", "sonata", "rojo", "sedan", "16V", "1s5de", "automatico", "cuero", "PUJ0131", "carreras", "anchos", 2000, 4, 75, 25725, fabricacion, año);
-        Vehiculo v2 = new Vehiculo("hyundai", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728, fabricacion, año);
+        Vehiculo v1 = new Vehiculo("hyundai", "sonata", "rojo", "sedan", "16V", "1s5de", "automatico", "cuero", "PUJ0131", "carreras", "anchos", 2000, 4, 75, 25725,true, fabricacion, año);
+        Vehiculo v2 = new Vehiculo("hyundai", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728,true, fabricacion, año);
         StockVehiculos s1 = new StockVehiculos();
         s1.añadirVehiculo(v1);
         s1.añadirVehiculo(v2);
+        v1.crearListaAutos(s1);
+        v2.crearListaAutos(s1);
         Administrador a1 = new Administrador(l1, s1, "admin1", "admin1", fechaN, 1752101475, "pTP", "123456789");
         ListaAdministrador la = new ListaAdministrador();
         la.registrarAdministrador(a1);
@@ -44,7 +46,7 @@ public class GestorTallerAutomotriz {
             opc = sc.nextInt();
             switch (opc) {
                 case 1:
-                    System.out.println("---Bienvenido---");
+                    System.out.println("********************************Bienvenido*****************************");
                     System.out.println("1. Usuario Nuevo");
                     System.out.println("2. Usuario Registrado");
                     System.out.println("0. Salir");
@@ -98,6 +100,7 @@ public class GestorTallerAutomotriz {
                                                             System.in.read();
                                                             break;
                                                         case 2:
+                                                            
 
                                                             break;
                                                         case 3:
@@ -114,8 +117,8 @@ public class GestorTallerAutomotriz {
 
                                                 break;
                                             case 2:
-                                                VentaVehiculo vv1 = new VentaVehiculo();
-                                                vv1.menuVentas();
+   //                                             VentaVehiculo vv1 = new VentaVehiculo();
+   //                                             vv1.menuVentas();
                                                 break;
                                             case 3:
                                                 ServicioTecnico st = new ServicioTecnico();
