@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 public class StockVehiculos {
-    private List <Vehiculo> stock;
+    public List <Vehiculo> stock;
     public StockVehiculos(){
         stock = new ArrayList<>();
     }
@@ -16,6 +16,11 @@ public class StockVehiculos {
     public void VehiculoEnStock(Vehiculo a){
         stock.size();
     }
+    
+    public int mostrarTamañoStock(){
+        return stock.size();
+    }
+    
     public void detalleVehiculo(){
         Vehiculo aux = new Vehiculo();
         Iterator it = stock.iterator();
@@ -33,3 +38,4 @@ public class StockVehiculos {
         }
     }
 }
+
