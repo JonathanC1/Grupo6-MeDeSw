@@ -29,11 +29,11 @@ public class GestorTallerAutomotriz {
         StockVehiculos s1 = new StockVehiculos();
         s1.añadirVehiculo(v1);
         s1.añadirVehiculo(v2);
-        v1.crearListaAutos(s1);
-        v2.crearListaAutos(s1);
-        Administrador a1 = new Administrador(l1, s1, "admin1", "admin1", fechaN, 1752101475, "pTP", "123456789");
+        Administrador a1 = new Administrador(l1, s1, "admin1", "admin1", fechaN, 1752101475, "admin1", "123456789");
         ListaAdministrador la = new ListaAdministrador();
         la.registrarAdministrador(a1);
+        v1.crearListaAutos(s1);
+        v2.crearListaAutos(s1);
 
         int opc;
         do {
@@ -100,7 +100,6 @@ public class GestorTallerAutomotriz {
                                                             System.in.read();
                                                             break;
                                                         case 2:
-                                                            
 
                                                             break;
                                                         case 3:
@@ -117,8 +116,8 @@ public class GestorTallerAutomotriz {
 
                                                 break;
                                             case 2:
-   //                                             VentaVehiculo vv1 = new VentaVehiculo();
-   //                                             vv1.menuVentas();
+                                                VentaVehiculo vv1 = new VentaVehiculo();
+                                                vv1.menuVentas();
                                                 break;
                                             case 3:
                                                 ServicioTecnico st = new ServicioTecnico();
@@ -149,25 +148,77 @@ public class GestorTallerAutomotriz {
                     }
                     break;
                 case 2:
+                    sc.nextLine();
+                    System.out.println("Bienvenido Adminstrador");
+                    String administrador;
+                    String claveA;
+                    System.out.println("Ingrese el apodo: ");
+                    administrador = sc.nextLine();
+                    System.out.println("Ingrese el clave: ");
+                    claveA = sc.nextLine();
+                    for (int i = 0; i < la.mostrarCantidad(); i++) {
+                        if (administrador.equals(la.listaA.get(i).getApodo()) && claveA.equals(la.listaA.get(i).getClave())) {
+                            int opcA;
+                            do {
+                                System.out.println("Ingreso Exitoso..");
+                                System.out.println("1. Añadir un vehiculo");
+                                System.out.println("2. Gestionar Compra");
+                                System.out.println("3. Cambiar estado del vehiculo");
+                                System.out.println("4. Añadir Respuestos");
+                                System.out.println("5. Gestionar Taller");
+                                System.out.println("6. Realizar contraoferta");
+                                System.out.println("0. Salir");
+                                System.out.println("Su opcion es");
+                                opcA = sc.nextInt();
+                                switch (opcA) {
+                                    case 1:
+                                        Vehiculo v3 = new Vehiculo("VehiculoAñadidoPorAdministrador", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728,true ,fabricacion, año);
+                                        s1.añadirVehiculo(v3);
+                                        System.out.println("Vehiculo añadido");
+                                        break;
+                                    case 2:
+                                        la.listaA.get(i).gestionarCompra();
+                                        break;
+                                    case 3:
+                                        boolean a;
+                                        System.out.println("Ingrese el verdadero o falso");
+                                        a= sc.nextBoolean();
+                                        la.listaA.get(i).cambiarEstadoVehiculo(a);
+                                        break;
+                                    case 4:
+                                        
+                                        
+                                        
+                                        break;
+                                    case 5:
+                                        break;
+                                    case 6:
+                                        la.listaA.get(i).realizarContraOferta();
+                                        break;
+                                    case 0:
+                                        System.out.println("Gracias, hasta pronto!!!");
+                                        break;
+                                    default:
+                                        System.out.println("Opcion no valida");
+                                        break;
+
+                                }
+                            } while (opcA != 0);
+
+                        }
+                    }
 
                     break;
                 case 0:
                     System.out.println("Gracias, hasta pronto!!!");
                     break;
+                default:
+                    System.out.println("Opcion no valida");
+                    break;
 
             }
 
         } while (opc != 0);
-
-        u1.setRealizarOferta(
-                100);
-        a1.realizarContraOferta();
-
-        System.out.println("LA OFERTA ES: " + u1.getOferta());
-
-        v1.personalizar();
-
-        System.out.println(v1.imprimir());
 
     }
 
