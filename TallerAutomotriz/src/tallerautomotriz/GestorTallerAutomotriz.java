@@ -5,17 +5,33 @@
  */
 package tallerautomotriz;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+
 public class GestorTallerAutomotriz {
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, IOException {
         // TODO code application logic here
         Date fechaN;
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         fechaN = sdf.parse("08-06-2000");
+        Usuario u1 = new Usuario("Byron", "b.r-avalos", fechaN, 1752101475, "bravalos", "123456789");
+        Usuario u2 = new Usuario("Pepe", "pepeMD", fechaN, 1752101475, "pTP", "123456789");
+        ListaUsuario l1 = new ListaUsuario();
+        l1.registrarUsuario(u1);
+        Date fabricacion = new Date(120, 6, 17);
+        Date año = new Date(120, 9, 17);
+        Vehiculo v1 = new Vehiculo("hyundai", "sonata", "rojo", "sedan", "16V", "1s5de", "automatico", "cuero", "PUJ0131", "carreras", "anchos", 2000, 4, 75, 25725, fabricacion, año);
+        Vehiculo v2 = new Vehiculo("hyundai", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728, fabricacion, año);
+        StockVehiculos s1 = new StockVehiculos();
+        s1.añadirVehiculo(v1);
+        s1.añadirVehiculo(v2);
+        Administrador a1 = new Administrador(l1, s1, "admin1", "admin1", fechaN, 1752101475, "pTP", "123456789");
+        ListaAdministrador la = new ListaAdministrador();
+        la.registrarAdministrador(a1);
 
         int opc;
         do {
@@ -28,16 +44,101 @@ public class GestorTallerAutomotriz {
             opc = sc.nextInt();
             switch (opc) {
                 case 1:
-                    System.out.println("Bienvenido");
+                    System.out.println("---Bienvenido---");
                     System.out.println("1. Usuario Nuevo");
                     System.out.println("2. Usuario Registrado");
+                    System.out.println("0. Salir");
                     int opc1;
                     System.out.println("Su opcion es: ");
                     opc1 = sc.nextInt();
                     switch (opc1) {
                         case 1:
+                            System.out.println("Ingresar los datos");
+                            l1.registrarUsuario(u1);
+                            l1.registrarUsuario(u2);
+                            System.out.println("Usuario Registrado Exitosamente");
+                            System.out.println(" Presione Enter para continuar ...");
+                            System.in.read();
                             break;
                         case 2:
+                            String usuario,
+                             clave;
+                            sc.nextLine();
+                            System.out.println("Ingrese el nombre de usuario");
+                            usuario = sc.nextLine();
+                            System.out.println("Ingrese la clave");
+                            clave = sc.nextLine();
+                            for (int i = 0; i < l1.mostrarCantidad(); i++) {
+                                if (usuario.equals(l1.listaU.get(i).getNombre()) && clave.equals(l1.listaU.get(i).getClave())) {
+                                    System.out.println("Inicio Exitoso");
+                                    int menu;
+                                    do {
+                                        System.out.println("\n1. Comprar un vehiculo");
+                                        System.out.println("2. Vende un vehiculo");
+                                        System.out.println("3. Servicio Tecnico");
+                                        System.out.println("4. Repuesto");
+                                        System.out.println("0. Salir");
+                                        System.out.println("Su opcion es: ");
+                                        menu = sc.nextInt();
+                                        switch (menu) {
+                                            case 1:
+                                                int opcv;
+                                                do {
+                                                    System.out.println("\nVamos a comprar un vehiculo");
+                                                    System.out.println("1. Visualizar Listado");
+                                                    System.out.println("2. Personalizar Vehiculo");
+                                                    System.out.println("3. Buscar Vehiculo");
+                                                    System.out.println("0. Salir");
+                                                    System.out.println("Su opcion es: ");
+                                                    opcv = sc.nextInt();
+                                                    switch (opcv) {
+                                                        case 1:
+                                                            s1.visualirListado();
+                                                            System.out.println(" Presione Enter para continuar ...");
+                                                            System.in.read();
+                                                            break;
+                                                        case 2:
+
+                                                            break;
+                                                        case 3:
+                                                            break;
+                                                        case 0:
+                                                            System.out.println("Adios!!!");
+                                                            break;
+                                                        default:
+                                                            System.out.println("Opcion no valida");
+                                                            break;
+
+                                                    }
+                                                } while (opcv != 0);
+
+                                                break;
+                                            case 2:
+                                                VentaVehiculo vv1 = new VentaVehiculo();
+                                                vv1.menuVentas();
+                                                break;
+                                            case 3:
+                                                ServicioTecnico st = new ServicioTecnico();
+                                                st.menuGestion();
+                                                break;
+                                            case 4:
+                                                break;
+                                            case 0:
+                                                System.out.println("Adios!!!");
+                                                break;
+                                            default:
+                                                System.out.println("Opcion no valida");
+                                                break;
+                                        }
+                                    } while (menu != 0);
+
+                                }
+                            }
+                            System.out.println(" Presione Enter para continuar ...");
+                            System.in.read();
+                            break;
+                        case 0:
+                            System.out.println("Adios!!!");
                             break;
                         default:
                             System.out.println("Opcion Invalida");
@@ -54,28 +155,17 @@ public class GestorTallerAutomotriz {
             }
 
         } while (opc != 0);
-        Usuario u1 = new Usuario("Byron", "b.r-avalos", fechaN, 1752101475, "br", "123456789");
-        Usuario u2 = new Usuario("Pepe", "pepeMD", fechaN, 1752101475, "pTP", "123456789");
-        ListaUsuario l1 = new ListaUsuario();
-        l1.registrarUsuario(u1);
-        l1.registrarUsuario(u2);
-        Administrador a1 = new Administrador(l1, "admin1", "admin1", fechaN, 1752101475, "pTP", "123456789");
-        ListaAdministrador la = new ListaAdministrador();
-        la.registrarAdministrador(a1);
 
-        u1.setRealizarOferta(100);
+        u1.setRealizarOferta(
+                100);
         a1.realizarContraOferta();
+
         System.out.println("LA OFERTA ES: " + u1.getOferta());
-Date fabricacion = new Date(120,6,17);
-        Date año = new Date(120,9,17);
-    Vehiculo v1 = new Vehiculo("hyundai","sonata","rojo","sedan","16V","1s5de","automatico","cuero","PUJ0131","carreras","anchos",2000,4,75,25725,fabricacion,año);  
-    Vehiculo v2 = new Vehiculo("hyundai","accent","azul","sedan","8V","1srt","manuel","seda","b35481","carreras","anchos",2082,2,17,25728,fabricacion,año);  
-    StockVehiculos s1 = new StockVehiculos();
-    s1.añadirVehiculo(v1);
-    s1.añadirVehiculo(v2);
-    v1.personalizar();
-    System.out.println(v1.imprimir());
-    s1.visualirListado();
+
+        v1.personalizar();
+
+        System.out.println(v1.imprimir());
+
     }
-    
+
 }
