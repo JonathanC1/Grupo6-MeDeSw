@@ -14,6 +14,7 @@ public class Vehiculo {
     private int cilindraje,numeroPuerta,gradosPolarizado;
     private Date añoFabricacion,añoMatricula;
     private float precio;
+    private boolean disponibilidad;
 
     public Vehiculo(String marca, String modelo, String color, String tipoVehiculo, String tipoMotor, String tipoTransmision, String chasis, String materialInterior, String placa, String tipoLLanta, String tipoAros, int cilindraje, int numeroPuerta, int gradosPolarizado,float precio, Date añoFabricacion, Date añoMatricula) {
         this.marca = marca;
@@ -99,6 +100,16 @@ public class Vehiculo {
     public void setMaterialInterior(String materialInterior) {
         this.materialInterior = materialInterior;
     }
+
+    public boolean isDisponibilidad() {
+        return disponibilidad;
+    }
+
+    public void setDisponibilidad(boolean disponibilidad) {
+        this.disponibilidad = disponibilidad;
+    }
+    
+    
 
     public String getPlaca() {
         return placa;
