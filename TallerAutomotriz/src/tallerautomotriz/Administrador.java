@@ -8,24 +8,29 @@ import java.util.Scanner;
 public class Administrador extends Persona {
 
     //private Vehiculo v1;
-    private Usuario u1;
+    
     private ListaUsuario lu;
+    private StockVehiculos sv;
 
-    public Administrador(String nombre, String correo, Date fechaNacimiento, long cedula, String apodo, String clave) {
-        super(nombre, correo, fechaNacimiento, cedula, apodo, clave);
-    }
-
-    public Administrador(Usuario u1, String nombre, String correo, Date fechaNacimiento, long cedula, String apodo, String clave) {
-        super(nombre, correo, fechaNacimiento, cedula, apodo, clave);
-        this.u1 = u1;
-    }
 
     public Administrador(ListaUsuario lu, String nombre, String correo, Date fechaNacimiento, long cedula, String apodo, String clave) {
         super(nombre, correo, fechaNacimiento, cedula, apodo, clave);
         this.lu = lu;
     }
 
+    public Administrador(ListaUsuario lu, StockVehiculos sv, String nombre, String correo, Date fechaNacimiento, long cedula, String apodo, String clave) {
+        super(nombre, correo, fechaNacimiento, cedula, apodo, clave);
+        this.lu = lu;
+        this.sv = sv;
+    }
+    
+
     public void registrarVehiculo() {
+        Date fabricacion = new Date(120, 6, 17);
+        Date año = new Date(120, 9, 17);
+        Vehiculo v2 = new Vehiculo("hyundai", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728, fabricacion, año);
+        StockVehiculos s1 = new StockVehiculos();
+        s1.añadirVehiculo(v2);
 
     }
 
@@ -34,6 +39,17 @@ public class Administrador extends Persona {
     }
 
     public void cambiarEstadoVehiculo(boolean a) {
+        String modelo;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el modelo");
+        modelo= sc.nextLine();
+        for (int i = 0; i < sv.mostrarTamañoStock(); i++) {
+            if(modelo.equalsIgnoreCase(sv.stock.get(i).getModelo())){
+                sv.stock.get(i).setDisponibilidad(a);
+                System.out.println("Estado de vehiculo cambiado");
+            }
+        }
+        
 
     }
 
