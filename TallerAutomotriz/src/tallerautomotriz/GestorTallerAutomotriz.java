@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tallerautomotriz;
 
 import java.io.IOException;
@@ -24,8 +19,8 @@ public class GestorTallerAutomotriz {
         l1.registrarUsuario(u1);
         Date fabricacion = new Date(120, 6, 17);
         Date año = new Date(120, 9, 17);
-        Vehiculo v1 = new Vehiculo("hyundai", "sonata", "rojo", "sedan", "16V", "1s5de", "automatico", "cuero", "PUJ0131", "carreras", "anchos", 2000, 4, 75, 25725,true, fabricacion, año);
-        Vehiculo v2 = new Vehiculo("hyundai", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728,true, fabricacion, año);
+        Vehiculo v1 = new Vehiculo("hyundai", "sonata", "rojo", "sedan", "16V", "1s5de", "automatico", "cuero", "PUJ0131", "carreras", "anchos", 2000, 4, 75, 25725, true, fabricacion, año);
+        Vehiculo v2 = new Vehiculo("hyundai", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728, true, fabricacion, año);
         StockVehiculos s1 = new StockVehiculos();
         s1.añadirVehiculo(v1);
         s1.añadirVehiculo(v2);
@@ -100,9 +95,18 @@ public class GestorTallerAutomotriz {
                                                             System.in.read();
                                                             break;
                                                         case 2:
-
+                                                            String modeloM;
+                                                            Vehiculo vM;
+                                                            System.out.println("Ingrese el modelo que desea buscar");
+                                                            modeloM = sc.nextLine();
+                                                            vM = s1.buscarVehiculo(modeloM);
+                                                            vM.personalizar();
                                                             break;
                                                         case 3:
+                                                            String modelo;
+                                                            System.out.println("Ingrese el modelo que desea buscar");
+                                                            modelo = sc.nextLine();
+                                                            System.out.println(s1.buscarVehiculo(modelo));
                                                             break;
                                                         case 0:
                                                             System.out.println("Adios!!!");
@@ -116,8 +120,8 @@ public class GestorTallerAutomotriz {
 
                                                 break;
                                             case 2:
-                                        //        VentaVehiculo vv1 = new VentaVehiculo();
-                                        //        vv1.menuVentas();
+                                                VentaVehiculo vv1 = new VentaVehiculo();
+                                                vv1.menuVentas();
                                                 break;
                                             case 3:
                                                 ServicioTecnico st = new ServicioTecnico();
@@ -172,7 +176,7 @@ public class GestorTallerAutomotriz {
                                 opcA = sc.nextInt();
                                 switch (opcA) {
                                     case 1:
-                                        Vehiculo v3 = new Vehiculo("VehiculoAñadidoPorAdministrador", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728,true ,fabricacion, año);
+                                        Vehiculo v3 = new Vehiculo("VehiculoAñadidoPorAdministrador", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728, true, fabricacion, año);
                                         s1.añadirVehiculo(v3);
                                         System.out.println("Vehiculo añadido");
                                         break;
@@ -182,13 +186,11 @@ public class GestorTallerAutomotriz {
                                     case 3:
                                         boolean a;
                                         System.out.println("Ingrese el verdadero o falso");
-                                        a= sc.nextBoolean();
+                                        a = sc.nextBoolean();
                                         la.listaA.get(i).cambiarEstadoVehiculo(a);
                                         break;
                                     case 4:
-                                        
-                                        
-                                        
+
                                         break;
                                     case 5:
                                         break;
