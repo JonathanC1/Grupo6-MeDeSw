@@ -49,8 +49,7 @@ public class StockVehiculos {
      hs.entrySet();
         for (Map.Entry<String,String> entry : hs.entrySet()) {
             System.out.println("modelo: "+entry.getKey()+ "  ->marca: " + entry.getValue());
-        
-     
+ 
         }
     }
 }
