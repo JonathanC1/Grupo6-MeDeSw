@@ -206,6 +206,10 @@ public class GestorTallerAutomotriz {
 
                                         break;
                                     case 5:
+                                        boolean d;
+                                        System.out.println("Ingrese true o false para cambiar la disponibilidad");
+                                        d=sc.hasNextBoolean();
+                                        st.disponibilidadTaller(d);
                                         break;
                                     case 6:
                                         la.listaA.get(i).realizarContraOferta();
