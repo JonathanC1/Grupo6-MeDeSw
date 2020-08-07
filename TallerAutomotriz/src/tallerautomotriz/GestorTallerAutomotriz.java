@@ -111,7 +111,9 @@ public class GestorTallerAutomotriz {
                                                             String modelo;
                                                             System.out.println("Ingrese el modelo que desea buscar");
                                                             modelo = sc.nextLine();
-                                                            s1.buscarVehiculo(modelo).imprimir();
+                                                            System.out.println(s1.buscarVehiculo(modelo).imprimir());
+                                                            System.out.println(" Presione Enter para continuar ...");
+                                                            System.in.read();
                                                             break;
                                                         case 0:
                                                             System.out.println("Adios!!!");
@@ -125,8 +127,7 @@ public class GestorTallerAutomotriz {
 
                                                 break;
                                             case 2:
-                                                VentaVehiculo vv1 = new VentaVehiculo();
-                                                vv1.menuVentas();
+
                                                 break;
                                             case 3:
                                                 ServicioTecnico st = new ServicioTecnico();
