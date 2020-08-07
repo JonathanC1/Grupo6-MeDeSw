@@ -15,6 +15,7 @@ public class Repuesto {
    private String marcaP;
    private double precioP;
    private long cantidad;
+   private ListaCompraVenta listaC;
 
     public Repuesto(int numeroP, String nombreP, String marcaP, double precioP, long cantidad) {
         this.numeroP = numeroP;
@@ -22,6 +23,7 @@ public class Repuesto {
         this.marcaP = marcaP;
         this.precioP = precioP;
         this.cantidad = cantidad;
+        listaC = new ListaCompraVenta();
     }
 
     Repuesto() {
@@ -77,49 +79,31 @@ public class Repuesto {
        int opcion,compra; 
        String opcion2;        
        while(!salir){
-             System.out.println("MENU VENTA DE REPUESTOS");
-             System.out.println("BUSCAR REPUESTO POR NOMBRE: ");
+           System.out.println("MENU VENTA DE REPUESTOS");
+           System.out.println("ELIJA EL REPUESTO POR NOMBRE: ");
            System.out.println("1. ACCESORIOS");
            System.out.println("2. LUBRICANTES");
-           System.out.println("3.  MOTOR");
-           System.out.println("4. LLANTAS");
-           System.out.println("5. FRENOS");
-           System.out.println("6. CARROCERIA"); 
-            System.out.println("0. SALIR"); 
+           System.out.println("3. LLANTAS");
+           System.out.println("4. FRENOS");
+           System.out.println("0. SALIR"); 
            System.out.println("Escribe una de las opciones");
-           opcion = sn.nextInt();
-           switch(opcion){
-               case 1:
-                   System.out.println("Escoja la clase de accesorio");
-                    System.out.println("1.- accesorio interior");
-                    System.out.println("2.  accesorio exterior");
-                   int a = sn.nextInt();
-                   this.nombreP = nombreP;
-                   break;
-               case 2:
-                    System.out.println("Escoja la clase de aceite");
-                    System.out.println("1.- aceite de motor");
-                    System.out.println("2.- aceite de pipa");
-                    int b = sn.nextInt();
-                   this.nombreP = nombreP;
-                   break;
-               case 3:
-                    System.out.println("Escoja la clase de frenos");
-                    System.out.println("1.- frenos de disco");
-                    System.out.println("2.- frenos de aire");
-                    int d = sn.nextInt();
-                   this.nombreP = nombreP;
-                   break;
-
-                case 0:
-                   salir=true;
-                   break;
-                default:
-                   System.out.println("SALIR");
+           int d = sn.nextInt();
+           if (d == 1) {
+               this.nombreP = "ACCESORIOS";
+           } else if (d == 2) {
+               this.nombreP = "LUBRICANTES";
+           } else if (d == 3) {
+               this.nombreP = "LLANTAS";
+           } else if (d == 4) {
+               this.nombreP = "FRENOS";
+           } else if(d == 0){
+              opcion2 = "salir";
+           }else{
+           this.nombreP = nombreP;
+           }
            }   
-    }   
+       
     }
-
     @Override
     public String toString() {
         return "Repuestos{" + "numeroP=" + numeroP + ", nombreP=" + nombreP + ", marcaP=" + marcaP + ", precioP=" + precioP + ", cantidad=" + cantidad + '}';

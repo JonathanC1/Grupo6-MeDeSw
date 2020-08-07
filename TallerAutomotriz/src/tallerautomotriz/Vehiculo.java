@@ -274,7 +274,7 @@ public class Vehiculo {
                         this.tipoAros = "estandar";
                     else if (d==3)
                         this.tipoAros = "alecion"; 
-                     else if (d==3)
+                     else if (d==4)
                         this.tipoAros = "aluminio"; 
                     else 
                         this.tipoAros = tipoAros; 

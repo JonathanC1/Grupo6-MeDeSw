@@ -24,9 +24,6 @@ public class Administrador extends Persona {
         this.sv = sv;
         this.vv = null;
     }
-
-    
-
     public void gestionarCompra() {
         vv.menuVentas();
     }
@@ -42,10 +39,7 @@ public class Administrador extends Persona {
                 System.out.println("Estado de vehiculo cambiado");
             }
         }
-
     }
-
-
     public void realizarContraOferta() {
 
         lu.realizarOferta();

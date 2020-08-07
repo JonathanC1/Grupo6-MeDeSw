@@ -29,7 +29,7 @@ public class GestorTallerAutomotriz {
         la.registrarAdministrador(a1);
         v1.crearListaAutos(s1);
         v2.crearListaAutos(s1);
-        Repuestos rep=new Repuestos();
+        Repuesto rep=new Repuesto();
         
         VentaVehiculo ve=new VentaVehiculo();
         

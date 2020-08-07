@@ -32,6 +32,9 @@ public class VentaVehiculo {
         this.fechaFactura = fechaFactura;
     }
 
+    VentaVehiculo() {
+           }
+
     public void menuVentas(){
         Console c = System.console();
         
