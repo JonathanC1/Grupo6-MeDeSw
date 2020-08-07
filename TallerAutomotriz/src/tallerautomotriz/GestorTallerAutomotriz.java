@@ -165,7 +165,7 @@ public class GestorTallerAutomotriz {
                     break;
                 case 2:
                     sc.nextLine();
-                    System.out.println("Bienvenido Adminstrador");
+                    System.out.println("Bienvenido Administrador");
                     String administrador;
                     String claveA;
                     System.out.println("Ingrese el apodo: ");

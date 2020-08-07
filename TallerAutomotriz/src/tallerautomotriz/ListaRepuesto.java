@@ -45,13 +45,4 @@ public class ListaRepuesto {
         }
         return laux;
         }
-
-//    public void Compra(int codigo) {
-//        for (int i = 0; i < listaA.size(); i++) {
-//            if (listaA.get(i).getNumeroP() == codigo) {
-//                System.out.println("COMPRA EXITOSA PRODUCTO COMPRADO...");
-//                System.out.println(listaA.get(i).toString());
-//            }
-//  
-    
 }

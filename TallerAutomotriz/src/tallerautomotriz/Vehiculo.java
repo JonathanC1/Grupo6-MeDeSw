@@ -10,13 +10,14 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Vehiculo {
-    private String marca,modelo,color,tipoVehiculo,tipoMotor,tipoTransmision,chasis,materialInterior,placa,tipoLLanta,tipoAros;
-    private int cilindraje,numeroPuerta,gradosPolarizado;
-    private Date añoFabricacion,añoMatricula;
+
+    private String marca, modelo, color, tipoVehiculo, tipoMotor, tipoTransmision, chasis, materialInterior, placa, tipoLLanta, tipoAros;
+    private int cilindraje, numeroPuerta, gradosPolarizado;
+    private Date añoFabricacion, añoMatricula;
     private float precio;
     private boolean disponibilidad;
 
-    public Vehiculo(String marca, String modelo, String color, String tipoVehiculo, String tipoMotor, String tipoTransmision, String chasis, String materialInterior, String placa, String tipoLLanta, String tipoAros, int cilindraje, int numeroPuerta, int gradosPolarizado,float precio,boolean disponibilidad, Date añoFabricacion, Date añoMatricula) {
+    public Vehiculo(String marca, String modelo, String color, String tipoVehiculo, String tipoMotor, String tipoTransmision, String chasis, String materialInterior, String placa, String tipoLLanta, String tipoAros, int cilindraje, int numeroPuerta, int gradosPolarizado, float precio, boolean disponibilidad, Date añoFabricacion, Date añoMatricula) {
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
@@ -35,6 +36,7 @@ public class Vehiculo {
         this.añoMatricula = añoMatricula;
         this.disponibilidad = disponibilidad;
     }
+
     public Vehiculo() {
     }
 
@@ -181,12 +183,12 @@ public class Vehiculo {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
-    
-    public void personalizar(){
-        int opc=0;
+
+    public void personalizar() {
+        int opc = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println("**************Bienvenido a Personalización***************");
-        do{
+        do {
             System.out.println("Elija la caracteristica del vehiculo que desea editar");
             System.out.println("1.-Color del vehiculo");
             System.out.println("2.-Tipo de transmision");
@@ -195,8 +197,8 @@ public class Vehiculo {
             System.out.println("5.-Tipos de Aro");
             System.out.println("0.-Salir");
             opc = sc.nextInt();
-            switch (opc){
-             case 1:
+            switch (opc) {
+                case 1:
                     System.out.println("Elija el color que desea para su vehiculo");
                     System.out.println("1.-Azul");
                     System.out.println("2.-Negro");
@@ -204,63 +206,80 @@ public class Vehiculo {
                     System.out.println("4.-Rojo");
                     System.out.println("0.-Salir");
                     int a = sc.nextInt();
-                    if(a==1)
+                    if (a == 1) {
                         this.color = "azul";
-                    else if (a==2)
+                        this.precio+=10;
+                    } else if (a == 2) {
                         this.color = "negro";
-                    else if (a==3)
+                        this.precio+=15;
+                    } else if (a == 3) {
                         this.color = "plateado";
-                    else if (a==4)
+                        this.precio+=20;
+                    } else if (a == 4) {
                         this.color = "Rojo";
-                    else 
+                        this.precio+=25;
+                    } else {
                         this.color = color;
-                 break;
-             case 2:
+                    }
+                    break;
+                case 2:
                     System.out.println("Elija el tipo de transmisión");
                     System.out.println("1.-Manual");
                     System.out.println("2.-Automatica");
                     System.out.println("0.-Salir");
                     int b = sc.nextInt();
-                    if(b==1)
+                    if (b == 1) {
                         this.tipoTransmision = "Manual";
-                    else if (b==2)
+                        this.precio+=10;
+                    } else if (b == 2) {
                         this.tipoTransmision = "Negro";
-                    else 
-                        this.tipoTransmision = tipoTransmision; 
-                 break;
-             case 3:     
+                        this.precio+=15;
+                    } else {
+                        this.tipoTransmision = tipoTransmision;
+                    }
+                    break;
+                case 3:
                     System.out.println("Tipo de Material interior");
                     System.out.println("1.-Cuero");
                     System.out.println("2.-Tela ");
                     System.out.println("3.-fibras");
                     System.out.println("0.-Salir");
                     int e = sc.nextInt();
-                    if(e==1)
+                    if (e == 1) {
                         this.materialInterior = "Cuero";
-                    else if (e==2)
+                        this.precio+=10;
+                    } else if (e == 2) {
                         this.materialInterior = "Tela";
-                    else if (e==3)
-                        this.materialInterior = "fibras";                
-                    else 
-                        this.materialInterior = materialInterior; 
-                 break;   
-             case 4:     
+                        this.precio+=15;
+                    } else if (e == 3) {
+                        this.materialInterior = "fibras";
+                        this.precio+=20;
+                    } else {
+                        this.materialInterior = materialInterior;
+                        this.precio+=25;
+                    }
+                    break;
+                case 4:
                     System.out.println("Tipo de Llantas");
                     System.out.println("1.-llantas de carrera");
                     System.out.println("2.-llantas de Todoterreno");
                     System.out.println("3.-llantas estandar");
                     System.out.println("0.-Salir");
                     int c = sc.nextInt();
-                    if(c==1)
+                    if (c == 1) {
                         this.tipoLLanta = "llantas de carrera";
-                    else if (c==2)
+                        this.precio+=10;
+                    } else if (c == 2) {
                         this.tipoLLanta = "llantas de Todoterreno";
-                    else if (c==3)
-                        this.tipoLLanta = "llantas estandar";                
-                    else 
-                        this.tipoLLanta = tipoLLanta; 
-                 break;   
-             case 5:                       
+                        this.precio+=15;
+                    } else if (c == 3) {
+                        this.tipoLLanta = "llantas estandar";
+                        this.precio+=20;
+                    } else {
+                        this.tipoLLanta = tipoLLanta;
+                    }
+                    break;
+                case 5:
                     System.out.println("Tipo de Aros");
                     System.out.println("1.-Aros niquelados");
                     System.out.println("2.-Aros estandar");
@@ -268,36 +287,42 @@ public class Vehiculo {
                     System.out.println("4.-Aros aluminio");
                     System.out.println("0.-Salir");
                     int d = sc.nextInt();
-                    if(d==1)
+                    if (d == 1) {
                         this.tipoAros = "niquelados";
-                    else if (d==2)
+                        this.precio+=10;
+                    } else if (d == 2) {
                         this.tipoAros = "estandar";
-                    else if (d==3)
-                        this.tipoAros = "alecion"; 
-                     else if (d==4)
-                        this.tipoAros = "aluminio"; 
-                    else 
-                        this.tipoAros = tipoAros; 
-                 break; 
-                  default: 
-                      System.out.println("EL dato es incorrecto");
-                 break;
-            } 
+                        this.precio+=15;
+                    } else if (d == 3) {
+                        this.tipoAros = "alecion";
+                        this.precio+=20;
+                    } else if (d == 4) {
+                        this.tipoAros = "aluminio";
+                        this.precio+=25;
+                    } else {
+                        this.tipoAros = tipoAros;
+                    }
+                    break;
+                default:
+                    System.out.println("EL dato es incorrecto");
+                    break;
+            }
             System.out.println("Desea cambiar otra opcion si (1) y no (0)");
             opc = sc.nextInt();
-        }while(opc != 0);        
+        } while (opc != 0);
     }
-    
-    public void crearListaAutos(StockVehiculos a){
+
+    public void crearListaAutos(StockVehiculos a) {
         StockVehiculos aux = a;
         aux.ingresarVehiculo(this.modelo, this.marca);
-    } 
-    public String imprimir(){
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        return "Vehiculo{" + "marca=" + marca + ", modelo=" + modelo + ", color=" + color + 
-                ", tipoVehiculo=" + tipoVehiculo + ", tipoMotor=" + tipoMotor + ", tipoTransmision=" + tipoTransmision + ", chasis=" + chasis + ", materialInterior=" + materialInterior +
-                ", placa=" + placa + ", tipoLLanta=" + tipoLLanta + ", tipoAros=" + tipoAros + ", cilindraje=" + cilindraje + ", numeroPuerta=" + numeroPuerta + ", gradosPolarizado=" + gradosPolarizado +
-                ", a\u00f1oFabricacion=" + sdf.format(añoFabricacion) + ", a\u00f1oMatricula=" + sdf.format(añoMatricula) + '}';
     }
-    
+
+    public String imprimir() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        return "Vehiculo{" + "marca=" + marca + ", modelo=" + modelo + ", color=" + color
+                + ", tipoVehiculo=" + tipoVehiculo + ", tipoMotor=" + tipoMotor + ", tipoTransmision=" + tipoTransmision + ", chasis=" + chasis + ", materialInterior=" + materialInterior
+                + ", placa=" + placa + ", tipoLLanta=" + tipoLLanta + ", tipoAros=" + tipoAros + ", cilindraje=" + cilindraje + ", numeroPuerta=" + numeroPuerta + ", gradosPolarizado=" + gradosPolarizado
+                + ", a\u00f1oFabricacion=" + sdf.format(añoFabricacion) + ", a\u00f1oMatricula=" + sdf.format(añoMatricula) + '}';
+    }
+
 }
