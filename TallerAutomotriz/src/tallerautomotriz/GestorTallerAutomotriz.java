@@ -29,6 +29,12 @@ public class GestorTallerAutomotriz {
         la.registrarAdministrador(a1);
         v1.crearListaAutos(s1);
         v2.crearListaAutos(s1);
+        Repuestos rep=new Repuestos();
+        
+        VentaVehiculo ve=new VentaVehiculo();
+        
+        ServicioTecnico st=new ServicioTecnico();
+        
 
         int opc;
         do {
@@ -127,13 +133,13 @@ public class GestorTallerAutomotriz {
 
                                                 break;
                                             case 2:
-
+                                                ve.menuVentas();
                                                 break;
                                             case 3:
-                                                ServicioTecnico st = new ServicioTecnico();
                                                 st.menuGestion();
                                                 break;
                                             case 4:
+                                                rep.menuRepuestos();
                                                 break;
                                             case 0:
                                                 System.out.println("Adios!!!");
@@ -196,6 +202,7 @@ public class GestorTallerAutomotriz {
                                         la.listaA.get(i).cambiarEstadoVehiculo(a);
                                         break;
                                     case 4:
+                                        
 
                                         break;
                                     case 5:
