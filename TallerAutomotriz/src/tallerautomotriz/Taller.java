@@ -18,6 +18,10 @@ public class Taller {
         this.especialidad = especialidad;
         this.ubicacion = ubicacion;
     }
+
+    Taller() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     public String getNombre() {
         return nombre;
     }

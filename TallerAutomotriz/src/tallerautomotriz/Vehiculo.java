@@ -303,6 +303,10 @@ public class Vehiculo {
                         this.tipoAros = tipoAros;
                     }
                     break;
+                case 0: 
+                     System.out.println("cambios guardados exitosamente1"
+                             + "");
+                    break;
                 default:
                     System.out.println("EL dato es incorrecto");
                     break;

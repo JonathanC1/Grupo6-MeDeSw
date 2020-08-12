@@ -6,6 +6,7 @@
 package tallerautomotriz;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -37,8 +38,7 @@ public class ServicioTecnico {
     }
 
     public void menuGestion() {
-//                 Console c = System.console();
-//        
+        ServicioTecnico st = new ServicioTecnico();
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
         int opcion;
@@ -58,23 +58,24 @@ public class ServicioTecnico {
                 case 1:
                     System.out.println("Mostrar Talleres");
 
-                    //  st.mostrarTalleres();
+                      st.mostrarTalleres();
                     System.out.println("Presione una tecla para continuar . . . ");
-             //       sn.nextLine();
-                    //      sn.nextLine();
+                    sn.nextLine();
+                    sn.nextLine();
                     break;
                 case 2:
                     System.out.println("Agendar Cita");
-                    //          st.agendarCita();
+                    st.agendarCita();
                     System.out.println("Presione una tecla para continuar . . . ");
-           //         sn.nextLine();
-                    //        sn.nextLine();
+                    sn.nextLine();
+                    sn.nextLine();
                     break;
                 case 3:
                     System.out.println("localizar Vehiculo ");
                     break;
                 case 4:
                     System.out.println("Pedir Servicio Tecnico");
+                    st.pedirServicioTecnico();
                     break;
                 case 5:
                     salir = true;
@@ -88,8 +89,12 @@ public class ServicioTecnico {
     }
 
     public void mostrarTalleres() {
-        
-
+        Taller aux = new Taller();
+        Iterator it = talleres.iterator();
+        while(it.hasNext()){
+            aux = (Taller) it.next();
+            System.out.println(aux.toString());
+        }
     }
 
     public void agendarCita() {

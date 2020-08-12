@@ -20,22 +20,35 @@ public class GestorTallerAutomotriz {
         Date fabricacion = new Date(120, 6, 17);
         Date año = new Date(120, 9, 17);
         Vehiculo v1 = new Vehiculo("hyundai", "sonata", "rojo", "sedan", "16V", "1s5de", "automatico", "cuero", "PUJ0131", "carreras", "anchos", 2000, 4, 75, 25725, true, fabricacion, año);
-        Vehiculo v2 = new Vehiculo("hyundai", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728, true, fabricacion, año);
+        Vehiculo v2 = new Vehiculo("hyundai", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "normal", "anchos", 2082, 2, 17, 50058, true, fabricacion, año);
+        Vehiculo v3 = new Vehiculo("Mazda", "3", "verde", "camioneta", "7V", "deed15", "automatico", "seda", "PBR8154", "estandar", "anchos", 2700, 2, 75, 29725, true, fabricacion, año);
+        Vehiculo v4 = new Vehiculo("Mazda", "Gt 50", "rojo", "convertible", "16V", "f85s61", "manual", "cuero", "PZX12", "carreras", "anchos", 2500, 4, 75, 17725, true, fabricacion, año);
         StockVehiculos s1 = new StockVehiculos();
         s1.añadirVehiculo(v1);
         s1.añadirVehiculo(v2);
+        s1.añadirVehiculo(v3);
+        s1.añadirVehiculo(v4);
         Administrador a1 = new Administrador(l1, s1, "admin1", "admin1", fechaN, 1752101475, "admin1", "123456789");
         ListaAdministrador la = new ListaAdministrador();
         la.registrarAdministrador(a1);
         v1.crearListaAutos(s1);
         v2.crearListaAutos(s1);
+        v3.crearListaAutos(s1);
+        v4.crearListaAutos(s1);
         Repuesto rep=new Repuesto();
-        
+        Repuesto r1 = new Repuesto(92826,"discos","daewon",25.5,8);
+        Repuesto r2 = new Repuesto(92326,"frenos","shimano",10.5,4);
+        Repuesto r3 = new Repuesto(92626,"focos","japones",30.5,3);
+        Repuesto r4 = new Repuesto(97626,"arranque","sushusi",45,18);
+        Repuesto r5 = new Repuesto(98726,"zapatas","fremaz",11.5,10);
+        ListaRepuesto listaR = new ListaRepuesto();
+        listaR.adicionarRepuesto(r1);
+        listaR.adicionarRepuesto(r2);
+        listaR.adicionarRepuesto(r3);
+        listaR.adicionarRepuesto(r4);
+        listaR.adicionarRepuesto(r5);
         VentaVehiculo ve=new VentaVehiculo();
-        
         ServicioTecnico st=new ServicioTecnico();
-        
-
         int opc;
         do {
             Scanner sc = new Scanner(System.in);
@@ -104,11 +117,13 @@ public class GestorTallerAutomotriz {
                                                             sc.nextLine();
                                                             String modeloM;
                                                             Vehiculo vM;
-                                                            System.out.println("Ingrese el modelo que desea buscar");
+                                                            System.out.println("Ingrese el modelo que desea personalizar");
                                                             modeloM = sc.nextLine();
+                                                            System.out.println(modeloM);
                                                             vM = s1.buscarVehiculo(modeloM);
                                                             if (modeloM.equalsIgnoreCase(vM.getModelo())) {
                                                                 vM.personalizar();
+                                                                System.out.println("personalizar");
                                                             }
 
                                                             break;
@@ -139,7 +154,7 @@ public class GestorTallerAutomotriz {
                                                 st.menuGestion();
                                                 break;
                                             case 4:
-                                                rep.menuRepuestos();
+                                                listaR.MenuVenta();
                                                 break;
                                             case 0:
                                                 System.out.println("Adios!!!");
@@ -188,8 +203,8 @@ public class GestorTallerAutomotriz {
                                 opcA = sc.nextInt();
                                 switch (opcA) {
                                     case 1:
-                                        Vehiculo v3 = new Vehiculo("VehiculoAñadidoPorAdministrador", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728, true, fabricacion, año);
-                                        s1.añadirVehiculo(v3);
+                                        Vehiculo v5 = new Vehiculo("VehiculoAñadidoPorAdministrador", "accent", "azul", "sedan", "8V", "1srt", "manuel", "seda", "b35481", "carreras", "anchos", 2082, 2, 17, 25728, true, fabricacion, año);
+                                        s1.añadirVehiculo(v5);
                                         System.out.println("Vehiculo añadido");
                                         break;
                                     case 2:
