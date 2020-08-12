@@ -49,7 +49,7 @@ public class ServicioTecnico {
             System.out.println("2. Agendar Cita");
             System.out.println("3. localizar Vehiculo");
             System.out.println("4. Pedir Servicio Tecnico");
-            System.out.println("5. Salir");
+            System.out.println("0. Salir");
 
             System.out.println("Escribe una de las opciones");
             opcion = sn.nextInt();
@@ -57,15 +57,14 @@ public class ServicioTecnico {
 
                 case 1:
                     System.out.println("Mostrar Talleres");
-
-                      st.mostrarTalleres();
+                    mostrarTalleres();
                     System.out.println("Presione una tecla para continuar . . . ");
                     sn.nextLine();
                     sn.nextLine();
                     break;
                 case 2:
                     System.out.println("Agendar Cita");
-                    st.agendarCita();
+                    agendarCita();
                     System.out.println("Presione una tecla para continuar . . . ");
                     sn.nextLine();
                     sn.nextLine();
@@ -75,9 +74,9 @@ public class ServicioTecnico {
                     break;
                 case 4:
                     System.out.println("Pedir Servicio Tecnico");
-                    st.pedirServicioTecnico();
+                    pedirServicioTecnico();
                     break;
-                case 5:
+                case 0:
                     salir = true;
                     break;
                 default:

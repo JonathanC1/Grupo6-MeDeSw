@@ -32,7 +32,7 @@ public class StockVehiculos {
         Iterator it = stock.iterator();
         while(it.hasNext()){
             aux = (Vehiculo) it.next();
-            if(a.equalsIgnoreCase(aux.getModelo()));
+            if(a.equalsIgnoreCase(aux.getModelo()))
             laux = aux;
         }
         return laux;

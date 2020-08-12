@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tallerautomotriz;
 
 import java.io.BufferedReader;
@@ -79,8 +74,8 @@ public class Repuesto {
         Scanner sn = new Scanner(System.in);
         boolean salir = false;
         int opcion, compra;
-        String opcion2;
-        while (!salir) {
+        String opcion2="";
+        while (opcion2 == "salir") {
             System.out.println("MENU VENTA DE REPUESTOS");
             System.out.println("ELIJA EL REPUESTO POR COMPRAR: ");
             System.out.println("1. ACCESORIOS");

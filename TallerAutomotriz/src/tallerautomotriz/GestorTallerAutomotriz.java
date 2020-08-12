@@ -48,8 +48,14 @@ public class GestorTallerAutomotriz {
         listaR.adicionarRepuesto(r4);
         listaR.adicionarRepuesto(r5);
         VentaVehiculo ve=new VentaVehiculo();
-        ServicioTecnico st=new ServicioTecnico();
-        int opc;
+        ServicioTecnico st = new ServicioTecnico("choque",",machachi", (float) 1558.5);
+        Taller t1 = new Taller("Roberson y Asociados", "Pintura", "Pintado");
+        Taller t2 = new Taller("Byron y Asociados", "Enderezada", "Ajavi");
+        Taller t3 = new Taller("Patente Pendiente ☻ ", "Mecanica", "10 Agosto");
+        st.añadirTaller(t1);
+        st.añadirTaller(t2);
+        st.añadirTaller(t3);
+        int opc;        
         do {
             Scanner sc = new Scanner(System.in);
             System.out.println("***** CONSESIONARIA *********");
@@ -70,15 +76,13 @@ public class GestorTallerAutomotriz {
                     switch (opc1) {
                         case 1:
                             System.out.println("Ingresar los datos");
-                            l1.registrarUsuario(u1);
-                            l1.registrarUsuario(u2);
+                            l1.registrarUsuario(u1);                            
                             System.out.println("Usuario Registrado Exitosamente");
                             System.out.println(" Presione Enter para continuar ...");
                             System.in.read();
                             break;
                         case 2:
-                            String usuario,
-                             clave;
+                            String usuario,clave;
                             sc.nextLine();
                             System.out.println("Ingrese el nombre de usuario");
                             usuario = sc.nextLine();
@@ -113,19 +117,16 @@ public class GestorTallerAutomotriz {
                                                             System.out.println(" Presione Enter para continuar ...");
                                                             System.in.read();
                                                             break;
-                                                        case 2:
-                                                            sc.nextLine();
+                                                        case 2:                                                          
                                                             String modeloM;
                                                             Vehiculo vM;
                                                             System.out.println("Ingrese el modelo que desea personalizar");
+                                                            sc.nextLine();
                                                             modeloM = sc.nextLine();
-                                                            System.out.println(modeloM);
                                                             vM = s1.buscarVehiculo(modeloM);
                                                             if (modeloM.equalsIgnoreCase(vM.getModelo())) {
                                                                 vM.personalizar();
-                                                                System.out.println("personalizar");
                                                             }
-
                                                             break;
                                                         case 3:
                                                             sc.nextLine();
@@ -217,8 +218,9 @@ public class GestorTallerAutomotriz {
                                         la.listaA.get(i).cambiarEstadoVehiculo(a);
                                         break;
                                     case 4:
-                                        
-
+                                        Repuesto r6 = new Repuesto(9823,"alerones","fremax",50.5,7);
+                                        listaR.adicionarRepuesto(r6);                                       
+                                        System.out.println("El repuesto ha sido añadido con exito");
                                         break;
                                     case 5:
                                         boolean d;
