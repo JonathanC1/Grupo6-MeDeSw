@@ -1,18 +1,26 @@
 package tallerautomotriz;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-public abstract class Persona {
+public class Persona {
     private String nombre;
     private String correo;
     private Date fechaNacimiento;
-    private long cedula;
+    private String cedula;
     private String apodo;
     private String clave;
 
-    public Persona(String nombre, String correo, Date fechaNacimiento, long cedula, String apodo, String clave) {
+    public Persona(String apodo, String clave,String nombre, String correo, Date fechaNacimiento, String cedula) {
         this.nombre = nombre;
         this.correo = correo;
         this.fechaNacimiento = fechaNacimiento;
+        this.cedula = cedula;
+        this.apodo = apodo;
+        this.clave = clave;
+    }
+
+    public Persona(String apodo, String clave,String nombre, String correo, String cedula ) {
+        this.nombre = nombre;
+        this.correo = correo;
         this.cedula = cedula;
         this.apodo = apodo;
         this.clave = clave;
@@ -46,11 +54,11 @@ public abstract class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public long getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(long cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
@@ -73,10 +81,8 @@ public abstract class Persona {
     @Override
     public String toString() {
         SimpleDateFormat sdf= new SimpleDateFormat("dd-MM-yyyy");
-        return "Persona{" + "nombre=" + nombre + ", correo=" + correo + ", fechaNacimiento=" + sdf.format(fechaNacimiento) + ", cedula=" + cedula + ", apodo=" + apodo + ", clave=" + clave + '}';
+        return "Persona{" + "nombre=" + nombre + ", correo=" + correo + ", fechaNacimiento=" + /*sdf.format(fechaNacimiento) + */", cedula=" + cedula + ", apodo=" + apodo + ", clave=" + clave + '}';
     }
     
     
 }
-    
-
