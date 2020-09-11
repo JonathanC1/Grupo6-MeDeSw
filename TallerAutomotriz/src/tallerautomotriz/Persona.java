@@ -1,7 +1,7 @@
 package tallerautomotriz;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-public class Persona {
+public abstract class Persona {
     private String nombre;
     private String correo;
     private Date fechaNacimiento;

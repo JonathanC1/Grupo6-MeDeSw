@@ -13,11 +13,13 @@ public class Vehiculo {
 
     private String marca, modelo, color, tipoVehiculo, tipoMotor, tipoTransmision, chasis, materialInterior, placa, tipoLLanta, tipoAros;
     private int cilindraje, numeroPuerta, gradosPolarizado;
-    private Date añoFabricacion, añoMatricula;
+    private int añoFabricacion, añoMatricula;
     private float precio;
     private boolean disponibilidad;
 
-    public Vehiculo(String marca, String modelo, String color, String tipoVehiculo, String tipoMotor, String tipoTransmision, String chasis, String materialInterior, String placa, String tipoLLanta, String tipoAros, int cilindraje, int numeroPuerta, int gradosPolarizado, float precio, boolean disponibilidad, Date añoFabricacion, Date añoMatricula) {
+    public Vehiculo(String marca, String modelo, String color, String tipoVehiculo, String tipoMotor, String tipoTransmision, 
+            String chasis, String materialInterior, String placa, String tipoLLanta, String tipoAros, int cilindraje, int numeroPuerta,
+            int gradosPolarizado, float precio, boolean disponibilidad, int añoFabricacion, int añoMatricula) {
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
@@ -160,19 +162,19 @@ public class Vehiculo {
         this.gradosPolarizado = gradosPolarizado;
     }
 
-    public Date getAñoFabricacion() {
+    public int getAñoFabricacion() {
         return añoFabricacion;
     }
 
-    public void setAñoFabricacion(Date añoFabricacion) {
+    public void setAñoFabricacion(int añoFabricacion) {
         this.añoFabricacion = añoFabricacion;
     }
 
-    public Date getAñoMatricula() {
+    public int  getAñoMatricula() {
         return añoMatricula;
     }
 
-    public void setAñoMatricula(Date añoMatricula) {
+    public void setAñoMatricula(int añoMatricula) {
         this.añoMatricula = añoMatricula;
     }
 
