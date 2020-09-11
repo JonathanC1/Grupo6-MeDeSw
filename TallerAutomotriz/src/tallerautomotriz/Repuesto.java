@@ -102,7 +102,6 @@ public class Repuesto {
         }
 
     }
-
     @Override
     public String toString() {
         return "Repuestos{" + "numeroP=" + numeroP + ", nombreP=" + nombreP + ", marcaP=" + marcaP + ", precioP=" + precioP + ", cantidad=" + cantidad + '}';
