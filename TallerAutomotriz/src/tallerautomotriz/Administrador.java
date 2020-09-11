@@ -1,4 +1,3 @@
-
 package tallerautomotriz;
 
 import java.util.Date;
@@ -11,15 +10,24 @@ public class Administrador extends Persona {
     private StockVehiculos sv;
     private VentaVehiculo vv;
 
-    public Administrador(ListaUsuario lu, StockVehiculos sv, VentaVehiculo vv, String nombre, String correo, Date fechaNacimiento, long cedula, String apodo, String clave) {
-        super(nombre, correo, fechaNacimiento, cedula, apodo, clave);
+    public Administrador(String apodo, String clave,ListaUsuario lu, StockVehiculos sv, VentaVehiculo vv, String nombre, String correo, Date fechaNacimiento, String cedula) {
+        super(apodo, clave,nombre, correo, fechaNacimiento, cedula);
         this.lu = lu;
         this.sv = sv;
         this.vv = vv;
     }
 
-    public Administrador(ListaUsuario lu, StockVehiculos sv, String nombre, String correo, Date fechaNacimiento, long cedula, String apodo, String clave) {
-        super(nombre, correo, fechaNacimiento, cedula, apodo, clave);
+    public Administrador() {
+    }
+
+    public Administrador(String apodo, String clave, String nombre, String correo,  String cedula) {
+        super(apodo, clave, nombre, correo, cedula);
+    }
+
+    
+    
+    public Administrador(String apodo, String clave,ListaUsuario lu, StockVehiculos sv, String nombre, String correo, Date fechaNacimiento, String cedula) {
+        super(apodo, clave,nombre, correo, fechaNacimiento, cedula);
         this.lu = lu;
         this.sv = sv;
         this.vv = null;
