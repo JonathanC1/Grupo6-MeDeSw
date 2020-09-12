@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author Byron
  */
 public class ArchivoAdmin {
-    public void adicionarVehiculo(Administrador a) {
+    public void adicionarAdministrador(Administrador a) {
         String aux = a.getApodo()+","+a.getClave()+","+a.getNombre()+","+a.getCorreo()+","+a.getCedula();
         FileWriter fw = null;
         PrintWriter pw = null;

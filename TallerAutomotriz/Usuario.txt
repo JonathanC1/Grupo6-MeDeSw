@@ -1,0 +1,6 @@
+naty,123456,dfg,dg,04/03/1989,dfg
+tito,1324,eqwqr,awfarefw,12/08/2013,13124
+naty,dd,dfsd,d,10/12/2020,dfs
+
+naty2,,jdfjfd,,,
+naty55,,,,,

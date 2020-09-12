@@ -6,13 +6,12 @@ import java.util.Scanner;
 public class Administrador extends Persona {
 
     //private Vehiculo v1;
-    private ListaUsuario lu;
+  //  private ListaUsuario lu;
     private StockVehiculos sv;
     private VentaVehiculo vv;
 
-    public Administrador(String apodo, String clave,ListaUsuario lu, StockVehiculos sv, VentaVehiculo vv, String nombre, String correo, Date fechaNacimiento, String cedula) {
+    public Administrador(String apodo, String clave, StockVehiculos sv, VentaVehiculo vv, String nombre, String correo, Date fechaNacimiento, String cedula) {
         super(apodo, clave,nombre, correo, fechaNacimiento, cedula);
-        this.lu = lu;
         this.sv = sv;
         this.vv = vv;
     }
@@ -26,9 +25,8 @@ public class Administrador extends Persona {
 
     
     
-    public Administrador(String apodo, String clave,ListaUsuario lu, StockVehiculos sv, String nombre, String correo, Date fechaNacimiento, String cedula) {
+    public Administrador(String apodo, String clave, StockVehiculos sv, String nombre, String correo, Date fechaNacimiento, String cedula) {
         super(apodo, clave,nombre, correo, fechaNacimiento, cedula);
-        this.lu = lu;
         this.sv = sv;
         this.vv = null;
     }
@@ -48,27 +46,27 @@ public class Administrador extends Persona {
             }
         }
     }
-    public void realizarContraOferta() {
-
-        lu.realizarOferta();
-        for (int i = 0; i < lu.mostrarCantidad(); i++) {
-            System.out.println("Contraofertar a " + lu.listaU.get(i).getNombre());
-            System.out.println("1. Aceptar \n2. Contraoferta");
-            int opc;
-            Scanner sc = new Scanner(System.in);
-            opc = sc.nextInt();
-            if (opc == 1) {
-                System.out.println("Acepto el valor");
-            }
-            if (opc == 2) {
-                float oferta;
-                System.out.println("Ingrese la contraoferta");
-                oferta = sc.nextFloat();
-                lu.listaU.get(i).setRealizarOferta(oferta);
-                System.out.println("Se realizo la oferta " + lu.listaU.get(i).getOferta());
-            }
-        }
+//    public void realizarContraOferta() {
+//
+//        lu.realizarOferta();
+//        for (int i = 0; i < lu.mostrarCantidad(); i++) {
+//            System.out.println("Contraofertar a " + lu.listaU.get(i).getNombre());
+//            System.out.println("1. Aceptar \n2. Contraoferta");
+//            int opc;
+//            Scanner sc = new Scanner(System.in);
+//            opc = sc.nextInt();
+//            if (opc == 1) {
+//                System.out.println("Acepto el valor");
+//            }
+//            if (opc == 2) {
+//                float oferta;
+//                System.out.println("Ingrese la contraoferta");
+//                oferta = sc.nextFloat();
+//                lu.listaU.get(i).setRealizarOferta(oferta);
+//                System.out.println("Se realizo la oferta " + lu.listaU.get(i).getOferta());
+//            }
+//        }
 
     }
 
-}
+

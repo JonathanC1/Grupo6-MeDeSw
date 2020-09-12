@@ -5,9 +5,14 @@
  */
 package ui;
 
-import java.sql.Date;
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import tallerautomotriz.ArchivoUsuario;
 import tallerautomotriz.Usuario;
 
 /**
@@ -17,20 +22,21 @@ import tallerautomotriz.Usuario;
 public class frmInicio extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
-    
+    ArchivoUsuario arcUsuario = new ArchivoUsuario();
+
     /**
      * Creates new form frmInicio
      */
     public frmInicio() {
         initComponents();
         pnlLogin.setVisible(false);
-        
+        pnlCrearCuenta.setVisible(false);
+
 //        Icon iconUsuario = new ImageIcon("imagenes\\Usuario.jpg");
 //        btnUsuario.setIcon(iconUsuario);
 //        
 //        Icon iconAdmin = new ImageIcon("imagenes\\Administrador.png");
 //        btnAdministrador.setIcon(iconAdmin);
-
     }
 
     /**
@@ -43,6 +49,8 @@ public class frmInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        pnlNombreTaller = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         pnlCrearCuenta = new javax.swing.JPanel();
         lblNombre3 = new javax.swing.JLabel();
         lblCedula3 = new javax.swing.JLabel();
@@ -57,12 +65,14 @@ public class frmInicio extends javax.swing.JFrame {
         lblNuevoPassword3 = new javax.swing.JLabel();
         txtNuevoPassword = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
+        lblMensajeErrorApodo = new javax.swing.JLabel();
         pnlLogin = new javax.swing.JPanel();
         btnIngresar = new javax.swing.JButton();
         lblApodo = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
         txtApodo = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
+        lblMensajeError = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -74,6 +84,28 @@ public class frmInicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setLayout(new java.awt.CardLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Taller Automotriz");
+
+        javax.swing.GroupLayout pnlNombreTallerLayout = new javax.swing.GroupLayout(pnlNombreTaller);
+        pnlNombreTaller.setLayout(pnlNombreTallerLayout);
+        pnlNombreTallerLayout.setHorizontalGroup(
+            pnlNombreTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNombreTallerLayout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(161, Short.MAX_VALUE))
+        );
+        pnlNombreTallerLayout.setVerticalGroup(
+            pnlNombreTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNombreTallerLayout.createSequentialGroup()
+                .addGap(154, 154, 154)
+                .addComponent(jLabel1)
+                .addContainerGap(232, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(pnlNombreTaller, "card4");
 
         pnlCrearCuenta.setBorder(javax.swing.BorderFactory.createTitledBorder("Crear Cuenta"));
 
@@ -96,31 +128,35 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        lblMensajeErrorApodo.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout pnlCrearCuentaLayout = new javax.swing.GroupLayout(pnlCrearCuenta);
         pnlCrearCuenta.setLayout(pnlCrearCuentaLayout);
         pnlCrearCuentaLayout.setHorizontalGroup(
             pnlCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrearCuentaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblFechaNacimiento3)
-                    .addComponent(lblNombre3)
-                    .addComponent(lblCorreo3)
-                    .addComponent(lblNuevoApodo3)
-                    .addComponent(lblNuevoPassword3)
-                    .addComponent(lblCedula3))
-                .addGap(53, 53, 53)
-                .addGroup(pnlCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtCedula)
-                        .addComponent(txtNombre)
-                        .addComponent(txtNuevoApodo)
-                        .addComponent(txtNuevoPassword))
-                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
+                .addGroup(pnlCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblMensajeErrorApodo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlCrearCuentaLayout.createSequentialGroup()
+                        .addGroup(pnlCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFechaNacimiento3)
+                            .addComponent(lblNombre3)
+                            .addComponent(lblCorreo3)
+                            .addComponent(lblNuevoApodo3)
+                            .addComponent(lblNuevoPassword3)
+                            .addComponent(lblCedula3))
+                        .addGap(53, 53, 53)
+                        .addGroup(pnlCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                            .addComponent(txtNombre)
+                            .addComponent(txtNuevoApodo)
+                            .addComponent(txtNuevoPassword)
+                            .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(106, 106, 106))
             .addGroup(pnlCrearCuentaLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
+                .addGap(170, 170, 170)
                 .addComponent(btnRegistrar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -151,9 +187,11 @@ public class frmInicio extends javax.swing.JFrame {
                 .addGroup(pnlCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNuevoPassword3)
                     .addComponent(txtNuevoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblMensajeErrorApodo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnRegistrar)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         jPanel2.add(pnlCrearCuenta, "card3");
@@ -171,29 +209,35 @@ public class frmInicio extends javax.swing.JFrame {
 
         lblPassword.setText("Password");
 
+        lblMensajeError.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
         pnlLogin.setLayout(pnlLoginLayout);
         pnlLoginLayout.setHorizontalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLoginLayout.createSequentialGroup()
-                .addGap(78, 78, 78)
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblApodo)
-                    .addComponent(lblPassword))
-                .addGap(59, 59, 59)
-                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                    .addComponent(txtApodo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
-                .addContainerGap(143, Short.MAX_VALUE)
-                .addComponent(btnIngresar)
-                .addGap(140, 140, 140))
+                    .addGroup(pnlLoginLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblApodo)
+                            .addComponent(lblPassword))
+                        .addGap(59, 59, 59)
+                        .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtPassword)
+                            .addComponent(txtApodo, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlLoginLayout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addComponent(btnIngresar))
+                    .addGroup(pnlLoginLayout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(lblMensajeError, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(74, 74, 74)
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtApodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblApodo))
@@ -201,9 +245,11 @@ public class frmInicio extends javax.swing.JFrame {
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPassword)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
+                .addComponent(lblMensajeError, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
                 .addComponent(btnIngresar)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
 
         jPanel2.add(pnlLogin, "card2");
@@ -253,7 +299,7 @@ public class frmInicio extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,7 +316,8 @@ public class frmInicio extends javax.swing.JFrame {
         limpiarLogin();
         pnlLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login Administrador", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Font", 0, 16)));
         pnlLogin.setVisible(true);
-pnlCrearCuenta.setVisible(false);
+        pnlCrearCuenta.setVisible(false);
+        pnlNombreTaller.setVisible(false);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -278,26 +325,59 @@ pnlCrearCuenta.setVisible(false);
         pnlLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login Usuario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Font", 0, 16)));
         pnlLogin.setVisible(true);
         pnlCrearCuenta.setVisible(false);
+        pnlNombreTaller.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-        pnlLogin.setVisible(false);
         pnlCrearCuenta.setVisible(true);
+        pnlLogin.setVisible(false);
+        pnlNombreTaller.setVisible(false);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        new frmPrincipal().setVisible(true);
-        this.dispose();
+        char[] contrasena = txtPassword.getPassword();
+        if (arcUsuario.verificarClave(txtApodo.getText(), String.valueOf(contrasena, 0, contrasena.length))) {
+            new frmPrincipal().setVisible(true);
+            this.dispose();
+        } else {
+            lblMensajeError.setText("Apodo o Contraseña no valida");
+            txtApodo.setText("");
+            txtPassword.setText("");
+        }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+
+        String fechaNac = txtFechaNacimiento.getText();
+       
+        Date auxFechaNac = null;
+        SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            auxFechaNac = formatter1.parse(fechaNac);
+        } catch (ParseException ex) {
+            lblMensajeErrorApodo.setText("valor inválido en fecha de nacimiento");
+        }
+
+        usuario.setFechaNacimiento(auxFechaNac);
+        
+         if (fechaNac.equals("") || txtApodo.getText().equals("") || txtApodo.getText().equals("")) {
+            lblMensajeErrorApodo.setText("Todos los campos son obligatorios");
+        }
+
         usuario.setNombre(txtNombre.getText());
         usuario.setCedula(txtCedula.getText());
-        usuario.setFechaNacimiento(Date.valueOf(txtFechaNacimiento.getText()));
-        usuario.setNombre(txtCorreo.getText());
-        usuario.setNombre(txtNuevoApodo.getText());
-        usuario.setNombre(txtNuevoPassword.getText());
+        usuario.setCorreo(txtCorreo.getText());
+        usuario.setApodo(txtNuevoApodo.getText());
+        usuario.setClave(txtNuevoPassword.getText());
+
+        if (arcUsuario.validarUsuario(txtNuevoApodo.getText())) {
+            arcUsuario.adicionarUsuario(usuario);
+            new frmPrincipal().setVisible(true);
+            lblMensajeErrorApodo.setText("");
+            this.dispose();
+        } else {
+            lblMensajeErrorApodo.setText("Apodo ya existe");
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void limpiarLogin() {
@@ -343,6 +423,7 @@ pnlCrearCuenta.setVisible(false);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -355,12 +436,15 @@ pnlCrearCuenta.setVisible(false);
     private javax.swing.JLabel lblCedula3;
     private javax.swing.JLabel lblCorreo3;
     private javax.swing.JLabel lblFechaNacimiento3;
+    private javax.swing.JLabel lblMensajeError;
+    private javax.swing.JLabel lblMensajeErrorApodo;
     private javax.swing.JLabel lblNombre3;
     private javax.swing.JLabel lblNuevoApodo3;
     private javax.swing.JLabel lblNuevoPassword3;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JPanel pnlCrearCuenta;
     private javax.swing.JPanel pnlLogin;
+    private javax.swing.JPanel pnlNombreTaller;
     private javax.swing.JTextField txtApodo;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCorreo;

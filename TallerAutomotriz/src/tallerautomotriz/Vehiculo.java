@@ -12,14 +12,14 @@ import java.util.Scanner;
 public class Vehiculo {
 
     private String marca, modelo, color, tipoVehiculo, tipoMotor, tipoTransmision, chasis, materialInterior, placa, tipoLLanta, tipoAros;
-    private int cilindraje, numeroPuerta, gradosPolarizado;
+    private int cilindraje, numeroPuerta;
     private int añoFabricacion, añoMatricula;
     private float precio;
     private boolean disponibilidad;
 
     public Vehiculo(String marca, String modelo, String color, String tipoVehiculo, String tipoMotor, String tipoTransmision, 
             String chasis, String materialInterior, String placa, String tipoLLanta, String tipoAros, int cilindraje, int numeroPuerta,
-            int gradosPolarizado, float precio, boolean disponibilidad, int añoFabricacion, int añoMatricula) {
+            float precio, boolean disponibilidad, int añoFabricacion, int añoMatricula) {
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
@@ -33,7 +33,6 @@ public class Vehiculo {
         this.tipoAros = tipoAros;
         this.cilindraje = cilindraje;
         this.numeroPuerta = numeroPuerta;
-        this.gradosPolarizado = gradosPolarizado;
         this.añoFabricacion = añoFabricacion;
         this.añoMatricula = añoMatricula;
         this.disponibilidad = disponibilidad;
@@ -152,14 +151,6 @@ public class Vehiculo {
 
     public void setNumeroPuerta(int numeroPuerta) {
         this.numeroPuerta = numeroPuerta;
-    }
-
-    public int getGradosPolarizado() {
-        return gradosPolarizado;
-    }
-
-    public void setGradosPolarizado(int gradosPolarizado) {
-        this.gradosPolarizado = gradosPolarizado;
     }
 
     public int getAñoFabricacion() {
@@ -327,7 +318,7 @@ public class Vehiculo {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         return "Vehiculo{" + "marca=" + marca + ", modelo=" + modelo + ", color=" + color
                 + ", tipoVehiculo=" + tipoVehiculo + ", tipoMotor=" + tipoMotor + ", tipoTransmision=" + tipoTransmision + ", chasis=" + chasis + ", materialInterior=" + materialInterior
-                + ", placa=" + placa + ", tipoLLanta=" + tipoLLanta + ", tipoAros=" + tipoAros + ", cilindraje=" + cilindraje + ", numeroPuerta=" + numeroPuerta + ", gradosPolarizado=" + gradosPolarizado
+                + ", placa=" + placa + ", tipoLLanta=" + tipoLLanta + ", tipoAros=" + tipoAros + ", cilindraje=" + cilindraje + ", numeroPuerta=" + numeroPuerta 
                 + ", a\u00f1oFabricacion=" + sdf.format(añoFabricacion) + ", a\u00f1oMatricula=" + sdf.format(añoMatricula) + '}';
     }
 

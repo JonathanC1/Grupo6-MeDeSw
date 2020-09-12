@@ -77,12 +77,6 @@ public class Persona {
     public void setClave(String clave) {
         this.clave = clave;
     }
-
-    @Override
-    public String toString() {
-        SimpleDateFormat sdf= new SimpleDateFormat("dd-MM-yyyy");
-        return "Persona{" + "nombre=" + nombre + ", correo=" + correo + ", fechaNacimiento=" + /*sdf.format(fechaNacimiento) + */", cedula=" + cedula + ", apodo=" + apodo + ", clave=" + clave + '}';
-    }
     
     
 }

@@ -7,16 +7,13 @@ import java.util.Scanner;
 
 public class Repuesto {
 
-    private int numeroP;
     private String nombreP;
     private String marcaP;
     private double precioP;
     private long cantidad;
     private ListaCompraVenta listaC;
 
-    public Repuesto(int numeroP, String nombreP, String marcaP, double precioP, long cantidad) {
-        this.numeroP = numeroP;
-        this.nombreP = nombreP;
+    public Repuesto( String nombreP, String marcaP, double precioP, long cantidad) {
         this.marcaP = marcaP;
         this.precioP = precioP;
         this.cantidad = cantidad;
@@ -27,13 +24,6 @@ public class Repuesto {
 
     }
 
-    public int getNumeroP() {
-        return numeroP;
-    }
-
-    public void setNumeroP(int numeroP) {
-        this.numeroP = numeroP;
-    }
 
     public String getNombreP() {
         return nombreP;
@@ -101,10 +91,6 @@ public class Repuesto {
             }
         }
 
-    }
-    @Override
-    public String toString() {
-        return "Repuestos{" + "numeroP=" + numeroP + ", nombreP=" + nombreP + ", marcaP=" + marcaP + ", precioP=" + precioP + ", cantidad=" + cantidad + '}';
     }
 
 }

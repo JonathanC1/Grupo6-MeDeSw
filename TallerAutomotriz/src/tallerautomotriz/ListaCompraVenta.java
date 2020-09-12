@@ -21,7 +21,7 @@ public class ListaCompraVenta{
          
     }
     
-     public void addicionarVenta(VentaVehiculo venta)
+     public void adicionarVenta(VentaVehiculo venta)
     {
     listaVenta.add(venta);
     
