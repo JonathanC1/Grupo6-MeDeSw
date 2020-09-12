@@ -9,8 +9,8 @@ public class Usuario extends Persona{
         super(apodo, clave,nombre, correo, fechaNacimiento, cedula);
     }
 
-    Usuario() {
-        
+    public Usuario() {
+   
     }
     
     public void buscarVehiculo(){

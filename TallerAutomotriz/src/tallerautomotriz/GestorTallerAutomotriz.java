@@ -12,8 +12,8 @@ public class GestorTallerAutomotriz {
         Date fechaN;
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         fechaN = sdf.parse("08-06-2000");
-        Usuario u1 = new Usuario("Byron", "b.r-avalos", fechaN, 1752101475, "bravalos", "123456789");
-        Usuario u2 = new Usuario("Pepe", "pepeMD", fechaN, 1752101475, "pTP", "123456789");
+        Usuario u1 = new Usuario("bravalos", "123456789", "Byron","gv@dd.com", fechaN, "1752101475" );
+        Usuario u2 = new Usuario("pTP",  "123456789", "Pepe", "dd@dm.com", fechaN, "1752101475");
         ListaUsuario l1 = new ListaUsuario();
         l1.registrarUsuario(u1);
         Date fabricacion = new Date(120, 6, 17);
@@ -27,7 +27,7 @@ public class GestorTallerAutomotriz {
         s1.añadirVehiculo(v2);
         s1.añadirVehiculo(v3);
         s1.añadirVehiculo(v4);
-        Administrador a1 = new Administrador(l1, s1, "admin1", "admin1", fechaN, 1752101475, "admin1", "123456789");
+        Administrador a1 = new Administrador("admin1", "admin1", l1, s1, "admin1", "ff@.com", fechaN,"1728293933" );
         ListaAdministrador la = new ListaAdministrador();
         la.registrarAdministrador(a1);
         v1.crearListaAutos(s1);
