@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tallerautomotriz;
 
-/**
- *
- * @author Roberson Constante
- */
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.io.Console;
@@ -22,16 +14,19 @@ public class VentaVehiculo {
     private float precioVenta;
     private String fechaEntrega;
     private String fechaFactura;
+    private String codigo;
 
-    public VentaVehiculo(String nombreComprador, long nombreCuenta, String formaPago, float precioVenta, String fechaEntrega, String fechaFactura) {
+    public VentaVehiculo(String codigo,String nombreComprador, long nombreCuenta, String formaPago, float precioVenta, String fechaEntrega, String fechaFactura) {
+        this.codigo=codigo;
         this.nombreComprador = nombreComprador;
         this.nombreCuenta = nombreCuenta;
         this.formaPago = formaPago;
         this.precioVenta = precioVenta;
         this.fechaEntrega = fechaEntrega;
         this.fechaFactura = fechaFactura;
+        
     }
-
+    
     VentaVehiculo() {
     }
 
@@ -108,6 +103,16 @@ public class VentaVehiculo {
     public void setFormaPago(String formaPago) {
         this.formaPago = formaPago;
     }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    
+    
 
     public float getPrecioVenta() {
         return precioVenta;
