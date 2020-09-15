@@ -35,6 +35,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -78,6 +79,44 @@ public class frmPrincipal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        pnlFormularioVenta = new javax.swing.JPanel();
+        lblVentaMarca = new javax.swing.JLabel();
+        lblVentaModelo = new javax.swing.JLabel();
+        lblVentaTipoMotor = new javax.swing.JLabel();
+        lblVentaCilindraje = new javax.swing.JLabel();
+        lblVentaPuertas = new javax.swing.JLabel();
+        lblVentaAnioFabricacion = new javax.swing.JLabel();
+        lblVentaPlaca = new javax.swing.JLabel();
+        btnComprarAuto1 = new javax.swing.JButton();
+        lblVentaChasis = new javax.swing.JLabel();
+        txtVentaMarca = new javax.swing.JTextField();
+        txtVentaModelo = new javax.swing.JTextField();
+        txtVentaPlaca = new javax.swing.JTextField();
+        txtVentaMotor = new javax.swing.JTextField();
+        txtVentaChasis = new javax.swing.JTextField();
+        txtVentaCilindraje = new javax.swing.JTextField();
+        txtVentaPuertas = new javax.swing.JTextField();
+        txtVentaAnioFab = new javax.swing.JTextField();
+        lblVentaColor = new javax.swing.JLabel();
+        lblVentaTransmision = new javax.swing.JLabel();
+        lblVentaTapiceria = new javax.swing.JLabel();
+        lblVentaLlantas = new javax.swing.JLabel();
+        lblVentaAros = new javax.swing.JLabel();
+        lblVentaPrecio = new javax.swing.JLabel();
+        txtVentaColor = new javax.swing.JTextField();
+        txtVentaTransmision = new javax.swing.JTextField();
+        txtVentaTapiceria = new javax.swing.JTextField();
+        txtVentaLlantas = new javax.swing.JTextField();
+        txtVentaAros = new javax.swing.JTextField();
+        txtVentaPrecio = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        lblPrecioOfrecidoConcecionaria = new javax.swing.JLabel();
+        lblPrecioSugeridoVenta = new javax.swing.JLabel();
+        lblPrecioCliente = new javax.swing.JLabel();
+        btnAceptarOferta = new javax.swing.JButton();
+        btnNuevaOferta = new javax.swing.JButton();
+        txtPrecioOfertadoCliente = new javax.swing.JTextField();
+        btnCancelarVenta = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Comprar = new javax.swing.JMenuItem();
@@ -89,6 +128,19 @@ public class frmPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new java.awt.CardLayout());
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1219, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 957, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel7, "card4");
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar Vehículo"));
 
@@ -154,15 +206,9 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jLabel2.setText("Marca");
 
-        lblValorMarca.setText("lblValueMarca");
-
         jLabel9.setText("Modelo");
 
-        lblValorModelo.setText("lblValueModelo");
-
         jLabel11.setText("Tipo de motor");
-
-        lblValorTipoMotor.setText("lblValueTipoMotor");
 
         jLabel13.setText("Cilindraje");
 
@@ -177,8 +223,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         lblValorAnoFabricacion.setText("lblValueAnoFabricacion");
 
         jLabel22.setText("Placa");
-
-        lblValorPlaca.setText("lblValuePlaca");
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Características Personalizables"));
 
@@ -288,24 +332,26 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlDetalleVehiculoLayout.createSequentialGroup()
                         .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
                             .addComponent(jLabel2)
                             .addComponent(jLabel9)
-                            .addGroup(pnlDetalleVehiculoLayout.createSequentialGroup()
-                                .addComponent(jLabel24)
-                                .addGap(215, 215, 215)
-                                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblValorCilindraje)
-                                    .addComponent(lblValorNumeroPuertas)
-                                    .addComponent(lblValorAnoFabricacion)
-                                    .addComponent(lblValorChasis)
-                                    .addComponent(lblValorTipoMotor)
-                                    .addComponent(lblValorPlaca)
-                                    .addComponent(lblValorModelo)
-                                    .addComponent(lblValorMarca)))
                             .addComponent(jLabel13)
                             .addComponent(jLabel15)
-                            .addComponent(jLabel17))
+                            .addComponent(jLabel17)
+                            .addGroup(pnlDetalleVehiculoLayout.createSequentialGroup()
+                                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jLabel11))
+                                .addGap(180, 180, 180)
+                                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblValorTipoMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lblValorCilindraje)
+                                        .addComponent(lblValorNumeroPuertas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblValorAnoFabricacion)
+                                        .addComponent(lblValorChasis)
+                                        .addComponent(lblValorModelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblValorMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblValorPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlDetalleVehiculoLayout.createSequentialGroup()
                         .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,22 +367,22 @@ public class frmPrincipal extends javax.swing.JFrame {
             pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDetalleVehiculoLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblValorMarca)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                    .addComponent(lblValorMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel9)
-                    .addComponent(lblValorModelo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(lblValorPlaca))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblValorModelo, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblValorPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel11)
-                    .addComponent(lblValorTipoMotor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lblValorTipoMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel24)
                     .addComponent(lblValorChasis))
@@ -376,9 +422,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                         .addComponent(jScrollPane1))
                     .addComponent(jLabel6)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(pnlDetalleVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,20 +440,261 @@ public class frmPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(347, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, "card2");
+
+        pnlFormularioVenta.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Vehiculo"));
+
+        lblVentaMarca.setText("Marca");
+
+        lblVentaModelo.setText("Modelo");
+
+        lblVentaTipoMotor.setText("Tipo de motor");
+
+        lblVentaCilindraje.setText("Cilindraje");
+
+        lblVentaPuertas.setText("Número de Puertas ");
+
+        lblVentaAnioFabricacion.setText("Año de Fabricación");
+
+        lblVentaPlaca.setText("Placa");
+
+        btnComprarAuto1.setText("Registrar Vehiculo Para Venta");
+        btnComprarAuto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnComprarAuto1ActionPerformed(evt);
+            }
+        });
+
+        lblVentaChasis.setText("Chasis");
+
+        txtVentaMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVentaMarcaActionPerformed(evt);
+            }
+        });
+
+        lblVentaColor.setText("Color");
+
+        lblVentaTransmision.setText("Tipo de transmisión");
+
+        lblVentaTapiceria.setText("Tapicería");
+
+        lblVentaLlantas.setText("Tipo de LLantas");
+
+        lblVentaAros.setText("Tipo de Aros");
+
+        lblVentaPrecio.setText("Precio");
+
+        javax.swing.GroupLayout pnlFormularioVentaLayout = new javax.swing.GroupLayout(pnlFormularioVenta);
+        pnlFormularioVenta.setLayout(pnlFormularioVentaLayout);
+        pnlFormularioVentaLayout.setHorizontalGroup(
+            pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentaMarca)
+                    .addComponent(lblVentaModelo)
+                    .addComponent(lblVentaPlaca)
+                    .addComponent(lblVentaTipoMotor)
+                    .addComponent(lblVentaChasis)
+                    .addComponent(lblVentaCilindraje)
+                    .addComponent(lblVentaPuertas)
+                    .addComponent(lblVentaAnioFabricacion)
+                    .addComponent(lblVentaAros)
+                    .addComponent(lblVentaColor)
+                    .addComponent(lblVentaTransmision)
+                    .addComponent(lblVentaTapiceria)
+                    .addComponent(lblVentaPrecio))
+                .addGap(87, 87, 87)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtVentaMarca)
+                    .addComponent(txtVentaModelo)
+                    .addComponent(txtVentaPlaca)
+                    .addComponent(txtVentaMotor)
+                    .addComponent(txtVentaChasis)
+                    .addComponent(txtVentaCilindraje)
+                    .addComponent(txtVentaPuertas)
+                    .addComponent(txtVentaAnioFab)
+                    .addComponent(txtVentaColor)
+                    .addComponent(txtVentaTransmision)
+                    .addComponent(txtVentaTapiceria)
+                    .addComponent(txtVentaLlantas)
+                    .addComponent(txtVentaAros)
+                    .addComponent(txtVentaPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(btnComprarAuto1))
+                    .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblVentaLlantas)))
+                .addGap(0, 166, Short.MAX_VALUE))
+        );
+        pnlFormularioVentaLayout.setVerticalGroup(
+            pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormularioVentaLayout.createSequentialGroup()
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(txtVentaMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblVentaMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentaModelo)
+                    .addComponent(txtVentaModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentaPlaca)
+                    .addComponent(txtVentaPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentaTipoMotor)
+                    .addComponent(txtVentaMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentaChasis)
+                    .addComponent(txtVentaChasis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblVentaCilindraje)
+                    .addComponent(txtVentaCilindraje, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentaPuertas)
+                    .addComponent(txtVentaPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentaAnioFabricacion)
+                    .addComponent(txtVentaAnioFab, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentaColor)
+                    .addComponent(txtVentaColor, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentaTransmision)
+                    .addComponent(txtVentaTransmision, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentaTapiceria)
+                    .addComponent(txtVentaTapiceria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentaLlantas)
+                    .addComponent(txtVentaLlantas, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentaAros)
+                    .addComponent(txtVentaAros, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblVentaPrecio)
+                    .addComponent(txtVentaPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnComprarAuto1))
+        );
+
+        lblPrecioOfrecidoConcecionaria.setText("Precio Estimado del vehiculo:");
+
+        lblPrecioCliente.setText("Precio Ofrecido Por el cliente:");
+
+        btnAceptarOferta.setText("Aceptar");
+        btnAceptarOferta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarOfertaActionPerformed(evt);
+            }
+        });
+
+        btnNuevaOferta.setText("Ofertar");
+        btnNuevaOferta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevaOfertaActionPerformed(evt);
+            }
+        });
+
+        txtPrecioOfertadoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecioOfertadoClienteActionPerformed(evt);
+            }
+        });
+
+        btnCancelarVenta.setText("Cancelar");
+        btnCancelarVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarVentaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPrecioCliente)
+                            .addComponent(lblPrecioOfrecidoConcecionaria))
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblPrecioSugeridoVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtPrecioOfertadoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(btnAceptarOferta)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnNuevaOferta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addComponent(btnCancelarVenta)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblPrecioOfrecidoConcecionaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPrecioSugeridoVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPrecioCliente)
+                    .addComponent(txtPrecioOfertadoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAceptarOferta)
+                    .addComponent(btnNuevaOferta)
+                    .addComponent(btnCancelarVenta)))
+        );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1202, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlFormularioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(422, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 957, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pnlFormularioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(375, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, "card3");
@@ -433,6 +720,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Respuestos");
 
         jMenuItem4.setText("compra de Repuestos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
@@ -482,6 +774,34 @@ public class frmPrincipal extends javax.swing.JFrame {
         new frmDatosPago().setVisible(true);
     }//GEN-LAST:event_btnComprarAutoActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void btnComprarAuto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarAuto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnComprarAuto1ActionPerformed
+
+    private void txtVentaMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVentaMarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtVentaMarcaActionPerformed
+
+    private void btnAceptarOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarOfertaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAceptarOfertaActionPerformed
+
+    private void btnNuevaOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaOfertaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNuevaOfertaActionPerformed
+
+    private void txtPrecioOfertadoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioOfertadoClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecioOfertadoClienteActionPerformed
+
+    private void btnCancelarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarVentaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -519,8 +839,12 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Comprar;
+    private javax.swing.JButton btnAceptarOferta;
     private javax.swing.JButton btnBuscarVehiculo;
+    private javax.swing.JButton btnCancelarVenta;
     private javax.swing.JButton btnComprarAuto;
+    private javax.swing.JButton btnComprarAuto1;
+    private javax.swing.JButton btnNuevaOferta;
     private javax.swing.JComboBox<String> cmbNuevaTapiceria;
     private javax.swing.JComboBox<String> cmbNuevaTipoLLantas;
     private javax.swing.JComboBox<String> cmbNuevoColor;
@@ -555,10 +879,15 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblPrecioCalculado;
+    private javax.swing.JLabel lblPrecioCliente;
+    private javax.swing.JLabel lblPrecioOfrecidoConcecionaria;
+    private javax.swing.JLabel lblPrecioSugeridoVenta;
     private javax.swing.JLabel lblValorAnoFabricacion;
     private javax.swing.JLabel lblValorChasis;
     private javax.swing.JLabel lblValorCilindraje;
@@ -567,7 +896,37 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblValorNumeroPuertas;
     private javax.swing.JLabel lblValorPlaca;
     private javax.swing.JLabel lblValorTipoMotor;
+    private javax.swing.JLabel lblVentaAnioFabricacion;
+    private javax.swing.JLabel lblVentaAros;
+    private javax.swing.JLabel lblVentaChasis;
+    private javax.swing.JLabel lblVentaCilindraje;
+    private javax.swing.JLabel lblVentaColor;
+    private javax.swing.JLabel lblVentaLlantas;
+    private javax.swing.JLabel lblVentaMarca;
+    private javax.swing.JLabel lblVentaModelo;
+    private javax.swing.JLabel lblVentaPlaca;
+    private javax.swing.JLabel lblVentaPrecio;
+    private javax.swing.JLabel lblVentaPuertas;
+    private javax.swing.JLabel lblVentaTapiceria;
+    private javax.swing.JLabel lblVentaTipoMotor;
+    private javax.swing.JLabel lblVentaTransmision;
     private javax.swing.JPanel pnlDetalleVehiculo;
+    private javax.swing.JPanel pnlFormularioVenta;
     private javax.swing.JTextField txtBuscaMarcaModelo;
+    private javax.swing.JTextField txtPrecioOfertadoCliente;
+    private javax.swing.JTextField txtVentaAnioFab;
+    private javax.swing.JTextField txtVentaAros;
+    private javax.swing.JTextField txtVentaChasis;
+    private javax.swing.JTextField txtVentaCilindraje;
+    private javax.swing.JTextField txtVentaColor;
+    private javax.swing.JTextField txtVentaLlantas;
+    private javax.swing.JTextField txtVentaMarca;
+    private javax.swing.JTextField txtVentaModelo;
+    private javax.swing.JTextField txtVentaMotor;
+    private javax.swing.JTextField txtVentaPlaca;
+    private javax.swing.JTextField txtVentaPrecio;
+    private javax.swing.JTextField txtVentaPuertas;
+    private javax.swing.JTextField txtVentaTapiceria;
+    private javax.swing.JTextField txtVentaTransmision;
     // End of variables declaration//GEN-END:variables
 }
