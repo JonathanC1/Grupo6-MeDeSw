@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class ArchivoVentaVehiculo {
     public void adicionarVenta(VentaVehiculo a) {
-        String aux = a.getCodigo()+","+a.getNombreComprador()+","+a.getNombreCuenta()+","+a.getFormaPago()+","+a.getPrecioVenta()+","+a.getFechaEntrega()+","+a.getFechaFactura();
+        String aux = a.getCodigo()+","+a.getNombreComprador()+","+a.getNombreCuenta()+","+a.getPrecioVenta()+","+a.getFechaEntrega()+","+a.getFechaFactura();
         FileWriter fw = null;
         PrintWriter pw = null;
         try {
@@ -38,7 +38,7 @@ public class ArchivoVentaVehiculo {
             BufferedReader br = new BufferedReader(new FileReader("VentaVehiculo.txt"));
             while ((s = br.readLine()) != null) {
                 String[] parte = s.split(",");
-                VentaVehiculo vv1 = new VentaVehiculo(parte[0],parte[1], Long.parseLong(parte[2]), parte[3],Float.parseFloat(parte[4]), parte[5],parte[6]);
+                VentaVehiculo vv1 = new VentaVehiculo(parte[0],parte[1], Long.parseLong(parte[2]),Float.parseFloat(parte[3]), parte[4],parte[5]);
                 listaA.add(vv1);
             }
             br.close();
@@ -58,7 +58,7 @@ public class ArchivoVentaVehiculo {
             while ((s = br.readLine()) != null) {
                 String[] parte = s.split(",");
                 if (codigo.equalsIgnoreCase(parte[0])) {
-                    a1 = new VentaVehiculo(parte[0],parte[1], Long.parseLong(parte[2]), parte[3],Float.parseFloat(parte[4]), parte[5],parte[6]);
+                    a1 = new VentaVehiculo(parte[0],parte[1], Long.parseLong(parte[2]),Float.parseFloat(parte[3]), parte[4],parte[5]);
                 }
             }
             br.close();
