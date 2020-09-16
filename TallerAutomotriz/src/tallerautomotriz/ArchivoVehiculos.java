@@ -19,7 +19,7 @@ import java.util.Iterator;
  * @author Roberson Constante
  */
 public class ArchivoVehiculos {
-    public void adicionarArchivos(Vehiculo v){
+    public void adicionarVehiculo(Vehiculo v){
         File archivo = new File ("ArchivoVehiculo.txt");
         String aux = v.getMarca()+","+ v.getModelo()+"," + v.getColor()+","+v.getTipoVehiculo()+","+v.getTipoMotor()+","
                 +v.getTipoTransmision()+","+v.getChasis()+","+v.getMaterialInterior()+","+v.getPlaca()+","+v.getTipoLLanta()+","

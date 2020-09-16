@@ -85,7 +85,7 @@ public class Vehiculo {
         return tipoTransmision;
     }
 
-    public void setTipoTransmision(String tipoTransmisión) {
+    public void setTipoTransmision(String tipoTransmision) {
         this.tipoTransmision = tipoTransmision;
     }
 

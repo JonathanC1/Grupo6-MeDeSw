@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import ui.frmInicio;
 
 public class GestorTallerAutomotriz {
 
@@ -49,7 +50,9 @@ public class GestorTallerAutomotriz {
         st.añadirTaller(t1);
         st.añadirTaller(t2);
         st.añadirTaller(t3);
-        int opc;        
+        int opc;
+        frmInicio in = new frmInicio();
+        in.setVisible(true);
 //        do {
 //            Scanner sc = new Scanner(System.in);
 //            System.out.println("***** CONSESIONARIA *********");

@@ -14,7 +14,16 @@
                 <Property name="text" type="java.lang.String" value="Veh&#xed;culos"/>
               </Properties>
               <Events>
+                <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="jMenuItem1AncestorAdded"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Repuestos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -50,13 +59,375 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="279" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" pref="582" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                  <Component id="pnlRegistroVehiculo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="btnAgregarVehiculo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                          <Component id="btnEliminarVehiculo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                          <Component id="btnModificarVehiculo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane1" min="-2" pref="416" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnAgregarVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnEliminarVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnModificarVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="253" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="pnlRegistroVehiculo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="pnlRegistroVehiculo">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Datos Vehiculo"/>
+              </Border>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaMarca" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaModelo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaPlaca" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaTipoMotor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaChasis" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaCilindraje" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaPuertas" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaAnioFabricacion" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaAros" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaColor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaTransmision" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaTapiceria" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRegistroMatricula" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaLlantas" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaPrecio" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblVentaPrecio1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtRegistroTipoV" min="-2" pref="107" max="-2" attributes="0"/>
+                                  <Component id="txtRegistroPrecio" min="-2" pref="107" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtRegistroMarca" alignment="0" pref="107" max="32767" attributes="0"/>
+                                      <Component id="txtRegistroModelo" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtRegistroPlaca" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtRegistroMotor" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtRegistroChasis" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtRegistroCilindraje" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtRegistroPuertas" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtRegistroFabricacion" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtRegistroColor" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtRegistroTransmision" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtRegistroTapiceria" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtRegistroLlantas" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtRegistroAros" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="txtRegistroMatricula" min="-2" pref="107" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="25" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaMarca" min="-2" pref="19" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Component id="txtRegistroMarca" min="-2" pref="20" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaModelo" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroModelo" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaPlaca" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroPlaca" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaTipoMotor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroMotor" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaChasis" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroChasis" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lblVentaCilindraje" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroCilindraje" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaPuertas" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroPuertas" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaAnioFabricacion" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroFabricacion" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaColor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroColor" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaTransmision" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroTransmision" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaTapiceria" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroTapiceria" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaLlantas" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroLlantas" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblVentaAros" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroAros" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblRegistroMatricula" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroMatricula" min="-2" pref="19" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblVentaPrecio1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegistroTipoV" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtRegistroPrecio" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="lblVentaPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblVentaMarca">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Marca"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaModelo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modelo"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaTipoMotor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo de motor"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaCilindraje">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cilindraje"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaPuertas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="N&#xfa;mero de Puertas "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaAnioFabricacion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A&#xf1;o de Fabricaci&#xf3;n"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaPlaca">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Placa"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaChasis">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Chasis"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroMarca">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRegistroMarcaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroModelo">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroPlaca">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroMotor">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroChasis">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroCilindraje">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroPuertas">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroFabricacion">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaColor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Color"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaTransmision">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo de transmisi&#xf3;n"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaTapiceria">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tapicer&#xed;a"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaLlantas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo de LLantas"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaAros">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo de Aros"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaPrecio">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Precio"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroColor">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroTransmision">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroTapiceria">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroLlantas">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroAros">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroPrecio">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblRegistroMatricula">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A&#xf1;o de Matriculaci&#xf3;n"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroMatricula">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVentaPrecio1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo de Vehiculo"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtRegistroTipoV">
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="tblListaVehiculos">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="0" rowCount="0"/>
+                </Property>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="btnAgregarVehiculo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Agregar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarVehiculoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnEliminarVehiculo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Eliminar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnModificarVehiculo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Modificar"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
 </Form>

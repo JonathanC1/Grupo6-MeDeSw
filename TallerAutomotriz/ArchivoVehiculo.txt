@@ -1,0 +1,3 @@
+chevrolet,aveo,rojo,sedan,8V,null,0001,cuero,PUJ131,estandar,niquelados,1200,4,2548.0,true,2015,2012
+
+cecds,fasdf,adas,fsa,23d,null,daadf,adfasd,weqwr,dsfas,qwfw,1231,3,1314.0,true,231,123
