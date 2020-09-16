@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import tallerautomotriz.ArchivoAdmin;
 import tallerautomotriz.ArchivoUsuario;
 import tallerautomotriz.Usuario;
 
@@ -23,6 +24,7 @@ public class frmInicio extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
     ArchivoUsuario arcUsuario = new ArchivoUsuario();
+    ArchivoAdmin arcAdmin = new ArchivoAdmin();
 
     public frmInicio() {
         initComponents();
@@ -59,6 +61,7 @@ public class frmInicio extends javax.swing.JFrame {
         txtApodo = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
         lblMensajeError = new javax.swing.JLabel();
+        lblTipoIngreso = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -204,11 +207,16 @@ public class frmInicio extends javax.swing.JFrame {
             .addGroup(pnlLoginLayout.createSequentialGroup()
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlLoginLayout.createSequentialGroup()
-                        .addGap(170, 170, 170)
                         .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblApodo)
-                            .addComponent(lblPassword))
-                        .addGap(59, 59, 59)
+                            .addGroup(pnlLoginLayout.createSequentialGroup()
+                                .addGap(170, 170, 170)
+                                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblApodo)
+                                    .addComponent(lblPassword)))
+                            .addGroup(pnlLoginLayout.createSequentialGroup()
+                                .addGap(167, 167, 167)
+                                .addComponent(lblTipoIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(27, 27, 27)
                         .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtPassword)
                             .addComponent(txtApodo, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -223,7 +231,9 @@ public class frmInicio extends javax.swing.JFrame {
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(49, 49, 49)
+                .addComponent(lblTipoIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtApodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblApodo))
@@ -302,6 +312,7 @@ public class frmInicio extends javax.swing.JFrame {
         limpiarLogin();
         pnlLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login Administrador", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Font", 0, 16)));
         pnlLogin.setVisible(true);
+        lblTipoIngreso.setText("Administrador");
         pnlCrearCuenta.setVisible(false);
         pnlNombreTaller.setVisible(false);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -310,6 +321,7 @@ public class frmInicio extends javax.swing.JFrame {
         limpiarLogin();
         pnlLogin.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login Usuario", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Font", 0, 16)));
         pnlLogin.setVisible(true);
+        lblTipoIngreso.setText("Usuario");
         pnlCrearCuenta.setVisible(false);
         pnlNombreTaller.setVisible(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -322,13 +334,25 @@ public class frmInicio extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         char[] contrasena = txtPassword.getPassword();
-        if (arcUsuario.verificarClave(txtApodo.getText(), String.valueOf(contrasena, 0, contrasena.length))) {
+        if(lblTipoIngreso.getText().equalsIgnoreCase("administrador")){
+           if (arcAdmin.verificarClave(txtApodo.getText(), String.valueOf(contrasena, 0, contrasena.length))) {
+            new frmPrincipalAdministrador().setVisible(true);
+            this.dispose();
+        }else {
+            lblMensajeError.setText("Apodo o Contraseña no valida");
+            txtApodo.setText("");
+            txtPassword.setText("");
+        } 
+            
+        }else{
+          if (arcUsuario.verificarClave(txtApodo.getText(), String.valueOf(contrasena, 0, contrasena.length))) {
             new frmPrincipal().setVisible(true);
             this.dispose();
         } else {
             lblMensajeError.setText("Apodo o Contraseña no valida");
             txtApodo.setText("");
             txtPassword.setText("");
+        }   
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
@@ -428,6 +452,7 @@ public class frmInicio extends javax.swing.JFrame {
     private javax.swing.JLabel lblNuevoApodo3;
     private javax.swing.JLabel lblNuevoPassword3;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblTipoIngreso;
     private javax.swing.JPanel pnlCrearCuenta;
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JPanel pnlNombreTaller;

@@ -8,7 +8,9 @@ package ui;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.table.DefaultTableModel;
+import tallerautomotriz.ArchivoRepuestos;
 import tallerautomotriz.ArchivoVehiculos;
+import tallerautomotriz.Repuesto;
 import tallerautomotriz.Vehiculo;
 
 /**
@@ -18,21 +20,40 @@ import tallerautomotriz.Vehiculo;
 public class frmPrincipalAdministrador extends javax.swing.JFrame {
 
     ArchivoVehiculos arcVehiculo = new ArchivoVehiculos();
+    ArchivoRepuestos arcRepuestos = new ArchivoRepuestos();
     ArrayList<Vehiculo> lista = new ArrayList<>();
+    ArrayList<Repuesto> listaR = new ArrayList<>();
     Vehiculo v1 = new Vehiculo();
+    Repuesto r1 = new Repuesto();
     /**
      * Creates new form frmPrincipalAdministrador
      */
     public frmPrincipalAdministrador() {
         initComponents();
-        mostrarDatos();
+        jpnlRegistroVehiculos.setVisible(false);
+        jpnlRegistroRepuestos.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jpnlRegistroRepuesto = new javax.swing.JPanel();
+        jpnlRegistro8 = new javax.swing.JPanel();
+        lblNombreRepuesto8 = new javax.swing.JLabel();
+        lblMarcaRepuesto8 = new javax.swing.JLabel();
+        lblPrecioRepuesto8 = new javax.swing.JLabel();
+        lblCantidadRepuesto8 = new javax.swing.JLabel();
+        txtRepuestoNombre8 = new javax.swing.JTextField();
+        txtRepuestoMarca8 = new javax.swing.JTextField();
+        txtRepuestoPrecio8 = new javax.swing.JTextField();
+        txtRepuestoCantidad8 = new javax.swing.JTextField();
+        btnRepuestoAgregar8 = new javax.swing.JButton();
+        btnRepuestoEliminar8 = new javax.swing.JButton();
+        btnRepuestoModificar8 = new javax.swing.JButton();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jtblListaRepuestos8 = new javax.swing.JTable();
+        jpnlRegistroVehiculos = new javax.swing.JPanel();
         pnlRegistroVehiculo = new javax.swing.JPanel();
         lblVentaMarca = new javax.swing.JLabel();
         lblVentaModelo = new javax.swing.JLabel();
@@ -78,6 +99,136 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jpnlRegistro8.setBorder(javax.swing.BorderFactory.createTitledBorder("Registro Repuestos"));
+
+        lblNombreRepuesto8.setText("Nombre:");
+
+        lblMarcaRepuesto8.setText("Marca:");
+
+        lblPrecioRepuesto8.setText("Precio:");
+
+        lblCantidadRepuesto8.setText("Cantidad:");
+
+        txtRepuestoNombre8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRepuestoNombre8txtRepuestoNombreActionPerformed(evt);
+            }
+        });
+
+        txtRepuestoPrecio8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRepuestoPrecio8txtRepuestoPrecioActionPerformed(evt);
+            }
+        });
+
+        btnRepuestoAgregar8.setText("Agregar");
+
+        btnRepuestoEliminar8.setText("Eliminar");
+
+        btnRepuestoModificar8.setText("Modificar");
+
+        jtblListaRepuestos8.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane10.setViewportView(jtblListaRepuestos8);
+
+        javax.swing.GroupLayout jpnlRegistro8Layout = new javax.swing.GroupLayout(jpnlRegistro8);
+        jpnlRegistro8.setLayout(jpnlRegistro8Layout);
+        jpnlRegistro8Layout.setHorizontalGroup(
+            jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnlRegistro8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpnlRegistro8Layout.createSequentialGroup()
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jpnlRegistro8Layout.createSequentialGroup()
+                        .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpnlRegistro8Layout.createSequentialGroup()
+                                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblCantidadRepuesto8, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                                    .addComponent(lblPrecioRepuesto8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtRepuestoPrecio8, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                                    .addComponent(txtRepuestoCantidad8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jpnlRegistro8Layout.createSequentialGroup()
+                                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jpnlRegistro8Layout.createSequentialGroup()
+                                        .addComponent(lblMarcaRepuesto8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(34, 34, 34))
+                                    .addGroup(jpnlRegistro8Layout.createSequentialGroup()
+                                        .addComponent(lblNombreRepuesto8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(38, 38, 38)))
+                                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtRepuestoNombre8, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                                    .addComponent(txtRepuestoMarca8))
+                                .addGap(27, 27, 27)))
+                        .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnRepuestoModificar8)
+                            .addComponent(btnRepuestoAgregar8)
+                            .addComponent(btnRepuestoEliminar8))
+                        .addGap(521, 521, 521))))
+        );
+        jpnlRegistro8Layout.setVerticalGroup(
+            jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnlRegistro8Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNombreRepuesto8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtRepuestoNombre8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRepuestoAgregar8)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpnlRegistro8Layout.createSequentialGroup()
+                        .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMarcaRepuesto8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRepuestoMarca8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlRegistro8Layout.createSequentialGroup()
+                        .addComponent(btnRepuestoEliminar8)
+                        .addGap(18, 18, 18)))
+                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPrecioRepuesto8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRepuestoPrecio8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRepuestoModificar8))
+                .addGap(17, 17, 17)
+                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCantidadRepuesto8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRepuestoCantidad8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jpnlRegistroRepuestoLayout = new javax.swing.GroupLayout(jpnlRegistroRepuesto);
+        jpnlRegistroRepuesto.setLayout(jpnlRegistroRepuestoLayout);
+        jpnlRegistroRepuestoLayout.setHorizontalGroup(
+            jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 530, Short.MAX_VALUE)
+            .addGroup(jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpnlRegistroRepuestoLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jpnlRegistro8, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jpnlRegistroRepuestoLayout.setVerticalGroup(
+            jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jpnlRegistroRepuestoLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jpnlRegistro8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
 
         pnlRegistroVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Vehiculo"));
 
@@ -126,8 +277,6 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
             .addGroup(pnlRegistroVehiculoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblVentaMarca)
-                    .addComponent(lblVentaModelo)
                     .addComponent(lblVentaPlaca)
                     .addComponent(lblVentaTipoMotor)
                     .addComponent(lblVentaChasis)
@@ -141,8 +290,11 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
                     .addComponent(lblRegistroMatricula)
                     .addComponent(lblVentaLlantas)
                     .addComponent(lblVentaPrecio)
-                    .addComponent(lblVentaPrecio1))
-                .addGap(87, 87, 87)
+                    .addComponent(lblVentaPrecio1)
+                    .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblVentaMarca)
+                        .addComponent(lblVentaModelo)))
+                .addGap(126, 126, 126)
                 .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRegistroVehiculoLayout.createSequentialGroup()
                         .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +323,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         pnlRegistroVehiculoLayout.setVerticalGroup(
             pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRegistroVehiculoLayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblVentaMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlRegistroVehiculoLayout.createSequentialGroup()
@@ -260,38 +412,42 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
 
         btnModificarVehiculo.setText("Modificar");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+        javax.swing.GroupLayout jpnlRegistroVehiculosLayout = new javax.swing.GroupLayout(jpnlRegistroVehiculos);
+        jpnlRegistroVehiculos.setLayout(jpnlRegistroVehiculosLayout);
+        jpnlRegistroVehiculosLayout.setHorizontalGroup(
+            jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlRegistroVehiculosLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(pnlRegistroVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
                         .addComponent(btnAgregarVehiculo)
                         .addGap(79, 79, 79)
                         .addComponent(btnEliminarVehiculo)
                         .addGap(56, 56, 56)
                         .addComponent(btnModificarVehiculo))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregarVehiculo)
-                    .addComponent(btnEliminarVehiculo)
-                    .addComponent(btnModificarVehiculo))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(pnlRegistroVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+        jpnlRegistroVehiculosLayout.setVerticalGroup(
+            jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
+                .addGroup(jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAgregarVehiculo)
+                            .addComponent(btnEliminarVehiculo)
+                            .addComponent(btnModificarVehiculo))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pnlRegistroVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Catálogos");
@@ -333,21 +489,35 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(422, Short.MAX_VALUE)
+                .addComponent(jpnlRegistroVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(362, 362, 362)
+                    .addComponent(jpnlRegistroRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(363, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 582, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(jpnlRegistroVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(22, 22, 22))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(269, 269, 269)
+                    .addComponent(jpnlRegistroRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(270, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        
+        jpnlRegistroVehiculos.setVisible(true);
+        jpnlRegistroRepuestos.setVisible(false);
+        mostrarDatos();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jMenuItem1AncestorAdded
@@ -355,7 +525,9 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1AncestorAdded
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        jpnlRegistroVehiculos.setVisible(false);
+        jpnlRegistroRepuestos.setVisible(true);
+        mostrarDatosRepuestos();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void btnAgregarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVehiculoActionPerformed
@@ -380,8 +552,16 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarVehiculoActionPerformed
 
     private void txtRegistroMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegistroMarcaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtRegistroMarcaActionPerformed
+
+    private void txtRepuestoNombre8txtRepuestoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRepuestoNombre8txtRepuestoNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRepuestoNombre8txtRepuestoNombreActionPerformed
+
+    private void txtRepuestoPrecio8txtRepuestoPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRepuestoPrecio8txtRepuestoPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRepuestoPrecio8txtRepuestoPrecioActionPerformed
    public void mostrarDatos(){
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("CHASIS");
@@ -401,9 +581,26 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
             modelo.addRow(datos);
         }
     }
-    /**
-     * @param args the command line arguments
-     */
+      public void mostrarDatosRepuestos(){
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("NOMBRE");
+        modelo.addColumn("MARCA");
+        modelo.addColumn("CANTIDAD");
+        modelo.addColumn("PRECIO");
+        jtblListaRepuestos.setModel(modelo);
+        String [] datos = new String [4];
+        listaR = arcRepuestos.obtenerRepuesto();
+        Iterator it = listaR.iterator();
+        while(it.hasNext()){
+            r1 = (Repuesto) it.next();
+            datos[0] = r1.getNombreP();
+            datos[1] = r1.getMarcaP();
+            datos[2] = String.valueOf(r1.getCantidad());
+            datos[3] = String.valueOf(r1.getPrecioP());
+            modelo.addRow(datos);
+        }
+    }
+ 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -440,13 +637,98 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarVehiculo;
     private javax.swing.JButton btnEliminarVehiculo;
     private javax.swing.JButton btnModificarVehiculo;
+    private javax.swing.JButton btnRepuestoAgregar;
+    private javax.swing.JButton btnRepuestoAgregar1;
+    private javax.swing.JButton btnRepuestoAgregar2;
+    private javax.swing.JButton btnRepuestoAgregar3;
+    private javax.swing.JButton btnRepuestoAgregar4;
+    private javax.swing.JButton btnRepuestoAgregar5;
+    private javax.swing.JButton btnRepuestoAgregar6;
+    private javax.swing.JButton btnRepuestoAgregar8;
+    private javax.swing.JButton btnRepuestoEliminar;
+    private javax.swing.JButton btnRepuestoEliminar1;
+    private javax.swing.JButton btnRepuestoEliminar2;
+    private javax.swing.JButton btnRepuestoEliminar3;
+    private javax.swing.JButton btnRepuestoEliminar4;
+    private javax.swing.JButton btnRepuestoEliminar5;
+    private javax.swing.JButton btnRepuestoEliminar6;
+    private javax.swing.JButton btnRepuestoEliminar8;
+    private javax.swing.JButton btnRepuestoModificar;
+    private javax.swing.JButton btnRepuestoModificar1;
+    private javax.swing.JButton btnRepuestoModificar2;
+    private javax.swing.JButton btnRepuestoModificar3;
+    private javax.swing.JButton btnRepuestoModificar4;
+    private javax.swing.JButton btnRepuestoModificar5;
+    private javax.swing.JButton btnRepuestoModificar6;
+    private javax.swing.JButton btnRepuestoModificar8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JPanel jpnlRegistro;
+    private javax.swing.JPanel jpnlRegistro1;
+    private javax.swing.JPanel jpnlRegistro2;
+    private javax.swing.JPanel jpnlRegistro3;
+    private javax.swing.JPanel jpnlRegistro4;
+    private javax.swing.JPanel jpnlRegistro5;
+    private javax.swing.JPanel jpnlRegistro6;
+    private javax.swing.JPanel jpnlRegistro8;
+    private javax.swing.JPanel jpnlRegistroRepuesto;
+    private javax.swing.JPanel jpnlRegistroRepuestos;
+    private javax.swing.JPanel jpnlRegistroRepuestos1;
+    private javax.swing.JPanel jpnlRegistroRepuestos2;
+    private javax.swing.JPanel jpnlRegistroRepuestos3;
+    private javax.swing.JPanel jpnlRegistroVehiculos;
+    private javax.swing.JTable jtblListaRepuestos;
+    private javax.swing.JTable jtblListaRepuestos1;
+    private javax.swing.JTable jtblListaRepuestos2;
+    private javax.swing.JTable jtblListaRepuestos3;
+    private javax.swing.JTable jtblListaRepuestos4;
+    private javax.swing.JTable jtblListaRepuestos5;
+    private javax.swing.JTable jtblListaRepuestos6;
+    private javax.swing.JTable jtblListaRepuestos8;
+    private javax.swing.JLabel lblCantidadRepuesto;
+    private javax.swing.JLabel lblCantidadRepuesto1;
+    private javax.swing.JLabel lblCantidadRepuesto2;
+    private javax.swing.JLabel lblCantidadRepuesto3;
+    private javax.swing.JLabel lblCantidadRepuesto4;
+    private javax.swing.JLabel lblCantidadRepuesto5;
+    private javax.swing.JLabel lblCantidadRepuesto6;
+    private javax.swing.JLabel lblCantidadRepuesto8;
+    private javax.swing.JLabel lblMarcaRepuesto;
+    private javax.swing.JLabel lblMarcaRepuesto1;
+    private javax.swing.JLabel lblMarcaRepuesto2;
+    private javax.swing.JLabel lblMarcaRepuesto3;
+    private javax.swing.JLabel lblMarcaRepuesto4;
+    private javax.swing.JLabel lblMarcaRepuesto5;
+    private javax.swing.JLabel lblMarcaRepuesto6;
+    private javax.swing.JLabel lblMarcaRepuesto8;
+    private javax.swing.JLabel lblNombreRepuesto;
+    private javax.swing.JLabel lblNombreRepuesto1;
+    private javax.swing.JLabel lblNombreRepuesto2;
+    private javax.swing.JLabel lblNombreRepuesto3;
+    private javax.swing.JLabel lblNombreRepuesto4;
+    private javax.swing.JLabel lblNombreRepuesto5;
+    private javax.swing.JLabel lblNombreRepuesto6;
+    private javax.swing.JLabel lblNombreRepuesto8;
+    private javax.swing.JLabel lblPrecioRepuesto;
+    private javax.swing.JLabel lblPrecioRepuesto1;
+    private javax.swing.JLabel lblPrecioRepuesto2;
+    private javax.swing.JLabel lblPrecioRepuesto3;
+    private javax.swing.JLabel lblPrecioRepuesto4;
+    private javax.swing.JLabel lblPrecioRepuesto5;
+    private javax.swing.JLabel lblPrecioRepuesto6;
+    private javax.swing.JLabel lblPrecioRepuesto8;
     private javax.swing.JLabel lblRegistroMatricula;
     private javax.swing.JLabel lblVentaAnioFabricacion;
     private javax.swing.JLabel lblVentaAros;
@@ -481,5 +763,37 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtRegistroTapiceria;
     private javax.swing.JTextField txtRegistroTipoV;
     private javax.swing.JTextField txtRegistroTransmision;
+    private javax.swing.JTextField txtRepuestoCantidad;
+    private javax.swing.JTextField txtRepuestoCantidad1;
+    private javax.swing.JTextField txtRepuestoCantidad2;
+    private javax.swing.JTextField txtRepuestoCantidad3;
+    private javax.swing.JTextField txtRepuestoCantidad4;
+    private javax.swing.JTextField txtRepuestoCantidad5;
+    private javax.swing.JTextField txtRepuestoCantidad6;
+    private javax.swing.JTextField txtRepuestoCantidad8;
+    private javax.swing.JTextField txtRepuestoMarca;
+    private javax.swing.JTextField txtRepuestoMarca1;
+    private javax.swing.JTextField txtRepuestoMarca2;
+    private javax.swing.JTextField txtRepuestoMarca3;
+    private javax.swing.JTextField txtRepuestoMarca4;
+    private javax.swing.JTextField txtRepuestoMarca5;
+    private javax.swing.JTextField txtRepuestoMarca6;
+    private javax.swing.JTextField txtRepuestoMarca8;
+    private javax.swing.JTextField txtRepuestoNombre;
+    private javax.swing.JTextField txtRepuestoNombre1;
+    private javax.swing.JTextField txtRepuestoNombre2;
+    private javax.swing.JTextField txtRepuestoNombre3;
+    private javax.swing.JTextField txtRepuestoNombre4;
+    private javax.swing.JTextField txtRepuestoNombre5;
+    private javax.swing.JTextField txtRepuestoNombre6;
+    private javax.swing.JTextField txtRepuestoNombre8;
+    private javax.swing.JTextField txtRepuestoPrecio;
+    private javax.swing.JTextField txtRepuestoPrecio1;
+    private javax.swing.JTextField txtRepuestoPrecio2;
+    private javax.swing.JTextField txtRepuestoPrecio3;
+    private javax.swing.JTextField txtRepuestoPrecio4;
+    private javax.swing.JTextField txtRepuestoPrecio5;
+    private javax.swing.JTextField txtRepuestoPrecio6;
+    private javax.swing.JTextField txtRepuestoPrecio8;
     // End of variables declaration//GEN-END:variables
 }

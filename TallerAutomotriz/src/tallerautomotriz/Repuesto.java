@@ -11,16 +11,15 @@ public class Repuesto {
     private String marcaP;
     private double precioP;
     private long cantidad;
-    private ListaCompraVenta listaC;
 
     public Repuesto( String nombreP, String marcaP, double precioP, long cantidad) {
+        this.nombreP = nombreP;
         this.marcaP = marcaP;
         this.precioP = precioP;
         this.cantidad = cantidad;
-        listaC = new ListaCompraVenta();
     }
 
-    Repuesto() {
+    public Repuesto() {
 
     }
 
