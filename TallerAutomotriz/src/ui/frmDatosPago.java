@@ -5,6 +5,11 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
+import tallerautomotriz.ArchivoVentaVehiculo;
+import tallerautomotriz.Vehiculo;
+import tallerautomotriz.VentaVehiculo;
+
 /**
  *
  * @author natyconstante
@@ -29,24 +34,26 @@ public class frmDatosPago extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtNombreTarjeta = new javax.swing.JTextField();
+        txtNombreComprador = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtNumeroTarjeta = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        txtNumCuenta = new javax.swing.JTextField();
+        txtCSV = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         btnPagarVehiculo = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtPrecioVenta = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de Tarjeta"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Factura"));
 
         jLabel1.setText("Nombre");
 
-        txtNombreTarjeta.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreComprador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreTarjetaActionPerformed(evt);
+                txtNombreCompradorActionPerformed(evt);
             }
         });
 
@@ -69,25 +76,31 @@ public class frmDatosPago extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Precio Total");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNombreTarjeta)
-                    .addComponent(txtNumeroTarjeta)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNombreComprador)
+                            .addComponent(txtNumCuenta)
+                            .addComponent(txtCSV)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                            .addComponent(txtPrecioVenta)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
                         .addComponent(btnPagarVehiculo)))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
@@ -97,22 +110,26 @@ public class frmDatosPago extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtNombreTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreComprador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNumeroTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCSV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtPrecioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(btnPagarVehiculo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,22 +146,44 @@ public class frmDatosPago extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreTarjetaActionPerformed
+    private void txtNombreCompradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreCompradorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreTarjetaActionPerformed
+    }//GEN-LAST:event_txtNombreCompradorActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-
+    int cont=0;
     private void btnPagarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarVehiculoActionPerformed
         this.dispose();
+        cont+=1;
+        
+        VentaVehiculo vv1= new VentaVehiculo();
+        ArchivoVentaVehiculo arcVenta = new ArchivoVentaVehiculo();
+        if(Integer.parseInt(txtCSV.getText())>=100 || Integer.parseInt(txtCSV.getText())<=999 ){
+            vv1.setCodigo(String.valueOf(cont));
+            vv1.setNombreComprador(txtNombreComprador.getText());
+            vv1.setNombreCuenta(Long.parseLong(txtNumCuenta.getText()));
+            
+            frmPrincipal frmP= new frmPrincipal();
+            Vehiculo a = frmP.v1;
+            txtPrecioVenta.setText(String.valueOf(a.getPrecio()));
+            vv1.setPrecioVenta(a.getPrecio());
+            vv1.setFechaEntrega("2020");
+            vv1.setFechaFactura("2020");
+            arcVenta.adicionarVenta(vv1);
+            JOptionPane.showMessageDialog(null, "Compra exitosa muchas felicidades !!!");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "CSV erroneo");
+        }
+        
     }//GEN-LAST:event_btnPagarVehiculoActionPerformed
 
     /**
@@ -188,10 +227,12 @@ public class frmDatosPago extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField txtNombreTarjeta;
-    private javax.swing.JTextField txtNumeroTarjeta;
+    private javax.swing.JTextField txtCSV;
+    private javax.swing.JTextField txtNombreComprador;
+    private javax.swing.JTextField txtNumCuenta;
+    private javax.swing.JTextField txtPrecioVenta;
     // End of variables declaration//GEN-END:variables
 }

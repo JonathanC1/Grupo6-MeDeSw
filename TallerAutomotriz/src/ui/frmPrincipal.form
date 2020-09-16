@@ -81,7 +81,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="957" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -142,7 +142,7 @@
                               <Component id="btnSeleccionar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="325" max="32767" attributes="0"/>
+                      <EmptySpace pref="322" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -299,11 +299,13 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="txtFabricacion" pref="200" max="32767" attributes="0"/>
-                                              <Component id="txtPlaca" pref="200" max="32767" attributes="0"/>
-                                              <Component id="txtTipoMotor" max="32767" attributes="0"/>
-                                              <Component id="txtChasis" max="32767" attributes="0"/>
-                                              <Component id="txtCilindro" max="32767" attributes="0"/>
-                                              <Component id="txtNumeroP" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="txtPlaca" pref="200" max="32767" attributes="0"/>
+                                                  <Component id="txtTipoMotor" max="32767" attributes="0"/>
+                                                  <Component id="txtChasis" max="32767" attributes="0"/>
+                                                  <Component id="txtCilindro" max="32767" attributes="0"/>
+                                                  <Component id="txtNumeroP" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
                                       </Group>
@@ -469,23 +471,27 @@
                                           <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="cmbNuevoColor" max="32767" attributes="0"/>
+                                                  <Component id="cmbNuevoTipoTransmision" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="cmbNuevaTapiceria" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="cmbNuevaTipoLLantas" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="cmbNuevoTipoAros" alignment="0" pref="183" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="lblPrecioCalculado" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtPrecio" min="-2" pref="183" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="cmbNuevoColor" max="32767" attributes="0"/>
-                                          <Component id="cmbNuevoTipoTransmision" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cmbNuevaTapiceria" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cmbNuevaTipoLLantas" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="cmbNuevoTipoAros" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="139" max="32767" attributes="0"/>
+                              <EmptySpace pref="138" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -517,11 +523,11 @@
                                   <Component id="cmbNuevoTipoAros" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblPrecioCalculado" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="38" max="32767" attributes="0"/>
                           </Group>
@@ -564,11 +570,6 @@
                         <Property name="text" type="java.lang.String" value="$"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblPrecioCalculado">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="0.0"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JComboBox" name="cmbNuevoTipoAros">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -579,6 +580,9 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbNuevoTipoArosActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -593,6 +597,9 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbNuevaTipoLLantasActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -607,6 +614,9 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbNuevaTapiceriaActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -620,6 +630,9 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbNuevoTipoTransmisionActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -640,9 +653,17 @@
                           </StringArray>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbNuevoColorActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtPrecio">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPrecioActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -717,7 +738,7 @@
                       <Component id="pnlFormularioVenta" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="422" max="32767" attributes="0"/>
+                      <EmptySpace pref="225" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -726,15 +747,15 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="pnlFormularioVenta" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="pnlFormularioVenta" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="375" max="32767" attributes="0"/>
+                      <EmptySpace pref="340" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -755,58 +776,63 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblVentaMarca" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVentaModelo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVentaPlaca" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVentaTipoMotor" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVentaChasis" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVentaCilindraje" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVentaPuertas" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVentaAnioFabricacion" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVentaAros" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVentaColor" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVentaTransmision" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVentaTapiceria" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblVentaPrecio" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtVentaMarca" max="32767" attributes="0"/>
-                              <Component id="txtVentaModelo" max="32767" attributes="0"/>
-                              <Component id="txtVentaPlaca" max="32767" attributes="0"/>
-                              <Component id="txtVentaMotor" max="32767" attributes="0"/>
-                              <Component id="txtVentaChasis" max="32767" attributes="0"/>
-                              <Component id="txtVentaCilindraje" max="32767" attributes="0"/>
-                              <Component id="txtVentaPuertas" max="32767" attributes="0"/>
-                              <Component id="txtVentaAnioFab" max="32767" attributes="0"/>
-                              <Component id="txtVentaColor" max="32767" attributes="0"/>
-                              <Component id="txtVentaTransmision" max="32767" attributes="0"/>
-                              <Component id="txtVentaTapiceria" max="32767" attributes="0"/>
-                              <Component id="txtVentaLlantas" max="32767" attributes="0"/>
-                              <Component id="txtVentaAros" max="32767" attributes="0"/>
-                              <Component id="txtVentaPrecio" pref="107" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                                  <Component id="btnComprarAuto1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
                                   <Component id="lblVentaLlantas" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="529" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                          <Component id="btnComprarAuto1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblVentaMarca" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVentaModelo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVentaPlaca" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVentaTipoMotor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVentaChasis" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVentaCilindraje" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVentaPuertas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVentaAnioFabricacion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVentaAros" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVentaColor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVentaTransmision" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVentaTapiceria" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblVentaPrecio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtVentaMarca" max="32767" attributes="0"/>
+                                              <Component id="txtVentaModelo" max="32767" attributes="0"/>
+                                              <Component id="txtVentaPlaca" max="32767" attributes="0"/>
+                                              <Component id="txtVentaMotor" max="32767" attributes="0"/>
+                                              <Component id="txtVentaChasis" max="32767" attributes="0"/>
+                                              <Component id="txtVentaCilindraje" max="32767" attributes="0"/>
+                                              <Component id="txtVentaPuertas" max="32767" attributes="0"/>
+                                              <Component id="txtVentaAnioFab" max="32767" attributes="0"/>
+                                              <Component id="txtVentaColor" max="32767" attributes="0"/>
+                                              <Component id="txtVentaTransmision" max="32767" attributes="0"/>
+                                              <Component id="txtVentaTapiceria" max="32767" attributes="0"/>
+                                              <Component id="txtVentaLlantas" max="32767" attributes="0"/>
+                                              <Component id="txtVentaAros" max="32767" attributes="0"/>
+                                              <Component id="txtVentaPrecio" pref="107" max="32767" attributes="0"/>
+                                              <Component id="txtVentaMatricula" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
@@ -874,12 +900,17 @@
                               <Component id="lblVentaAros" min="-2" max="-2" attributes="0"/>
                               <Component id="txtVentaAros" min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtVentaMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="lblVentaPrecio" min="-2" max="-2" attributes="0"/>
                               <Component id="txtVentaPrecio" min="-2" pref="20" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="btnComprarAuto1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -913,7 +944,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblVentaAnioFabricacion">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="A&#xf1;o de Fabricaci&#xf3;n"/>
+                    <Property name="text" type="java.lang.String" value="Color interior"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblVentaPlaca">
@@ -995,6 +1026,13 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtVentaPrecio">
                 </Component>
+                <Component class="javax.swing.JTextField" name="txtVentaMatricula">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabel23">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="A&#xf1;o Fabricaci&#xf3;n"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel5">
@@ -1012,16 +1050,18 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lblPrecioSugeridoVenta" max="32767" attributes="0"/>
                                       <Component id="txtPrecioOfertadoCliente" pref="130" max="32767" attributes="0"/>
+                                      <Component id="txtPrecioAdmin" max="32767" attributes="0"/>
                                   </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblPrecioSugeridoVenta" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                                   <Component id="btnAceptarOferta" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="btnNuevaOferta" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                                  <EmptySpace pref="25" max="32767" attributes="0"/>
                                   <Component id="btnCancelarVenta" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -1034,7 +1074,10 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace pref="29" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lblPrecioOfrecidoConcecionaria" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblPrecioOfrecidoConcecionaria" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="txtPrecioAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="lblPrecioSugeridoVenta" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1093,6 +1136,8 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarVentaActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtPrecioAdmin">
                 </Component>
               </SubComponents>
             </Container>

@@ -23,12 +23,14 @@ public class frmPrincipal extends javax.swing.JFrame {
     ArchivoVehiculos arcArchivoVehiculo = new ArchivoVehiculos();
     ArrayList<Vehiculo> lista = new ArrayList<>();
     Vehiculo v1 = new Vehiculo();
+    Vehiculo v2= new Vehiculo();
     public frmPrincipal() {
         initComponents();
         pnlDetalleVehiculo.setVisible(false);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         pnlDetalleVehiculo.setVisible(true);
         mostrarDatos();
+        calcularPrecio();
     }
     DefaultTableModel modelo = new DefaultTableModel();
     public void mostrarDatos(){
@@ -63,6 +65,27 @@ public class frmPrincipal extends javax.swing.JFrame {
             datos[3] = String.valueOf(v1.getPrecio());
             modelo.addRow(datos);
         }
+    }
+    
+    public void calcularPrecio(){
+        String color = cmbNuevoColor.getSelectedItem().toString();
+        String trasmision = cmbNuevoTipoTransmision.getSelectedItem().toString();
+        String tapiceria = cmbNuevaTapiceria.getSelectedItem().toString();
+        String llanta = cmbNuevaTipoLLantas.getSelectedItem().toString();
+        String aros=cmbNuevoTipoAros.getSelectedItem().toString();
+        if(!color.equals(v1.getColor())){
+            v1.setPrecio(v1.getPrecio()+50);
+        }
+        if(trasmision!=v1.getTipoTransmision()){
+            v1.setPrecio(v1.getPrecio()+500);
+        }
+        if(llanta!=v1.getTipoLLanta()){
+            v1.setPrecio(v1.getPrecio()+120);
+        }
+        if(aros!=v1.getTipoAros()){
+            v1.setPrecio(v1.getPrecio()+100);
+        }
+        txtPrecio.setText(String.valueOf(v1.getPrecio()));
     }
 
     /**
@@ -106,12 +129,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        lblPrecioCalculado = new javax.swing.JLabel();
         cmbNuevoTipoAros = new javax.swing.JComboBox<>();
         cmbNuevaTipoLLantas = new javax.swing.JComboBox<>();
         cmbNuevaTapiceria = new javax.swing.JComboBox<>();
         cmbNuevoTipoTransmision = new javax.swing.JComboBox<>();
         cmbNuevoColor = new javax.swing.JComboBox<>();
+        txtPrecio = new javax.swing.JTextField();
         btnComprarAuto = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         lblValorChasis = new javax.swing.JLabel();
@@ -157,6 +180,8 @@ public class frmPrincipal extends javax.swing.JFrame {
         txtVentaLlantas = new javax.swing.JTextField();
         txtVentaAros = new javax.swing.JTextField();
         txtVentaPrecio = new javax.swing.JTextField();
+        txtVentaMatricula = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         lblPrecioOfrecidoConcecionaria = new javax.swing.JLabel();
         lblPrecioSugeridoVenta = new javax.swing.JLabel();
@@ -165,6 +190,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         btnNuevaOferta = new javax.swing.JButton();
         txtPrecioOfertadoCliente = new javax.swing.JTextField();
         btnCancelarVenta = new javax.swing.JButton();
+        txtPrecioAdmin = new javax.swing.JTextField();
         jPanelTalleres = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -296,17 +322,46 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jLabel20.setText("$");
 
-        lblPrecioCalculado.setText("0.0");
-
         cmbNuevoTipoAros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Niquelados", "Estándar", "Aluminio" }));
+        cmbNuevoTipoAros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNuevoTipoArosActionPerformed(evt);
+            }
+        });
 
         cmbNuevaTipoLLantas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Llantas de carrera", "Llantas todo terreno", "Llantas estándar" }));
+        cmbNuevaTipoLLantas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNuevaTipoLLantasActionPerformed(evt);
+            }
+        });
 
         cmbNuevaTapiceria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cuero", "Tela", "Fibras" }));
+        cmbNuevaTapiceria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNuevaTapiceriaActionPerformed(evt);
+            }
+        });
 
         cmbNuevoTipoTransmision.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Automática", "Manual" }));
+        cmbNuevoTipoTransmision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNuevoTipoTransmisionActionPerformed(evt);
+            }
+        });
 
         cmbNuevoColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amarillo", "Azul", "Blanco", "Gris", "Rojo", "Vino", "Negro", " ", " " }));
+        cmbNuevoColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNuevoColorActionPerformed(evt);
+            }
+        });
+
+        txtPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -323,19 +378,21 @@ public class frmPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
                             .addComponent(jLabel19))
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
+                                .addGap(12, 12, 12)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmbNuevoColor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbNuevoTipoTransmision, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbNuevaTapiceria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbNuevaTipoLLantas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbNuevoTipoAros, 0, 183, Short.MAX_VALUE)))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
                                 .addComponent(jLabel20)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblPrecioCalculado))
-                            .addComponent(cmbNuevoColor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbNuevoTipoTransmision, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbNuevaTapiceria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbNuevaTipoLLantas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbNuevoTipoAros, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(139, Short.MAX_VALUE))
+                                .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,11 +417,11 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbNuevoTipoAros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(9, 9, 9)
+                .addGap(6, 6, 6)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPrecioCalculado)
                     .addComponent(jLabel19)
-                    .addComponent(jLabel20))
+                    .addComponent(jLabel20)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -541,7 +598,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSeleccionar)))
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addContainerGap(322, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanelComprar, "card2");
@@ -558,7 +615,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         lblVentaPuertas.setText("Número de Puertas ");
 
-        lblVentaAnioFabricacion.setText("Año de Fabricación");
+        lblVentaAnioFabricacion.setText("Color interior");
 
         lblVentaPlaca.setText("Placa");
 
@@ -589,6 +646,8 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         lblVentaPrecio.setText("Precio");
 
+        jLabel23.setText("Año Fabricación");
+
         javax.swing.GroupLayout pnlFormularioVentaLayout = new javax.swing.GroupLayout(pnlFormularioVenta);
         pnlFormularioVenta.setLayout(pnlFormularioVentaLayout);
         pnlFormularioVentaLayout.setHorizontalGroup(
@@ -596,50 +655,53 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblVentaMarca)
-                    .addComponent(lblVentaModelo)
-                    .addComponent(lblVentaPlaca)
-                    .addComponent(lblVentaTipoMotor)
-                    .addComponent(lblVentaChasis)
-                    .addComponent(lblVentaCilindraje)
-                    .addComponent(lblVentaPuertas)
-                    .addComponent(lblVentaAnioFabricacion)
-                    .addComponent(lblVentaAros)
-                    .addComponent(lblVentaColor)
-                    .addComponent(lblVentaTransmision)
-                    .addComponent(lblVentaTapiceria)
-                    .addComponent(lblVentaPrecio))
-                .addGap(87, 87, 87)
-                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtVentaMarca)
-                    .addComponent(txtVentaModelo)
-                    .addComponent(txtVentaPlaca)
-                    .addComponent(txtVentaMotor)
-                    .addComponent(txtVentaChasis)
-                    .addComponent(txtVentaCilindraje)
-                    .addComponent(txtVentaPuertas)
-                    .addComponent(txtVentaAnioFab)
-                    .addComponent(txtVentaColor)
-                    .addComponent(txtVentaTransmision)
-                    .addComponent(txtVentaTapiceria)
-                    .addComponent(txtVentaLlantas)
-                    .addComponent(txtVentaAros)
-                    .addComponent(txtVentaPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
-                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(btnComprarAuto1))
+                        .addComponent(lblVentaLlantas)
+                        .addGap(0, 529, Short.MAX_VALUE))
                     .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblVentaLlantas)))
-                .addGap(0, 166, Short.MAX_VALUE))
+                        .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addComponent(btnComprarAuto1))
+                            .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
+                                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblVentaMarca)
+                                    .addComponent(lblVentaModelo)
+                                    .addComponent(lblVentaPlaca)
+                                    .addComponent(lblVentaTipoMotor)
+                                    .addComponent(lblVentaChasis)
+                                    .addComponent(lblVentaCilindraje)
+                                    .addComponent(lblVentaPuertas)
+                                    .addComponent(lblVentaAnioFabricacion)
+                                    .addComponent(lblVentaAros)
+                                    .addComponent(lblVentaColor)
+                                    .addComponent(lblVentaTransmision)
+                                    .addComponent(lblVentaTapiceria)
+                                    .addComponent(lblVentaPrecio)
+                                    .addComponent(jLabel23))
+                                .addGap(87, 87, 87)
+                                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtVentaMarca)
+                                    .addComponent(txtVentaModelo)
+                                    .addComponent(txtVentaPlaca)
+                                    .addComponent(txtVentaMotor)
+                                    .addComponent(txtVentaChasis)
+                                    .addComponent(txtVentaCilindraje)
+                                    .addComponent(txtVentaPuertas)
+                                    .addComponent(txtVentaAnioFab)
+                                    .addComponent(txtVentaColor)
+                                    .addComponent(txtVentaTransmision)
+                                    .addComponent(txtVentaTapiceria)
+                                    .addComponent(txtVentaLlantas)
+                                    .addComponent(txtVentaAros)
+                                    .addComponent(txtVentaPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                                    .addComponent(txtVentaMatricula))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlFormularioVentaLayout.setVerticalGroup(
             pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormularioVentaLayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
@@ -693,11 +755,15 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblVentaAros)
                     .addComponent(txtVentaAros, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtVentaMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
                 .addGap(18, 18, 18)
                 .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblVentaPrecio)
                     .addComponent(txtVentaPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(btnComprarAuto1))
         );
 
@@ -745,14 +811,16 @@ public class frmPrincipal extends javax.swing.JFrame {
                             .addComponent(lblPrecioOfrecidoConcecionaria))
                         .addGap(53, 53, 53)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblPrecioSugeridoVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtPrecioOfertadoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
+                            .addComponent(txtPrecioOfertadoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(txtPrecioAdmin))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPrecioSugeridoVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(btnAceptarOferta)
                         .addGap(30, 30, 30)
                         .addComponent(btnNuevaOferta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addComponent(btnCancelarVenta)))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
@@ -761,7 +829,9 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblPrecioOfrecidoConcecionaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblPrecioOfrecidoConcecionaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtPrecioAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblPrecioSugeridoVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -783,19 +853,19 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addComponent(pnlFormularioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(422, Short.MAX_VALUE))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
         jPanelVenderLayout.setVerticalGroup(
             jPanelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelVenderLayout.createSequentialGroup()
                 .addGroup(jPanelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelVenderLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(pnlFormularioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelVenderLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(375, Short.MAX_VALUE))
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelVenderLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(pnlFormularioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(340, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanelVender, "card3");
@@ -1073,7 +1143,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 957, Short.MAX_VALUE)
         );
 
         pack();
@@ -1084,7 +1154,7 @@ public class frmPrincipal extends javax.swing.JFrame {
        jPanelTalleres.setVisible(false);
        jPanelComprar.setVisible(true);
        jPanelRepuestos.setVisible(false);
-       mostrarDatos();
+       
     }//GEN-LAST:event_ComprarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1101,7 +1171,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnBuscarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVehiculoActionPerformed
-      
+        for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
          pnlDetalleVehiculo.setVisible(true);
          arcArchivoVehiculo.buscarVehiculo(txtBuscaMarcaModelo.getText());
          mostrarV();
@@ -1121,6 +1193,52 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void btnComprarAuto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComprarAuto1ActionPerformed
         // TODO add your handling code here:
+        v2.setMarca(txtVentaMarca.getText());
+        v2.setModelo(txtVentaModelo.getText());
+        v2.setPlaca(txtVentaPlaca.getText());
+        v2.setTipoMotor(txtVentaMotor.getText());
+        v2.setChasis(txtVentaChasis.getText());
+        v2.setCilindraje(Integer.parseInt(txtVentaCilindraje.getText()));
+        v2.setNumeroPuerta(Integer.parseInt(txtVentaPuertas.getText()));
+        v2.setColor(txtVentaColor.getText());
+        v2.setTipoTransmision(txtVentaTransmision.getText());
+        v2.setMaterialInterior(txtVentaTapiceria.getText());
+        v2.setTipoLLanta(txtVentaLlantas.getText());
+        v2.setTipoAros(txtVentaAros.getText());
+        v2.setPrecio(Float.parseFloat(txtVentaPrecio.getText()));
+        v2.setAñoMatricula(Integer.parseInt(txtVentaMatricula.getText()));
+        v2.setTipoVehiculo(null);
+        v2.setDisponibilidad(true);
+        float precio;
+        switch(v2.getAñoFabricacion()){
+            case 2015:
+            case 2016:
+            case 2017:
+                if(v2.getCilindraje()>4){
+                    precio=4000;
+                }
+                else{
+                    precio=1000;
+                }
+                break;
+            case 2018:
+            case 2019:
+            case 2020:
+            case 2021:
+                if(v2.getCilindraje()>4){
+                    precio=8000;
+                }
+                else{
+                    precio=5000;
+                }
+                break;
+            default:
+                precio=1000;
+                break;
+        }
+        txtPrecioAdmin.setText(String.valueOf(precio));
+        v2.setPrecio(precio);
+        
     }//GEN-LAST:event_btnComprarAuto1ActionPerformed
 
     private void txtVentaMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVentaMarcaActionPerformed
@@ -1129,10 +1247,29 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void btnAceptarOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarOfertaActionPerformed
         // TODO add your handling code here:
+        if(v2.getMarca()==null || v2.getPlaca()==null || v2.getTipoTransmision()==null ){
+            JOptionPane.showMessageDialog(null, "Llenar todos los campos");
+        }
+        else{
+            arcArchivoVehiculo.adicionarVehiculo(v2);
+            JOptionPane.showMessageDialog(null, "Felicidades Vendiste tu vehiculo!!! ");
+            
+        }
+        
     }//GEN-LAST:event_btnAceptarOfertaActionPerformed
 
     private void btnNuevaOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaOfertaActionPerformed
         // TODO add your handling code here:
+        float a = Float.parseFloat(txtPrecioAdmin.getText())+500;
+        float b = Float.parseFloat(txtPrecioOfertadoCliente.getText());
+        
+        if(a<b){
+            JOptionPane.showMessageDialog(null, "Tu oferta ha sido rechazada sobrepasa nuestro estimado de "+a);
+        }
+        else{
+            arcArchivoVehiculo.adicionarVehiculo(v2);
+            JOptionPane.showMessageDialog(null, "Felicidades Vendiste tu vehiculo!!! ");
+        }
     }//GEN-LAST:event_btnNuevaOfertaActionPerformed
 
     private void txtPrecioOfertadoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioOfertadoClienteActionPerformed
@@ -1141,6 +1278,20 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void btnCancelarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarVentaActionPerformed
         // TODO add your handling code here:
+        txtVentaMarca.setText("");
+        txtVentaModelo.setText("");
+        txtVentaPlaca.setText("");
+        txtVentaMotor.setText("");
+        txtVentaChasis.setText("");
+        txtVentaCilindraje.setText("");
+        txtVentaPuertas.setText("");
+        txtVentaColor.setText("");
+        txtVentaTransmision.setText("");
+        txtVentaTapiceria.setText("");
+        txtVentaLlantas.setText("");
+        txtVentaAros.setText("");
+        txtVentaPrecio.setText("");
+        txtVentaMatricula.setText("");
     }//GEN-LAST:event_btnCancelarVentaActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -1166,7 +1317,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         int fila=jtblVehiculos.getSelectedRow();
         if(fila>=0){
             String a = String.valueOf(modelo.getValueAt(fila, 0));
-            Vehiculo v1 = arcArchivoVehiculo.buscarVehiculoChasis(a);
+            v1 = arcArchivoVehiculo.buscarVehiculoChasis(a);
             txtMarca.setText(v1.getMarca());
             txtModelo.setText(v1.getModelo());
             txtPlaca.setText(v1.getPlaca());
@@ -1174,12 +1325,43 @@ public class frmPrincipal extends javax.swing.JFrame {
             txtChasis.setText(v1.getChasis());
             txtCilindro.setText(String.valueOf(v1.getCilindraje()));
             txtNumeroP.setText(String.valueOf(v1.getNumeroPuerta()));
-            txtFabricacion.setText(String.valueOf(v1.getAñoFabricacion()));           
+            txtFabricacion.setText(String.valueOf(v1.getAñoFabricacion()));
+            txtPrecio.setText(String.valueOf(v1.getPrecio()));
         }
         else{
             JOptionPane.showMessageDialog(null, "Seleccionar una fila");
         }
     }//GEN-LAST:event_btnSeleccionarActionPerformed
+
+    private void cmbNuevoColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNuevoColorActionPerformed
+        // TODO add your handling code here:
+        calcularPrecio();
+        
+    }//GEN-LAST:event_cmbNuevoColorActionPerformed
+
+    private void cmbNuevoTipoTransmisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNuevoTipoTransmisionActionPerformed
+        // TODO add your handling code here:
+        calcularPrecio();
+    }//GEN-LAST:event_cmbNuevoTipoTransmisionActionPerformed
+
+    private void cmbNuevaTapiceriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNuevaTapiceriaActionPerformed
+        // TODO add your handling code here:
+        calcularPrecio();
+    }//GEN-LAST:event_cmbNuevaTapiceriaActionPerformed
+
+    private void cmbNuevaTipoLLantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNuevaTipoLLantasActionPerformed
+        // TODO add your handling code here:
+        calcularPrecio();
+    }//GEN-LAST:event_cmbNuevaTipoLLantasActionPerformed
+
+    private void cmbNuevoTipoArosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNuevoTipoArosActionPerformed
+        // TODO add your handling code here:
+        calcularPrecio();
+    }//GEN-LAST:event_cmbNuevoTipoArosActionPerformed
+
+    private void txtPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1250,6 +1432,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1286,7 +1469,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblCantidadRepuesto;
     private javax.swing.JLabel lblMarcaRep;
     private javax.swing.JLabel lblMarcaRepuesto;
-    private javax.swing.JLabel lblPrecioCalculado;
     private javax.swing.JLabel lblPrecioCliente;
     private javax.swing.JLabel lblPrecioOfrecidoConcecionaria;
     private javax.swing.JLabel lblPrecioRepuesto;
@@ -1326,6 +1508,8 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtNumeroP;
     private javax.swing.JTextField txtPlaca;
+    private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtPrecioAdmin;
     private javax.swing.JTextField txtPrecioOfertadoCliente;
     private javax.swing.JTextField txtTipoMotor;
     private javax.swing.JTextField txtVentaAnioFab;
@@ -1335,6 +1519,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtVentaColor;
     private javax.swing.JTextField txtVentaLlantas;
     private javax.swing.JTextField txtVentaMarca;
+    private javax.swing.JTextField txtVentaMatricula;
     private javax.swing.JTextField txtVentaModelo;
     private javax.swing.JTextField txtVentaMotor;
     private javax.swing.JTextField txtVentaPlaca;
