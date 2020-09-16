@@ -31,7 +31,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     public frmPrincipalAdministrador() {
         initComponents();
         jpnlRegistroVehiculos.setVisible(false);
-        jpnlRegistroRepuestos.setVisible(false);
+        jpnlRegistroRepuesto.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -92,6 +92,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         btnAgregarVehiculo = new javax.swing.JButton();
         btnEliminarVehiculo = new javax.swing.JButton();
         btnModificarVehiculo = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -213,16 +214,16 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         jpnlRegistroRepuesto.setLayout(jpnlRegistroRepuestoLayout);
         jpnlRegistroRepuestoLayout.setHorizontalGroup(
             jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 530, Short.MAX_VALUE)
+            .addGap(0, 462, Short.MAX_VALUE)
             .addGroup(jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jpnlRegistroRepuestoLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(jpnlRegistro8, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap(24, Short.MAX_VALUE)))
         );
         jpnlRegistroRepuestoLayout.setVerticalGroup(
             jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jpnlRegistroRepuestoLayout.createSequentialGroup()
                     .addContainerGap()
@@ -421,33 +422,42 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
                 .addComponent(pnlRegistroVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addGap(37, 37, 37)
                         .addComponent(btnAgregarVehiculo)
                         .addGap(79, 79, 79)
                         .addComponent(btnEliminarVehiculo)
                         .addGap(56, 56, 56)
                         .addComponent(btnModificarVehiculo))
                     .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jpnlRegistroVehiculosLayout.setVerticalGroup(
             jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
+                .addGap(106, 106, 106)
                 .addGroup(jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlRegistroVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
                         .addGroup(jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAgregarVehiculo)
                             .addComponent(btnEliminarVehiculo)
                             .addComponent(btnModificarVehiculo))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(pnlRegistroVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(229, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Catálogos");
@@ -489,25 +499,27 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(422, Short.MAX_VALUE)
-                .addComponent(jpnlRegistroVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(362, 362, 362)
-                    .addComponent(jpnlRegistroRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(363, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jpnlRegistroVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jpnlRegistroRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jpnlRegistroVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(269, 269, 269)
-                    .addComponent(jpnlRegistroRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(270, Short.MAX_VALUE)))
+                .addComponent(jpnlRegistroRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jpnlRegistroVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -516,7 +528,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         
         jpnlRegistroVehiculos.setVisible(true);
-        jpnlRegistroRepuestos.setVisible(false);
+        jpnlRegistroRepuesto.setVisible(false);
         mostrarDatos();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -526,7 +538,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         jpnlRegistroVehiculos.setVisible(false);
-        jpnlRegistroRepuestos.setVisible(true);
+        jpnlRegistroRepuesto.setVisible(true);
         mostrarDatosRepuestos();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -666,6 +678,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
