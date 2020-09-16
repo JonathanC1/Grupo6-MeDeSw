@@ -6,18 +6,42 @@
 package tallerautomotriz;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Roberson Constante
  */
 public class ArchivoRepuestos {
+       public void escribir(String nombre,String marca,Double Precio,Long cantidad) throws IOException{
+   
+   String nomFich;
+      
+      PrintWriter out=null;
+ 
+      try{
+          //Abre el fichero
+      out=new PrintWriter(new FileWriter("ArchivoRepuestos.txt",true));
+      
+      //escribe los datos en el fichero
+     
+      out.println(nombre+","+marca+","+Precio+","+cantidad);
+ 
+     
+       }finally{
+      if(out!=null)
+      out.close();//cierra el fichero
+      
+   
+   }
+       }
      public void adicionarRepuesto(Repuesto r){
         File archivo = new File ("ArchivoRepuesto.txt");
         String aux = r.getNombreP()+","+r.getMarcaP()+","+r.getPrecioP()+","+r.getCantidad();
@@ -61,6 +85,16 @@ public class ArchivoRepuestos {
                 br.close();
             } catch (IOException e) {
             }
+            System.out.println(lista.toString());
             return lista;
+            
         }
+          public void Limpiar() throws IOException{
+    BufferedWriter bw = new BufferedWriter(new FileWriter("ArchivoRepuestos.txt"));
+    bw.write("");
+    bw.close();
+    }
+
+    
+    
 }
