@@ -6,12 +6,17 @@
 package ui;
 
 import java.awt.Frame;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import tallerautomotriz.ArchivoRepuestos;
 import tallerautomotriz.ArchivoVehiculos;
+import tallerautomotriz.Repuesto;
 import tallerautomotriz.Vehiculo;
 
 /**
@@ -22,6 +27,8 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     ArchivoVehiculos arcArchivoVehiculo = new ArchivoVehiculos();
     ArrayList<Vehiculo> lista = new ArrayList<>();
+     ArrayList<Repuesto> listaR = new ArrayList<>();
+     ArrayList<Repuesto> listaCarrito = new ArrayList<>();
     Vehiculo v1 = new Vehiculo();
     public frmPrincipal() {
         initComponents();
@@ -29,6 +36,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         pnlDetalleVehiculo.setVisible(true);
         mostrarDatos();
+        mostrarDatosInicio();
     }
     DefaultTableModel modelo = new DefaultTableModel();
     public void mostrarDatos(){
@@ -176,22 +184,28 @@ public class frmPrincipal extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         txtBuscarRepuestos = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        btbBuscar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtblRepuestos = new javax.swing.JTable();
+        btnMr = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         lblPrecioRepuesto = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        lnombre = new javax.swing.JLabel();
         spnCantidadRepuestos = new javax.swing.JSpinner();
         lblCantidadRepuesto = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jtblCarritoRespuestos = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         lblMarcaRepuesto = new javax.swing.JLabel();
-        lblMarcaRep = new javax.swing.JLabel();
+        lMar = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        lPrecio = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        totalR = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Comprar = new javax.swing.JMenuItem();
@@ -421,12 +435,11 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtFabricacion, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                    .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addComponent(txtTipoMotor)
-                                        .addComponent(txtChasis)
-                                        .addComponent(txtCilindro)
-                                        .addComponent(txtNumeroP)))
+                                    .addComponent(txtPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(txtTipoMotor)
+                                    .addComponent(txtChasis)
+                                    .addComponent(txtCilindro)
+                                    .addComponent(txtNumeroP))
                                 .addGap(121, 121, 121)))
                         .addGap(0, 241, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDetalleVehiculoLayout.createSequentialGroup()
@@ -639,7 +652,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         pnlFormularioVentaLayout.setVerticalGroup(
             pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormularioVentaLayout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlFormularioVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFormularioVentaLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
@@ -752,7 +765,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                         .addComponent(btnAceptarOferta)
                         .addGap(30, 30, 30)
                         .addComponent(btnNuevaOferta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                         .addComponent(btnCancelarVenta)))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
@@ -874,7 +887,12 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jLabel14.setText("Buscar Repuestos");
 
-        jButton3.setText("Buscar");
+        btbBuscar.setText("Buscar");
+        btbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btbBuscarActionPerformed(evt);
+            }
+        });
 
         jtblRepuestos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -886,6 +904,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jtblRepuestos);
 
+        btnMr.setText("Mostrar todo");
+        btnMr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMrActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
@@ -896,10 +921,12 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addComponent(txtBuscarRepuestos, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3))
+                .addComponent(btbBuscar))
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnMr)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -908,8 +935,10 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(txtBuscarRepuestos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                    .addComponent(btbBuscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(btnMr)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -931,10 +960,29 @@ public class frmPrincipal extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jtblCarritoRespuestos);
 
         jButton4.setText("Comprar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         lblMarcaRepuesto.setText("Marca:");
 
         jButton5.setText("Añadir A Carrito");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel23.setText("PRECIO TOTAL: ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -944,7 +992,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE))
+                        .addComponent(jScrollPane4))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -956,11 +1004,19 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(lblMarcaRep, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel23)
+                                        .addGap(7, 7, 7)
+                                        .addComponent(totalR, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(lMar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(lblPrecioRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(27, 27, 27)
                                         .addComponent(lblCantidadRepuesto)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -969,7 +1025,9 @@ public class frmPrincipal extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jButton4)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton5)))
+                                .addComponent(jButton5)
+                                .addGap(32, 32, 32)
+                                .addComponent(jButton3)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -981,7 +1039,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel18)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblCantidadRepuesto)
                                 .addComponent(spnCantidadRepuestos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -989,15 +1047,21 @@ public class frmPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblMarcaRepuesto)
                             .addComponent(lblPrecioRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblMarcaRep, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel16)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(lMar, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel21)
+                    .addComponent(lPrecio)
+                    .addComponent(jLabel23)
+                    .addComponent(totalR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
-                    .addComponent(jButton5)))
+                    .addComponent(jButton5)
+                    .addComponent(jButton3)))
         );
 
         javax.swing.GroupLayout jPanelRepuestosLayout = new javax.swing.GroupLayout(jPanelRepuestos);
@@ -1181,6 +1245,142 @@ public class frmPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Seleccionar una fila");
         }
     }//GEN-LAST:event_btnSeleccionarActionPerformed
+ public void mostrarDatosInicio() {
+ File archivo=null;
+        FileReader fr=null;
+        BufferedReader br=null;
+        try{
+        archivo=new File("ArchivoRepuestos.txt");
+        fr = new FileReader(archivo);
+        br = new BufferedReader(fr);
+        String linea;
+        while((linea=br.readLine())!=null){
+            
+         String[] linea2 = linea.split(",");
+         Repuesto rep=new Repuesto(linea2[0],linea2[1],Double.parseDouble(linea2[2]),Long.parseLong(linea2[3]));
+         listaR.add(rep);
+         String matriz[][]=new String[listaR.size()][4];
+          for(int i=0;i<listaR.size();i++){
+           matriz[i][0]=listaR.get(i).getNombreP();
+    matriz[i][1]=listaR.get(i).getMarcaP();
+    matriz[i][2]=String.valueOf(listaR.get(i).getPrecioP());
+    matriz[i][3]=String.valueOf(listaR.get(i).getCantidad());
+              
+              
+          }
+         jtblRepuestos.setModel(new javax.swing.table.DefaultTableModel(
+     matriz,
+     new String[]{"NOMBRE","MARCA","PRECIO","CANTIDAD"}));
+        }
+  }catch(Exception e){
+       e.printStackTrace();
+       
+       }finally{
+        try{
+        fr.close();
+        }
+        catch(Exception e2){
+            e2.printStackTrace();
+        }
+        }
+ }
+    private void btbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbBuscarActionPerformed
+    String matriz[][]=new String[listaR.size()][4];
+    boolean res=false;
+        for(int i=0;i<listaR.size();i++){
+    if(listaR.get(i).getNombreP().equalsIgnoreCase(txtBuscarRepuestos.getText())){
+    matriz[i][0]=listaR.get(i).getNombreP();
+    matriz[i][1]=listaR.get(i).getMarcaP();
+    matriz[i][2]=String.valueOf(listaR.get(i).getPrecioP());
+    matriz[i][3]=String.valueOf(listaR.get(i).getCantidad());
+    res=true;
+    }
+    }
+    if(res==false){
+    JOptionPane.showMessageDialog(null, "NO EXISTE !!!");
+    
+    }
+    jtblRepuestos.setModel(new javax.swing.table.DefaultTableModel(
+     matriz,
+     new String[]{"NOMBRE","MARCA","PRECIO","CANTIDAD"}));
+        
+    }//GEN-LAST:event_btbBuscarActionPerformed
+
+    private void btnMrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMrActionPerformed
+      mostrarDatosInicio();
+    }//GEN-LAST:event_btnMrActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        DefaultTableModel model=(DefaultTableModel) jtblRepuestos.getModel();
+
+        String matriz[][]=new String[5][4];
+        int index=jtblRepuestos.getSelectedRow();
+        for(int i=0;i<listaR.size();i++){
+            if(index==i){
+
+                long valor=Long.parseLong( spnCantidadRepuestos.getValue().toString());
+                Repuesto rp2=new Repuesto(listaR.get(i).getNombreP(),listaR.get(i).getMarcaP(),listaR.get(i).getPrecioP(),valor);
+                listaCarrito.add(rp2);
+            }
+        }
+
+        int index2=jtblCarritoRespuestos.getSelectedRow();
+
+        for(int i=0;i<listaCarrito.size();i++){
+            matriz[i][0]=listaCarrito.get(i).getNombreP();
+            matriz[i][1]=listaCarrito.get(i).getMarcaP();
+            matriz[i][2]=String.valueOf(listaCarrito.get(i).getPrecioP()*listaCarrito.get(i).getCantidad());
+            matriz[i][3]=String.valueOf(listaCarrito.get(i).getCantidad());
+            if(index2==i){
+                lnombre.setText(listaR.get(i).getNombreP());
+                lMar.setText(listaR.get(i).getMarcaP());
+                lPrecio.setText(String.valueOf(listaR.get(i).getPrecioP()));
+            }
+        }
+        total();
+
+        jtblCarritoRespuestos.setModel(new javax.swing.table.DefaultTableModel(
+            matriz,
+            new String[]{"NOMBRE","MARCA","PRECIO","CANTIDAD"}));
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+    private void total(){
+       double total=0; 
+     for(int i=0;i<listaCarrito.size();i++){
+     
+     total=(listaCarrito.get(i).getPrecioP()*listaCarrito.get(i).getCantidad())+total;
+     
+     }
+    
+    totalR.setText(String.valueOf(total));
+    }
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+ new frmDatosPago().setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       int index2=jtblCarritoRespuestos.getSelectedRow();
+        String matriz[][]=new String[10][4];
+       for(int i=0;i<listaCarrito.size();i++){
+       if(index2==i){
+       listaCarrito.remove(i);
+       
+       }
+        matriz[i][0]=listaCarrito.get(i).getNombreP();
+            matriz[i][1]=listaCarrito.get(i).getMarcaP();
+            matriz[i][2]=String.valueOf(listaCarrito.get(i).getPrecioP()*listaCarrito.get(i).getCantidad());
+            matriz[i][3]=String.valueOf(listaCarrito.get(i).getCantidad());
+       
+       
+       }
+       total();
+
+        jtblCarritoRespuestos.setModel(new javax.swing.table.DefaultTableModel(
+            matriz,
+            new String[]{"NOMBRE","MARCA","PRECIO","CANTIDAD"}));
+
+     
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1219,11 +1419,13 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Comprar;
+    private javax.swing.JButton btbBuscar;
     private javax.swing.JButton btnAceptarOferta;
     private javax.swing.JButton btnBuscarVehiculo;
     private javax.swing.JButton btnCancelarVenta;
     private javax.swing.JButton btnComprarAuto;
     private javax.swing.JButton btnComprarAuto1;
+    private javax.swing.JButton btnMr;
     private javax.swing.JButton btnNuevaOferta;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JComboBox<String> cmbNuevaTapiceria;
@@ -1251,6 +1453,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1284,8 +1487,9 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable jtblCarritoRespuestos;
     private javax.swing.JTable jtblRepuestos;
     private javax.swing.JTable jtblVehiculos;
+    private javax.swing.JLabel lMar;
+    private javax.swing.JLabel lPrecio;
     private javax.swing.JLabel lblCantidadRepuesto;
-    private javax.swing.JLabel lblMarcaRep;
     private javax.swing.JLabel lblMarcaRepuesto;
     private javax.swing.JLabel lblPrecioCalculado;
     private javax.swing.JLabel lblPrecioCliente;
@@ -1314,9 +1518,11 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblVentaTapiceria;
     private javax.swing.JLabel lblVentaTipoMotor;
     private javax.swing.JLabel lblVentaTransmision;
+    private javax.swing.JLabel lnombre;
     private javax.swing.JPanel pnlDetalleVehiculo;
     private javax.swing.JPanel pnlFormularioVenta;
     private javax.swing.JSpinner spnCantidadRepuestos;
+    private javax.swing.JTextField totalR;
     private javax.swing.JTextField txtBuscaMarcaModelo;
     private javax.swing.JTextField txtBuscarRepuestos;
     private javax.swing.JTextField txtBuscarTalleres;
