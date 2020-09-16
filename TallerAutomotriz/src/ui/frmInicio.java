@@ -37,8 +37,6 @@ public class frmInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        pnlNombreTaller = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         pnlCrearCuenta = new javax.swing.JPanel();
         lblNombre3 = new javax.swing.JLabel();
         lblCedula3 = new javax.swing.JLabel();
@@ -62,6 +60,8 @@ public class frmInicio extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         lblMensajeError = new javax.swing.JLabel();
         lblTipoIngreso = new javax.swing.JLabel();
+        pnlNombreTaller = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -74,35 +74,13 @@ public class frmInicio extends javax.swing.JFrame {
 
         jPanel2.setLayout(new java.awt.CardLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Taller Automotriz");
-
-        javax.swing.GroupLayout pnlNombreTallerLayout = new javax.swing.GroupLayout(pnlNombreTaller);
-        pnlNombreTaller.setLayout(pnlNombreTallerLayout);
-        pnlNombreTallerLayout.setHorizontalGroup(
-            pnlNombreTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNombreTallerLayout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(161, Short.MAX_VALUE))
-        );
-        pnlNombreTallerLayout.setVerticalGroup(
-            pnlNombreTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNombreTallerLayout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(jLabel1)
-                .addContainerGap(232, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(pnlNombreTaller, "card4");
-
         pnlCrearCuenta.setBorder(javax.swing.BorderFactory.createTitledBorder("Crear Cuenta"));
 
         lblNombre3.setText("Nombre");
 
         lblCedula3.setText("Cédula");
 
-        lblFechaNacimiento3.setText("Fecha de nacimiento");
+        lblFechaNacimiento3.setText("Fecha de nacimiento (dd/mm/yyyy)");
 
         lblCorreo3.setText("Correo electrónico");
 
@@ -137,7 +115,7 @@ public class frmInicio extends javax.swing.JFrame {
                             .addComponent(lblCedula3))
                         .addGap(53, 53, 53)
                         .addGroup(pnlCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                            .addComponent(txtCedula, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
                             .addComponent(txtNombre)
                             .addComponent(txtNuevoApodo)
                             .addComponent(txtNuevoPassword)
@@ -161,10 +139,12 @@ public class frmInicio extends javax.swing.JFrame {
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCedula3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFechaNacimiento3))
-                .addGap(7, 7, 7)
+                    .addGroup(pnlCrearCuentaLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(lblFechaNacimiento3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlCrearCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCorreo3))
@@ -249,6 +229,30 @@ public class frmInicio extends javax.swing.JFrame {
         );
 
         jPanel2.add(pnlLogin, "card2");
+
+        jLabel1.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel1.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel1.setText("Taller Automotriz");
+
+        javax.swing.GroupLayout pnlNombreTallerLayout = new javax.swing.GroupLayout(pnlNombreTaller);
+        pnlNombreTaller.setLayout(pnlNombreTallerLayout);
+        pnlNombreTallerLayout.setHorizontalGroup(
+            pnlNombreTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNombreTallerLayout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(117, Short.MAX_VALUE))
+        );
+        pnlNombreTallerLayout.setVerticalGroup(
+            pnlNombreTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNombreTallerLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(241, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(pnlNombreTaller, "card4");
 
         jMenu1.setText("Inicio");
 

@@ -28,9 +28,6 @@ public class VentaVehiculo {
     public VentaVehiculo() {
     }
     
-    
-
-    
 
     public String getNombreComprador() {
         return nombreComprador;
@@ -82,16 +79,4 @@ public class VentaVehiculo {
         this.fechaFactura = fechaFactura;
     }
 
-   
-
-    public void registrarFormulario() {
-        Formulario form = new Formulario("os Chillos", "asdas@gmail.com", 99856, "PAQUETE KIA PER");
-
-        System.out.println(form.toString());
-    }
-
-    @Override
-    public String toString() {
-        return "Venta{" + "nombreComprador=" + nombreComprador + ", nombreCuenta=" + nombreCuenta + ", precioVenta=" + precioVenta + ", fechaEntrega=" + fechaEntrega + ", fechaFactura=" + fechaFactura + '}';
-    }
 }

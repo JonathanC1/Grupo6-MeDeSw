@@ -128,6 +128,75 @@ public class ArchivoVehiculos {
             }
             return lista;
         }
+         public void modificarVehiculo(Vehiculo v) {
+        ArrayList<Vehiculo> lista = new ArrayList<>();
+        String auxl = "";
+        lista = obtenerVehiculo();
+        Vehiculo aux = new Vehiculo();
+        Iterator it = lista.iterator();
+        try {
+            FileWriter fw = new FileWriter("ArchivoVehiculo.txt");
+                PrintWriter pw = new PrintWriter(fw);
+                while (it.hasNext()) {
+                    aux = (Vehiculo) it.next();
+                    if (aux.getChasis().equalsIgnoreCase(v.getChasis())) {
+                        auxl = v.getMarca() + "," + v.getModelo() + "," + v.getColor() + "," + v.getTipoVehiculo() + "," + v.getTipoMotor() + ","
+                                + v.getTipoTransmision() + "," + aux.getChasis() + "," + v.getMaterialInterior() + "," + v.getPlaca() + "," + v.getTipoLLanta() + ","
+                                + v.getTipoAros() + "," + String.valueOf(v.getCilindraje()) + "," + String.valueOf(v.getNumeroPuerta())
+                                + "," + String.valueOf(v.getPrecio()) + "," + String.valueOf(v.isDisponibilidad()) + "," + String.valueOf(v.getAñoFabricacion()) + "," + String.valueOf(v.getAñoMatricula());
+                        pw.println(auxl);
+                    } else {
+                        auxl = aux.getMarca() + "," + aux.getModelo() + "," + aux.getColor() + "," + aux.getTipoVehiculo() + "," + aux.getTipoMotor() + ","
+                                + aux.getTipoTransmision() + "," + aux.getChasis() + "," + aux.getMaterialInterior() + "," + aux.getPlaca() + "," + aux.getTipoLLanta() + ","
+                                + aux.getTipoAros() + "," + String.valueOf(aux.getCilindraje()) + "," + String.valueOf(aux.getNumeroPuerta())
+                                + "," + String.valueOf(aux.getPrecio()) + "," + String.valueOf(aux.isDisponibilidad()) + "," + String.valueOf(aux.getAñoFabricacion()) + "," + String.valueOf(aux.getAñoMatricula());
+                        pw.println(auxl);
+                    }
+                }
+                pw.close();
+            } catch (IOException e) {
+            }      
+    }
+        public void eliminarVehiculo(Vehiculo v) {
+        ArrayList<Vehiculo> lista = new ArrayList<>();
+        String auxl = "";
+        lista = obtenerVehiculo();
+        Vehiculo aux = new Vehiculo();
+        Iterator it = lista.iterator();
+        try {
+            FileWriter fw = new FileWriter("ArchivoVehiculo.txt");
+                PrintWriter pw = new PrintWriter(fw);
+                while (it.hasNext()) {
+                    aux = (Vehiculo) it.next();
+                    if (aux.getChasis().equalsIgnoreCase(v.getChasis()) || aux.getPlaca().equalsIgnoreCase(v.getPlaca())) {
+                    } else {
+                        auxl = aux.getMarca() + "," + aux.getModelo() + "," + aux.getColor() + "," + aux.getTipoVehiculo() + "," + aux.getTipoMotor() + ","
+                                + aux.getTipoTransmision() + "," + aux.getChasis() + "," + aux.getMaterialInterior() + "," + aux.getPlaca() + "," + aux.getTipoLLanta() + ","
+                                + aux.getTipoAros() + "," + String.valueOf(aux.getCilindraje()) + "," + String.valueOf(aux.getNumeroPuerta())
+                                + "," + String.valueOf(aux.getPrecio()) + "," + String.valueOf(aux.isDisponibilidad()) + "," + String.valueOf(aux.getAñoFabricacion()) + "," + String.valueOf(aux.getAñoMatricula());
+                        pw.println(auxl);
+                    }
+                }
+                pw.close();
+            } catch (IOException e) {
+            }      
+    } 
+            public boolean validarVehiculo(String vehiculo,String placa) {
+        String s;
+        boolean b = true;
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("ArchivoVehiculo.txt"));
+            while ((s = br.readLine()) != null) {
+                String[] datos = s.split(",");
+                if (vehiculo.equalsIgnoreCase(datos[6])||placa.equalsIgnoreCase(datos[8])) {
+                    b = false;
+                }
+            }
+                br.close();
+            } catch (IOException e) {
+            }
+            return b;
+        }
         
 }
 

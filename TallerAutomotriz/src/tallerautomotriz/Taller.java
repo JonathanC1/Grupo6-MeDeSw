@@ -45,10 +45,7 @@ public class Taller {
         this.ubicacion = ubicacion;
     }
 
-    @Override
-    public String toString() {
-        return "Taller{" + "nombre=" + nombre + ", especialidad=" + especialidad + ", ubicacion=" + ubicacion + '}';
-    }
+ 
     
     
 }

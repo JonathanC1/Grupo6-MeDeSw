@@ -110,7 +110,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="1025" max="32767" attributes="0"/>
+                      <EmptySpace pref="191" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -580,12 +580,9 @@
                           </Group>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblCantidadRepuestoR" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtRepuestoCantidadR" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblCantidadRepuestoR" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtRepuestoCantidadR" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>

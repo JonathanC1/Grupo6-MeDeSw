@@ -14,10 +14,6 @@ import tallerautomotriz.ArchivoVehiculos;
 import tallerautomotriz.Repuesto;
 import tallerautomotriz.Vehiculo;
 
-/**
- *
- * @author Roberson Constante
- */
 public class frmPrincipalAdministrador extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     ArchivoVehiculos arcVehiculo = new ArchivoVehiculos();
@@ -339,7 +335,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
                                 .addGap(21, 21, 21)
                                 .addComponent(btnSeleccionarVehiculo))
                             .addComponent(lblRespuestaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(1025, Short.MAX_VALUE))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         jpnlRegistroVehiculosLayout.setVerticalGroup(
             jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -466,11 +462,9 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
                     .addComponent(btnModificarRepuesto))
                 .addGap(14, 14, 14)
                 .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlRepuestoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCantidadRepuestoR)
-                            .addComponent(txtRepuestoCantidadR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblCantidadRepuestoR)
+                        .addComponent(txtRepuestoCantidadR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlRepuestoLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addComponent(btnEliminarRepuesto)))
@@ -857,27 +851,6 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarVehiculo;
     private javax.swing.JButton btnModificarRepuesto;
     private javax.swing.JButton btnModificarVehiculo;
-    private javax.swing.JButton btnRepuestoAgregar;
-    private javax.swing.JButton btnRepuestoAgregar1;
-    private javax.swing.JButton btnRepuestoAgregar2;
-    private javax.swing.JButton btnRepuestoAgregar3;
-    private javax.swing.JButton btnRepuestoAgregar4;
-    private javax.swing.JButton btnRepuestoAgregar5;
-    private javax.swing.JButton btnRepuestoAgregar6;
-    private javax.swing.JButton btnRepuestoEliminar;
-    private javax.swing.JButton btnRepuestoEliminar1;
-    private javax.swing.JButton btnRepuestoEliminar2;
-    private javax.swing.JButton btnRepuestoEliminar3;
-    private javax.swing.JButton btnRepuestoEliminar4;
-    private javax.swing.JButton btnRepuestoEliminar5;
-    private javax.swing.JButton btnRepuestoEliminar6;
-    private javax.swing.JButton btnRepuestoModificar;
-    private javax.swing.JButton btnRepuestoModificar1;
-    private javax.swing.JButton btnRepuestoModificar2;
-    private javax.swing.JButton btnRepuestoModificar3;
-    private javax.swing.JButton btnRepuestoModificar4;
-    private javax.swing.JButton btnRepuestoModificar5;
-    private javax.swing.JButton btnRepuestoModificar6;
     private javax.swing.JButton btnSeleccionarRepuesto;
     private javax.swing.JButton btnSeleccionarVehiculo;
     private javax.swing.JMenu jMenu1;
@@ -887,66 +860,13 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JPanel jpnlRegistro;
-    private javax.swing.JPanel jpnlRegistro1;
-    private javax.swing.JPanel jpnlRegistro2;
-    private javax.swing.JPanel jpnlRegistro3;
-    private javax.swing.JPanel jpnlRegistro4;
-    private javax.swing.JPanel jpnlRegistro5;
-    private javax.swing.JPanel jpnlRegistro6;
     private javax.swing.JPanel jpnlRegistroRepuesto;
-    private javax.swing.JPanel jpnlRegistroRepuestos;
-    private javax.swing.JPanel jpnlRegistroRepuestos1;
-    private javax.swing.JPanel jpnlRegistroRepuestos2;
-    private javax.swing.JPanel jpnlRegistroRepuestos3;
     private javax.swing.JPanel jpnlRegistroVehiculos;
     private javax.swing.JTable jtblListaRepuesto;
-    private javax.swing.JTable jtblListaRepuestos;
-    private javax.swing.JTable jtblListaRepuestos1;
-    private javax.swing.JTable jtblListaRepuestos2;
-    private javax.swing.JTable jtblListaRepuestos3;
-    private javax.swing.JTable jtblListaRepuestos4;
-    private javax.swing.JTable jtblListaRepuestos5;
-    private javax.swing.JTable jtblListaRepuestos6;
-    private javax.swing.JLabel lblCantidadRepuesto;
-    private javax.swing.JLabel lblCantidadRepuesto1;
-    private javax.swing.JLabel lblCantidadRepuesto2;
-    private javax.swing.JLabel lblCantidadRepuesto3;
-    private javax.swing.JLabel lblCantidadRepuesto4;
-    private javax.swing.JLabel lblCantidadRepuesto5;
-    private javax.swing.JLabel lblCantidadRepuesto6;
     private javax.swing.JLabel lblCantidadRepuestoR;
     private javax.swing.JLabel lblMarcaRegistroR;
-    private javax.swing.JLabel lblMarcaRepuesto;
-    private javax.swing.JLabel lblMarcaRepuesto1;
-    private javax.swing.JLabel lblMarcaRepuesto2;
-    private javax.swing.JLabel lblMarcaRepuesto3;
-    private javax.swing.JLabel lblMarcaRepuesto4;
-    private javax.swing.JLabel lblMarcaRepuesto5;
-    private javax.swing.JLabel lblMarcaRepuesto6;
-    private javax.swing.JLabel lblNombreRepuesto;
-    private javax.swing.JLabel lblNombreRepuesto1;
-    private javax.swing.JLabel lblNombreRepuesto2;
-    private javax.swing.JLabel lblNombreRepuesto3;
-    private javax.swing.JLabel lblNombreRepuesto4;
-    private javax.swing.JLabel lblNombreRepuesto5;
-    private javax.swing.JLabel lblNombreRepuesto6;
     private javax.swing.JLabel lblNombreRepuestoR;
-    private javax.swing.JLabel lblPrecioRepuesto;
-    private javax.swing.JLabel lblPrecioRepuesto1;
-    private javax.swing.JLabel lblPrecioRepuesto2;
-    private javax.swing.JLabel lblPrecioRepuesto3;
-    private javax.swing.JLabel lblPrecioRepuesto4;
-    private javax.swing.JLabel lblPrecioRepuesto5;
-    private javax.swing.JLabel lblPrecioRepuesto6;
     private javax.swing.JLabel lblPrecioRepuestoR;
     private javax.swing.JLabel lblRegistroBotonRepuesto;
     private javax.swing.JLabel lblRegistroMatricula;
@@ -986,37 +906,9 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtRegistroTapiceria;
     private javax.swing.JTextField txtRegistroTipoV;
     private javax.swing.JTextField txtRegistroTransmision;
-    private javax.swing.JTextField txtRepuestoCantidad;
-    private javax.swing.JTextField txtRepuestoCantidad1;
-    private javax.swing.JTextField txtRepuestoCantidad2;
-    private javax.swing.JTextField txtRepuestoCantidad3;
-    private javax.swing.JTextField txtRepuestoCantidad4;
-    private javax.swing.JTextField txtRepuestoCantidad5;
-    private javax.swing.JTextField txtRepuestoCantidad6;
     private javax.swing.JTextField txtRepuestoCantidadR;
-    private javax.swing.JTextField txtRepuestoMarca;
-    private javax.swing.JTextField txtRepuestoMarca1;
-    private javax.swing.JTextField txtRepuestoMarca2;
-    private javax.swing.JTextField txtRepuestoMarca3;
-    private javax.swing.JTextField txtRepuestoMarca4;
-    private javax.swing.JTextField txtRepuestoMarca5;
-    private javax.swing.JTextField txtRepuestoMarca6;
     private javax.swing.JTextField txtRepuestoMarcaR;
-    private javax.swing.JTextField txtRepuestoNombre;
-    private javax.swing.JTextField txtRepuestoNombre1;
-    private javax.swing.JTextField txtRepuestoNombre2;
-    private javax.swing.JTextField txtRepuestoNombre3;
-    private javax.swing.JTextField txtRepuestoNombre4;
-    private javax.swing.JTextField txtRepuestoNombre5;
-    private javax.swing.JTextField txtRepuestoNombre6;
     private javax.swing.JTextField txtRepuestoNombreR;
-    private javax.swing.JTextField txtRepuestoPrecio;
-    private javax.swing.JTextField txtRepuestoPrecio1;
-    private javax.swing.JTextField txtRepuestoPrecio2;
-    private javax.swing.JTextField txtRepuestoPrecio3;
-    private javax.swing.JTextField txtRepuestoPrecio4;
-    private javax.swing.JTextField txtRepuestoPrecio5;
-    private javax.swing.JTextField txtRepuestoPrecio6;
     private javax.swing.JTextField txtRepuestoPrecioR;
     // End of variables declaration//GEN-END:variables
 }
