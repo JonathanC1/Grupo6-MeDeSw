@@ -9,6 +9,7 @@ import java.awt.Frame;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import tallerautomotriz.ArchivoVehiculos;
 import tallerautomotriz.Vehiculo;
@@ -26,9 +27,12 @@ public class frmPrincipal extends javax.swing.JFrame {
         initComponents();
         pnlDetalleVehiculo.setVisible(false);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        pnlDetalleVehiculo.setVisible(true);
+        mostrarDatos();
     }
+    DefaultTableModel modelo = new DefaultTableModel();
     public void mostrarDatos(){
-        DefaultTableModel modelo = new DefaultTableModel();
+        
         modelo.addColumn("CHASIS");
         modelo.addColumn("MODELO");
         modelo.addColumn("MARCA");
@@ -37,6 +41,20 @@ public class frmPrincipal extends javax.swing.JFrame {
         String [] datos = new String [4];
         lista = arcArchivoVehiculo.obtenerVehiculo();
         Iterator it = lista.iterator();
+        while(it.hasNext()){
+            v1 = (Vehiculo) it.next();
+            datos[0] = v1.getChasis();
+            datos[1] = v1.getModelo();
+            datos[2] = v1.getMarca();
+            datos[3] = String.valueOf(v1.getPrecio());
+            modelo.addRow(datos);
+        }
+    }
+    
+    public void mostrarV(){
+        lista = arcArchivoVehiculo.buscarVehiculo(txtBuscaMarcaModelo.getText());
+        Iterator it = lista.iterator();
+        String [] datos = new String [4];
         while(it.hasNext()){
             v1 = (Vehiculo) it.next();
             datos[0] = v1.getChasis();
@@ -89,16 +107,25 @@ public class frmPrincipal extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         lblPrecioCalculado = new javax.swing.JLabel();
-        cmbNuevoTipoAros = new javax.swing.JComboBox<String>();
-        cmbNuevaTipoLLantas = new javax.swing.JComboBox<String>();
-        cmbNuevaTapiceria = new javax.swing.JComboBox<String>();
-        cmbNuevoTipoTransmision = new javax.swing.JComboBox<String>();
-        cmbNuevoColor = new javax.swing.JComboBox<String>();
+        cmbNuevoTipoAros = new javax.swing.JComboBox<>();
+        cmbNuevaTipoLLantas = new javax.swing.JComboBox<>();
+        cmbNuevaTapiceria = new javax.swing.JComboBox<>();
+        cmbNuevoTipoTransmision = new javax.swing.JComboBox<>();
+        cmbNuevoColor = new javax.swing.JComboBox<>();
         btnComprarAuto = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         lblValorChasis = new javax.swing.JLabel();
+        txtMarca = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
+        txtPlaca = new javax.swing.JTextField();
+        txtTipoMotor = new javax.swing.JTextField();
+        txtChasis = new javax.swing.JTextField();
+        txtCilindro = new javax.swing.JTextField();
+        txtNumeroP = new javax.swing.JTextField();
+        txtFabricacion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        btnSeleccionar = new javax.swing.JButton();
         jPanelVender = new javax.swing.JPanel();
         pnlFormularioVenta = new javax.swing.JPanel();
         lblVentaMarca = new javax.swing.JLabel();
@@ -271,15 +298,15 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         lblPrecioCalculado.setText("0.0");
 
-        cmbNuevoTipoAros.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Niquelados", "Estándar", "Aluminio" }));
+        cmbNuevoTipoAros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Niquelados", "Estándar", "Aluminio" }));
 
-        cmbNuevaTipoLLantas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Llantas de carrera", "Llantas todo terreno", "Llantas estándar" }));
+        cmbNuevaTipoLLantas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Llantas de carrera", "Llantas todo terreno", "Llantas estándar" }));
 
-        cmbNuevaTapiceria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cuero", "Tela", "Fibras" }));
+        cmbNuevaTapiceria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cuero", "Tela", "Fibras" }));
 
-        cmbNuevoTipoTransmision.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Automática", "Manual" }));
+        cmbNuevoTipoTransmision.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Automática", "Manual" }));
 
-        cmbNuevoColor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Amarillo", "Azul", "Blanco", "Gris", "Rojo", "Vino", "Negro", " ", " " }));
+        cmbNuevoColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amarillo", "Azul", "Blanco", "Gris", "Rojo", "Vino", "Negro", " ", " " }));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -359,8 +386,6 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlDetalleVehiculoLayout.createSequentialGroup()
                         .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel9)
                             .addComponent(jLabel13)
                             .addComponent(jLabel15)
                             .addComponent(jLabel17)
@@ -378,12 +403,31 @@ public class frmPrincipal extends javax.swing.JFrame {
                                     .addComponent(lblValorMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblValorPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblValorChasis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblValorCilindraje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(lblValorCilindraje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(pnlDetalleVehiculoLayout.createSequentialGroup()
+                                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel9))
+                                .addGap(93, 93, 93)
+                                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMarca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(320, Short.MAX_VALUE))
                     .addGroup(pnlDetalleVehiculoLayout.createSequentialGroup()
-                        .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDetalleVehiculoLayout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtFabricacion, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                        .addComponent(txtTipoMotor)
+                                        .addComponent(txtChasis)
+                                        .addComponent(txtCilindro)
+                                        .addComponent(txtNumeroP)))
+                                .addGap(121, 121, 121)))
                         .addGap(0, 241, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDetalleVehiculoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -393,37 +437,53 @@ public class frmPrincipal extends javax.swing.JFrame {
         pnlDetalleVehiculoLayout.setVerticalGroup(
             pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDetalleVehiculoLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
-                    .addComponent(lblValorMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel9)
-                    .addComponent(lblValorModelo, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblValorPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(23, 23, 23)
                 .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11)
-                    .addComponent(lblValorTipoMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                    .addGroup(pnlDetalleVehiculoLayout.createSequentialGroup()
+                        .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblValorMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel9)
+                                .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblValorModelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblValorPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11)
+                            .addComponent(lblValorTipoMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtTipoMotor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
                 .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel24)
+                    .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel24)
+                        .addComponent(txtChasis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblValorChasis, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
-                    .addComponent(lblValorCilindraje, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lblValorCilindraje, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCilindro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtNumeroP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblValorNumeroPuertas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
+                    .addGroup(pnlDetalleVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel17)
+                        .addComponent(txtFabricacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblValorAnoFabricacion, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -437,18 +497,30 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jLabel10.setText("Pare ver mayor detalles seleccionar la fila del vehículo");
 
+        btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelComprarLayout = new javax.swing.GroupLayout(jPanelComprar);
         jPanelComprar.setLayout(jPanelComprarLayout);
         jPanelComprarLayout.setHorizontalGroup(
             jPanelComprarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelComprarLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanelComprarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelComprarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1))
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel10))
+                    .addGroup(jPanelComprarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanelComprarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelComprarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel10)))
+                    .addGroup(jPanelComprarLayout.createSequentialGroup()
+                        .addGap(216, 216, 216)
+                        .addComponent(btnSeleccionar)))
                 .addGap(18, 18, 18)
                 .addComponent(pnlDetalleVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -466,8 +538,10 @@ public class frmPrincipal extends javax.swing.JFrame {
                         .addGap(9, 9, 9)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(347, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnSeleccionar)))
+                .addContainerGap(325, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanelComprar, "card2");
@@ -1030,6 +1104,7 @@ public class frmPrincipal extends javax.swing.JFrame {
       
          pnlDetalleVehiculo.setVisible(true);
          arcArchivoVehiculo.buscarVehiculo(txtBuscaMarcaModelo.getText());
+         mostrarV();
          
     }//GEN-LAST:event_btnBuscarVehiculoActionPerformed
 
@@ -1086,6 +1161,27 @@ public class frmPrincipal extends javax.swing.JFrame {
        jPanelRepuestos.setVisible(false);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
+        // TODO add your handling code here:
+        int fila=jtblVehiculos.getSelectedRow();
+        if(fila>=0){
+            String a = String.valueOf(modelo.getValueAt(fila, 0));
+            Vehiculo v1 = arcArchivoVehiculo.buscarVehiculoChasis(a);
+            txtMarca.setText(v1.getMarca());
+            txtModelo.setText(v1.getModelo());
+            txtPlaca.setText(v1.getPlaca());
+            txtTipoMotor.setText(v1.getTipoMotor());
+            txtChasis.setText(v1.getChasis());
+            txtCilindro.setText(String.valueOf(v1.getCilindraje()));
+            txtNumeroP.setText(String.valueOf(v1.getNumeroPuerta()));
+            txtFabricacion.setText(String.valueOf(v1.getAñoFabricacion()));
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Seleccionar una fila");
+        }
+    }//GEN-LAST:event_btnSeleccionarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1129,6 +1225,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnComprarAuto;
     private javax.swing.JButton btnComprarAuto1;
     private javax.swing.JButton btnNuevaOferta;
+    private javax.swing.JButton btnSeleccionar;
     private javax.swing.JComboBox<String> cmbNuevaTapiceria;
     private javax.swing.JComboBox<String> cmbNuevaTipoLLantas;
     private javax.swing.JComboBox<String> cmbNuevoColor;
@@ -1223,7 +1320,15 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtBuscaMarcaModelo;
     private javax.swing.JTextField txtBuscarRepuestos;
     private javax.swing.JTextField txtBuscarTalleres;
+    private javax.swing.JTextField txtChasis;
+    private javax.swing.JTextField txtCilindro;
+    private javax.swing.JTextField txtFabricacion;
+    private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtModelo;
+    private javax.swing.JTextField txtNumeroP;
+    private javax.swing.JTextField txtPlaca;
     private javax.swing.JTextField txtPrecioOfertadoCliente;
+    private javax.swing.JTextField txtTipoMotor;
     private javax.swing.JTextField txtVentaAnioFab;
     private javax.swing.JTextField txtVentaAros;
     private javax.swing.JTextField txtVentaChasis;
