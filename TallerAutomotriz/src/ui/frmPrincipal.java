@@ -1174,8 +1174,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             txtChasis.setText(v1.getChasis());
             txtCilindro.setText(String.valueOf(v1.getCilindraje()));
             txtNumeroP.setText(String.valueOf(v1.getNumeroPuerta()));
-            txtFabricacion.setText(String.valueOf(v1.getAñoFabricacion()));
-            
+            txtFabricacion.setText(String.valueOf(v1.getAñoFabricacion()));           
         }
         else{
             JOptionPane.showMessageDialog(null, "Seleccionar una fila");

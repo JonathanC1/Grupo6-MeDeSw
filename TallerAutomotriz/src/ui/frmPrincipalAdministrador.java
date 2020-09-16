@@ -7,6 +7,7 @@ package ui;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import tallerautomotriz.ArchivoRepuestos;
 import tallerautomotriz.ArchivoVehiculos;
@@ -18,7 +19,7 @@ import tallerautomotriz.Vehiculo;
  * @author Roberson Constante
  */
 public class frmPrincipalAdministrador extends javax.swing.JFrame {
-
+    DefaultTableModel modelo = new DefaultTableModel();
     ArchivoVehiculos arcVehiculo = new ArchivoVehiculos();
     ArchivoRepuestos arcRepuestos = new ArchivoRepuestos();
     ArrayList<Vehiculo> lista = new ArrayList<>();
@@ -38,21 +39,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jpnlRegistroRepuesto = new javax.swing.JPanel();
-        jpnlRegistro8 = new javax.swing.JPanel();
-        lblNombreRepuesto8 = new javax.swing.JLabel();
-        lblMarcaRepuesto8 = new javax.swing.JLabel();
-        lblPrecioRepuesto8 = new javax.swing.JLabel();
-        lblCantidadRepuesto8 = new javax.swing.JLabel();
-        txtRepuestoNombre8 = new javax.swing.JTextField();
-        txtRepuestoMarca8 = new javax.swing.JTextField();
-        txtRepuestoPrecio8 = new javax.swing.JTextField();
-        txtRepuestoCantidad8 = new javax.swing.JTextField();
-        btnRepuestoAgregar8 = new javax.swing.JButton();
-        btnRepuestoEliminar8 = new javax.swing.JButton();
-        btnRepuestoModificar8 = new javax.swing.JButton();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        jtblListaRepuestos8 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
         jpnlRegistroVehiculos = new javax.swing.JPanel();
         pnlRegistroVehiculo = new javax.swing.JPanel();
         lblVentaMarca = new javax.swing.JLabel();
@@ -87,12 +74,31 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         txtRegistroMatricula = new javax.swing.JTextField();
         lblVentaPrecio1 = new javax.swing.JLabel();
         txtRegistroTipoV = new javax.swing.JTextField();
+        lblRegistroVehiculo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListaVehiculos = new javax.swing.JTable();
         btnAgregarVehiculo = new javax.swing.JButton();
         btnEliminarVehiculo = new javax.swing.JButton();
         btnModificarVehiculo = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        btnSeleccionarVehiculo = new javax.swing.JButton();
+        lblRespuestaBoton = new javax.swing.JLabel();
+        jpnlRegistroRepuesto = new javax.swing.JPanel();
+        pnlRepuesto = new javax.swing.JPanel();
+        btnAgregarRepuesto = new javax.swing.JButton();
+        btnEliminarRepuesto = new javax.swing.JButton();
+        btnModificarRepuesto = new javax.swing.JButton();
+        lblNombreRepuestoR = new javax.swing.JLabel();
+        lblCantidadRepuestoR = new javax.swing.JLabel();
+        lblMarcaRegistroR = new javax.swing.JLabel();
+        lblPrecioRepuestoR = new javax.swing.JLabel();
+        txtRepuestoNombreR = new javax.swing.JTextField();
+        txtRepuestoMarcaR = new javax.swing.JTextField();
+        txtRepuestoCantidadR = new javax.swing.JTextField();
+        txtRepuestoPrecioR = new javax.swing.JTextField();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jtblListaRepuesto = new javax.swing.JTable();
+        lblRegistroBotonRepuesto = new javax.swing.JLabel();
+        btnSeleccionarRepuesto = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -101,135 +107,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jpnlRegistro8.setBorder(javax.swing.BorderFactory.createTitledBorder("Registro Repuestos"));
-
-        lblNombreRepuesto8.setText("Nombre:");
-
-        lblMarcaRepuesto8.setText("Marca:");
-
-        lblPrecioRepuesto8.setText("Precio:");
-
-        lblCantidadRepuesto8.setText("Cantidad:");
-
-        txtRepuestoNombre8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRepuestoNombre8txtRepuestoNombreActionPerformed(evt);
-            }
-        });
-
-        txtRepuestoPrecio8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRepuestoPrecio8txtRepuestoPrecioActionPerformed(evt);
-            }
-        });
-
-        btnRepuestoAgregar8.setText("Agregar");
-
-        btnRepuestoEliminar8.setText("Eliminar");
-
-        btnRepuestoModificar8.setText("Modificar");
-
-        jtblListaRepuestos8.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane10.setViewportView(jtblListaRepuestos8);
-
-        javax.swing.GroupLayout jpnlRegistro8Layout = new javax.swing.GroupLayout(jpnlRegistro8);
-        jpnlRegistro8.setLayout(jpnlRegistro8Layout);
-        jpnlRegistro8Layout.setHorizontalGroup(
-            jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnlRegistro8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpnlRegistro8Layout.createSequentialGroup()
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jpnlRegistro8Layout.createSequentialGroup()
-                        .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpnlRegistro8Layout.createSequentialGroup()
-                                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblCantidadRepuesto8, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                                    .addComponent(lblPrecioRepuesto8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtRepuestoPrecio8, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                                    .addComponent(txtRepuestoCantidad8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jpnlRegistro8Layout.createSequentialGroup()
-                                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jpnlRegistro8Layout.createSequentialGroup()
-                                        .addComponent(lblMarcaRepuesto8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(34, 34, 34))
-                                    .addGroup(jpnlRegistro8Layout.createSequentialGroup()
-                                        .addComponent(lblNombreRepuesto8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(38, 38, 38)))
-                                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtRepuestoNombre8, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                                    .addComponent(txtRepuestoMarca8))
-                                .addGap(27, 27, 27)))
-                        .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRepuestoModificar8)
-                            .addComponent(btnRepuestoAgregar8)
-                            .addComponent(btnRepuestoEliminar8))
-                        .addGap(521, 521, 521))))
-        );
-        jpnlRegistro8Layout.setVerticalGroup(
-            jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpnlRegistro8Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombreRepuesto8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtRepuestoNombre8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnRepuestoAgregar8)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpnlRegistro8Layout.createSequentialGroup()
-                        .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblMarcaRepuesto8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRepuestoMarca8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlRegistro8Layout.createSequentialGroup()
-                        .addComponent(btnRepuestoEliminar8)
-                        .addGap(18, 18, 18)))
-                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPrecioRepuesto8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtRepuestoPrecio8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRepuestoModificar8))
-                .addGap(17, 17, 17)
-                .addGroup(jpnlRegistro8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCantidadRepuesto8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtRepuestoCantidad8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jpnlRegistroRepuestoLayout = new javax.swing.GroupLayout(jpnlRegistroRepuesto);
-        jpnlRegistroRepuesto.setLayout(jpnlRegistroRepuestoLayout);
-        jpnlRegistroRepuestoLayout.setHorizontalGroup(
-            jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
-            .addGroup(jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jpnlRegistroRepuestoLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jpnlRegistro8, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(24, Short.MAX_VALUE)))
-        );
-        jpnlRegistroRepuestoLayout.setVerticalGroup(
-            jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jpnlRegistroRepuestoLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jpnlRegistro8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
+        jPanel1.setLayout(new java.awt.CardLayout());
 
         pnlRegistroVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Vehiculo"));
 
@@ -271,6 +149,8 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
 
         lblVentaPrecio1.setText("Tipo de Vehiculo");
 
+        lblRegistroVehiculo.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout pnlRegistroVehiculoLayout = new javax.swing.GroupLayout(pnlRegistroVehiculo);
         pnlRegistroVehiculo.setLayout(pnlRegistroVehiculoLayout);
         pnlRegistroVehiculoLayout.setHorizontalGroup(
@@ -278,53 +158,59 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
             .addGroup(pnlRegistroVehiculoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblVentaPlaca)
-                    .addComponent(lblVentaTipoMotor)
-                    .addComponent(lblVentaChasis)
-                    .addComponent(lblVentaCilindraje)
-                    .addComponent(lblVentaPuertas)
-                    .addComponent(lblVentaAnioFabricacion)
-                    .addComponent(lblVentaAros)
-                    .addComponent(lblVentaColor)
-                    .addComponent(lblVentaTransmision)
-                    .addComponent(lblVentaTapiceria)
-                    .addComponent(lblRegistroMatricula)
-                    .addComponent(lblVentaLlantas)
-                    .addComponent(lblVentaPrecio)
-                    .addComponent(lblVentaPrecio1)
-                    .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblVentaMarca)
-                        .addComponent(lblVentaModelo)))
-                .addGap(126, 126, 126)
-                .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlRegistroVehiculoLayout.createSequentialGroup()
-                        .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtRegistroTipoV, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtRegistroPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblRegistroVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlRegistroVehiculoLayout.createSequentialGroup()
                         .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtRegistroMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                                .addComponent(txtRegistroModelo)
-                                .addComponent(txtRegistroPlaca)
-                                .addComponent(txtRegistroMotor)
-                                .addComponent(txtRegistroChasis)
-                                .addComponent(txtRegistroCilindraje)
-                                .addComponent(txtRegistroPuertas)
-                                .addComponent(txtRegistroFabricacion)
-                                .addComponent(txtRegistroColor)
-                                .addComponent(txtRegistroTransmision)
-                                .addComponent(txtRegistroTapiceria)
-                                .addComponent(txtRegistroLlantas)
-                                .addComponent(txtRegistroAros))
-                            .addComponent(txtRegistroMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(25, Short.MAX_VALUE))))
+                            .addComponent(lblVentaPlaca)
+                            .addComponent(lblVentaTipoMotor)
+                            .addComponent(lblVentaChasis)
+                            .addComponent(lblVentaCilindraje)
+                            .addComponent(lblVentaPuertas)
+                            .addComponent(lblVentaAnioFabricacion)
+                            .addComponent(lblVentaAros)
+                            .addComponent(lblVentaColor)
+                            .addComponent(lblVentaTransmision)
+                            .addComponent(lblVentaTapiceria)
+                            .addComponent(lblRegistroMatricula)
+                            .addComponent(lblVentaLlantas)
+                            .addComponent(lblVentaPrecio)
+                            .addComponent(lblVentaPrecio1)
+                            .addComponent(lblVentaMarca)
+                            .addComponent(lblVentaModelo))
+                        .addGap(126, 126, 126)
+                        .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlRegistroVehiculoLayout.createSequentialGroup()
+                                .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtRegistroTipoV, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtRegistroPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(pnlRegistroVehiculoLayout.createSequentialGroup()
+                                .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtRegistroMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                                        .addComponent(txtRegistroModelo)
+                                        .addComponent(txtRegistroPlaca)
+                                        .addComponent(txtRegistroMotor)
+                                        .addComponent(txtRegistroChasis)
+                                        .addComponent(txtRegistroCilindraje)
+                                        .addComponent(txtRegistroPuertas)
+                                        .addComponent(txtRegistroFabricacion)
+                                        .addComponent(txtRegistroColor)
+                                        .addComponent(txtRegistroTransmision)
+                                        .addComponent(txtRegistroTapiceria)
+                                        .addComponent(txtRegistroLlantas)
+                                        .addComponent(txtRegistroAros))
+                                    .addComponent(txtRegistroMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(27, Short.MAX_VALUE))))))
         );
         pnlRegistroVehiculoLayout.setVerticalGroup(
             pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRegistroVehiculoLayout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(lblRegistroVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlRegistroVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblVentaMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlRegistroVehiculoLayout.createSequentialGroup()
@@ -410,55 +296,218 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         });
 
         btnEliminarVehiculo.setText("Eliminar");
+        btnEliminarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarVehiculoActionPerformed(evt);
+            }
+        });
 
         btnModificarVehiculo.setText("Modificar");
+        btnModificarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarVehiculoActionPerformed(evt);
+            }
+        });
+
+        btnSeleccionarVehiculo.setText("Seleccionar");
+        btnSeleccionarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarVehiculoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpnlRegistroVehiculosLayout = new javax.swing.GroupLayout(jpnlRegistroVehiculos);
         jpnlRegistroVehiculos.setLayout(jpnlRegistroVehiculosLayout);
         jpnlRegistroVehiculosLayout.setHorizontalGroup(
             jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnlRegistroVehiculosLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addComponent(pnlRegistroVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addGap(40, 40, 40)
                         .addComponent(btnAgregarVehiculo)
-                        .addGap(79, 79, 79)
-                        .addComponent(btnEliminarVehiculo)
-                        .addGap(56, 56, 56)
-                        .addComponent(btnModificarVehiculo))
+                        .addGap(57, 57, 57)
+                        .addComponent(btnModificarVehiculo)
+                        .addGap(58, 58, 58)
+                        .addComponent(btnEliminarVehiculo))
                     .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(btnSeleccionarVehiculo))
+                            .addComponent(lblRespuestaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(1025, Short.MAX_VALUE))
         );
         jpnlRegistroVehiculosLayout.setVerticalGroup(
             jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
-                .addGap(106, 106, 106)
+                .addContainerGap()
                 .addGroup(jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnlRegistroVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpnlRegistroVehiculosLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
                         .addGroup(jpnlRegistroVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAgregarVehiculo)
                             .addComponent(btnEliminarVehiculo)
                             .addComponent(btnModificarVehiculo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblRespuestaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSeleccionarVehiculo)))
+                .addContainerGap(720, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jpnlRegistroVehiculos, "card3");
+
+        pnlRepuesto.setBorder(javax.swing.BorderFactory.createTitledBorder("Registrar Repuesto"));
+
+        btnAgregarRepuesto.setText("Agregar");
+        btnAgregarRepuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarRepuestoActionPerformed(evt);
+            }
+        });
+
+        btnEliminarRepuesto.setText("Eliminar");
+        btnEliminarRepuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarRepuestoActionPerformed(evt);
+            }
+        });
+
+        btnModificarRepuesto.setText("Modificar");
+        btnModificarRepuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarRepuestoActionPerformed(evt);
+            }
+        });
+
+        lblNombreRepuestoR.setText("Nombre:");
+
+        lblCantidadRepuestoR.setText("Cantidad:");
+
+        lblMarcaRegistroR.setText("Marca");
+
+        lblPrecioRepuestoR.setText("Precio");
+
+        txtRepuestoMarcaR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRepuestoMarcaRActionPerformed(evt);
+            }
+        });
+
+        jtblListaRepuesto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane9.setViewportView(jtblListaRepuesto);
+
+        btnSeleccionarRepuesto.setText("Seleccionar");
+        btnSeleccionarRepuesto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarRepuestoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlRepuestoLayout = new javax.swing.GroupLayout(pnlRepuesto);
+        pnlRepuesto.setLayout(pnlRepuestoLayout);
+        pnlRepuestoLayout.setHorizontalGroup(
+            pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlRepuestoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlRepuestoLayout.createSequentialGroup()
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(pnlRepuestoLayout.createSequentialGroup()
+                        .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlRepuestoLayout.createSequentialGroup()
+                                .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblNombreRepuestoR)
+                                    .addComponent(lblPrecioRepuestoR)
+                                    .addComponent(lblMarcaRegistroR))
+                                .addGap(39, 39, 39)
+                                .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtRepuestoMarcaR, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtRepuestoPrecioR, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtRepuestoNombreR, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtRepuestoCantidadR, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblCantidadRepuestoR)
+                            .addComponent(lblRegistroBotonRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAgregarRepuesto)
+                            .addComponent(btnEliminarRepuesto)
+                            .addComponent(btnModificarRepuesto)
+                            .addComponent(btnSeleccionarRepuesto))
+                        .addGap(29, 29, 29))))
+        );
+        pnlRepuestoLayout.setVerticalGroup(
+            pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlRepuestoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarRepuesto)
+                    .addComponent(lblNombreRepuestoR)
+                    .addComponent(txtRepuestoNombreR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMarcaRegistroR)
+                    .addComponent(txtRepuestoMarcaR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificarRepuesto))
+                .addGap(14, 14, 14)
+                .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlRepuestoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCantidadRepuestoR)
+                            .addComponent(txtRepuestoCantidadR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlRepuestoLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(btnEliminarRepuesto)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlRepuestoLayout.createSequentialGroup()
+                        .addGroup(pnlRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPrecioRepuestoR)
+                            .addComponent(txtRepuestoPrecioR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblRegistroBotonRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlRepuestoLayout.createSequentialGroup()
+                        .addComponent(btnSeleccionarRepuesto)
+                        .addGap(18, 18, 18)))
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout jpnlRegistroRepuestoLayout = new javax.swing.GroupLayout(jpnlRegistroRepuesto);
+        jpnlRegistroRepuesto.setLayout(jpnlRegistroRepuestoLayout);
+        jpnlRegistroRepuestoLayout.setHorizontalGroup(
+            jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnlRegistroRepuestoLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(pnlRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1463, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        jpnlRegistroRepuestoLayout.setVerticalGroup(
+            jpnlRegistroRepuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpnlRegistroRepuestoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(957, Short.MAX_VALUE))
         );
+
+        jPanel1.add(jpnlRegistroRepuesto, "card2");
 
         jMenu1.setText("Catálogos");
 
@@ -499,27 +548,12 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jpnlRegistroVehiculos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jpnlRegistroRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(1019, 1019, 1019))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jpnlRegistroRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnlRegistroVehiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -560,22 +594,168 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         v1.setAñoMatricula(Integer.parseInt(txtRegistroMatricula.getText()));
         v1.setTipoVehiculo(txtRegistroTipoV.getText());
         v1.setDisponibilidad(true);
-        arcVehiculo.adicionarVehiculo(v1);
+        if(arcVehiculo.validarVehiculo(txtRegistroChasis.getText(),txtRegistroPlaca.getText())){
+          arcVehiculo.adicionarVehiculo(v1); 
+          for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
+            modelo.removeRow(i);
+            }
+          lblRespuestaBoton.setText("EL VEHICULO HA SIDO AGREGADO");
+          mostrarV();
+        }else{
+            lblRegistroVehiculo.setText("La placa o el chasis se encuentran repetidos");
+        }
+        
     }//GEN-LAST:event_btnAgregarVehiculoActionPerformed
 
     private void txtRegistroMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegistroMarcaActionPerformed
         
     }//GEN-LAST:event_txtRegistroMarcaActionPerformed
 
-    private void txtRepuestoNombre8txtRepuestoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRepuestoNombre8txtRepuestoNombreActionPerformed
+    private void txtRepuestoMarcaRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRepuestoMarcaRActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtRepuestoNombre8txtRepuestoNombreActionPerformed
+    }//GEN-LAST:event_txtRepuestoMarcaRActionPerformed
 
-    private void txtRepuestoPrecio8txtRepuestoPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRepuestoPrecio8txtRepuestoPrecioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRepuestoPrecio8txtRepuestoPrecioActionPerformed
+    private void btnEliminarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarVehiculoActionPerformed
+        v1.setMarca(txtRegistroMarca.getText());
+        v1.setModelo(txtRegistroModelo.getText());
+        v1.setPlaca(txtRegistroPlaca.getText());
+        v1.setTipoMotor(txtRegistroMotor.getText());
+        v1.setChasis(txtRegistroChasis.getText());
+        v1.setCilindraje(Integer.parseInt(txtRegistroCilindraje.getText()));
+        v1.setNumeroPuerta(Integer.parseInt(txtRegistroPuertas.getText()));
+        v1.setAñoFabricacion(Integer.parseInt(txtRegistroFabricacion.getText()));
+        v1.setColor(txtRegistroColor.getText());
+        v1.setTipoTransmision(txtRegistroTransmision.getText());
+        v1.setMaterialInterior(txtRegistroTapiceria.getText());
+        v1.setTipoLLanta(txtRegistroLlantas.getText());
+        v1.setTipoAros(txtRegistroAros.getText());
+        v1.setPrecio(Float.parseFloat(txtRegistroPrecio.getText()));
+        v1.setAñoMatricula(Integer.parseInt(txtRegistroMatricula.getText()));
+        v1.setTipoVehiculo(txtRegistroTipoV.getText());
+        v1.setDisponibilidad(true);
+        arcVehiculo.eliminarVehiculo(v1);
+        for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+        mostrarV();
+        lblRespuestaBoton.setText("EL HA SIDO ELIMIDADO CON EXITO");
+    }//GEN-LAST:event_btnEliminarVehiculoActionPerformed
+
+    private void btnSeleccionarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarVehiculoActionPerformed
+            int fila=tblListaVehiculos.getSelectedRow();
+        if(fila>=0){
+            String a = String.valueOf(modelo.getValueAt(fila, 0));
+            Vehiculo v1 = arcVehiculo.buscarVehiculoChasis(a);
+            txtRegistroMarca.setText(v1.getMarca());
+            txtRegistroModelo.setText(v1.getModelo());
+            txtRegistroPlaca.setText(v1.getPlaca());
+            txtRegistroMotor.setText(v1.getTipoMotor());
+            txtRegistroChasis.setText(v1.getChasis());
+            txtRegistroColor.setText(v1.getColor());
+            txtRegistroTransmision.setText(v1.getTipoTransmision());
+            txtRegistroTapiceria.setText(v1.getMaterialInterior());
+            txtRegistroLlantas.setText(v1.getTipoLLanta());
+            txtRegistroAros.setText(v1.getTipoAros());
+            txtRegistroMatricula.setText(String.valueOf(v1.getAñoMatricula()));
+            txtRegistroCilindraje.setText(String.valueOf(v1.getCilindraje()));
+            txtRegistroPuertas.setText(String.valueOf(v1.getNumeroPuerta()));
+            txtRegistroFabricacion.setText(String.valueOf(v1.getAñoFabricacion()));
+            txtRegistroTipoV.setText(v1.getTipoVehiculo());
+            txtRegistroPrecio.setText(String.valueOf(v1.getPrecio()));
+            lblRespuestaBoton.setText("EL VEHICULO HA SIDO SELECCIONADO");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Seleccionar una fila");
+        }
+    }//GEN-LAST:event_btnSeleccionarVehiculoActionPerformed
+
+    private void btnModificarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarVehiculoActionPerformed
+        v1.setMarca(txtRegistroMarca.getText());
+        v1.setModelo(txtRegistroModelo.getText());
+        v1.setPlaca(txtRegistroPlaca.getText());
+        v1.setTipoMotor(txtRegistroMotor.getText());
+        v1.setChasis(txtRegistroChasis.getText());
+        v1.setCilindraje(Integer.parseInt(txtRegistroCilindraje.getText()));
+        v1.setNumeroPuerta(Integer.parseInt(txtRegistroPuertas.getText()));
+        v1.setAñoFabricacion(Integer.parseInt(txtRegistroFabricacion.getText()));
+        v1.setColor(txtRegistroColor.getText());
+        v1.setTipoTransmision(txtRegistroTransmision.getText());
+        v1.setMaterialInterior(txtRegistroTapiceria.getText());
+        v1.setTipoLLanta(txtRegistroLlantas.getText());
+        v1.setTipoAros(txtRegistroAros.getText());
+        v1.setPrecio(Float.parseFloat(txtRegistroPrecio.getText()));
+        v1.setAñoMatricula(Integer.parseInt(txtRegistroMatricula.getText()));
+        v1.setTipoVehiculo(txtRegistroTipoV.getText());
+        v1.setDisponibilidad(true);
+        arcVehiculo.modificarVehiculo(v1);
+        for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+        mostrarV();
+        lblRespuestaBoton.setText("EL VEHICULO HA SIDO MODIFICADO");
+    }//GEN-LAST:event_btnModificarVehiculoActionPerformed
+
+    private void btnAgregarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarRepuestoActionPerformed
+        r1.setNombreP(txtRepuestoNombreR.getText());
+        r1.setMarcaP(txtRepuestoMarcaR.getText());
+        r1.setCantidad(Long.parseLong(txtRepuestoCantidadR.getText()));
+        r1.setPrecioP(Double.parseDouble(txtRepuestoPrecioR.getText()));
+        if(arcRepuestos.validarRepuesto(txtRepuestoNombreR.getText())){
+        arcRepuestos.adicionarRepuesto(r1);   
+          for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
+            modelo.removeRow(i);
+            }
+          lblRegistroBotonRepuesto.setText("EL REPUESTO HA SIDO AGREGADO");
+          mostrarR();
+        }else{
+            lblRegistroVehiculo.setText("La nombre se encuentran repetido");
+        }
+    }//GEN-LAST:event_btnAgregarRepuestoActionPerformed
+
+    private void btnSeleccionarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarRepuestoActionPerformed
+         int fila=jtblListaRepuesto.getSelectedRow();
+        if(fila>=0){
+            String a = String.valueOf(modelo.getValueAt(fila, 0));
+            Repuesto r1 = arcRepuestos.buscarRepuestoNombre(a);
+            txtRepuestoNombreR.setText(r1.getNombreP());
+            txtRepuestoMarcaR.setText(r1.getMarcaP());
+            txtRepuestoPrecioR.setText(String.valueOf(r1.getPrecioP()));
+            txtRepuestoCantidadR.setText(String.valueOf(r1.getCantidad()));
+            lblRegistroBotonRepuesto.setText("EL VEHICULO HA SIDO SELECCIONADO");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Seleccionar una fila");
+        }
+    }//GEN-LAST:event_btnSeleccionarRepuestoActionPerformed
+
+    private void btnModificarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRepuestoActionPerformed
+        r1.setNombreP(txtRepuestoNombreR.getText());
+        r1.setMarcaP(txtRepuestoMarcaR.getText());
+        r1.setPrecioP(Double.parseDouble(txtRepuestoPrecioR.getText()));
+        r1.setCantidad(Long.parseLong(txtRepuestoCantidadR.getText()));
+        arcRepuestos.modificarRepuesto(r1);
+           for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+        mostrarR();
+        lblRegistroBotonRepuesto.setText("EL REPUESTO HA SIDO MODIFICADO");
+        
+    }//GEN-LAST:event_btnModificarRepuestoActionPerformed
+
+    private void btnEliminarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarRepuestoActionPerformed
+        r1.setNombreP(txtRepuestoNombreR.getText());
+        r1.setMarcaP(txtRepuestoMarcaR.getText());
+        r1.setCantidad(Long.parseLong(txtRepuestoCantidadR.getText()));
+        r1.setPrecioP(Double.parseDouble(txtRepuestoPrecioR.getText()));
+        arcRepuestos.eliminarRepuesto(r1);
+              for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
+        modelo.removeRow(i);
+        }
+        mostrarR();
+        lblRegistroBotonRepuesto.setText("EL REPUESTO HA SIDO ELIMINADO");
+        
+    }//GEN-LAST:event_btnEliminarRepuestoActionPerformed
    public void mostrarDatos(){
-        DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("CHASIS");
         modelo.addColumn("MODELO");
         modelo.addColumn("MARCA");
@@ -593,13 +773,38 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
             modelo.addRow(datos);
         }
     }
+   public void mostrarV(){
+        lista = arcVehiculo.obtenerVehiculo();
+        Iterator it = lista.iterator();
+        String [] datos = new String [4];
+        while(it.hasNext()){
+            v1 = (Vehiculo) it.next();
+            datos[0] = v1.getChasis();
+            datos[1] = v1.getModelo();
+            datos[2] = v1.getMarca();
+            datos[3] = String.valueOf(v1.getPrecio());
+            modelo.addRow(datos);
+        }
+    }
+    public void mostrarR(){
+        listaR = arcRepuestos.obtenerRepuesto();
+        Iterator it = listaR.iterator();
+        String [] datos = new String [4];
+        while(it.hasNext()){
+            r1 = (Repuesto) it.next();
+            datos[0] = r1.getNombreP();
+            datos[1] = r1.getMarcaP();
+            datos[2] = String.valueOf(r1.getCantidad());
+            datos[3] = String.valueOf(r1.getPrecioP());
+            modelo.addRow(datos);
+        }
+    }
       public void mostrarDatosRepuestos(){
-        DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("NOMBRE");
         modelo.addColumn("MARCA");
         modelo.addColumn("CANTIDAD");
         modelo.addColumn("PRECIO");
-        jtblListaRepuestos.setModel(modelo);
+        jtblListaRepuesto.setModel(modelo);
         String [] datos = new String [4];
         listaR = arcRepuestos.obtenerRepuesto();
         Iterator it = listaR.iterator();
@@ -646,8 +851,11 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarRepuesto;
     private javax.swing.JButton btnAgregarVehiculo;
+    private javax.swing.JButton btnEliminarRepuesto;
     private javax.swing.JButton btnEliminarVehiculo;
+    private javax.swing.JButton btnModificarRepuesto;
     private javax.swing.JButton btnModificarVehiculo;
     private javax.swing.JButton btnRepuestoAgregar;
     private javax.swing.JButton btnRepuestoAgregar1;
@@ -656,7 +864,6 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton btnRepuestoAgregar4;
     private javax.swing.JButton btnRepuestoAgregar5;
     private javax.swing.JButton btnRepuestoAgregar6;
-    private javax.swing.JButton btnRepuestoAgregar8;
     private javax.swing.JButton btnRepuestoEliminar;
     private javax.swing.JButton btnRepuestoEliminar1;
     private javax.swing.JButton btnRepuestoEliminar2;
@@ -664,7 +871,6 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton btnRepuestoEliminar4;
     private javax.swing.JButton btnRepuestoEliminar5;
     private javax.swing.JButton btnRepuestoEliminar6;
-    private javax.swing.JButton btnRepuestoEliminar8;
     private javax.swing.JButton btnRepuestoModificar;
     private javax.swing.JButton btnRepuestoModificar1;
     private javax.swing.JButton btnRepuestoModificar2;
@@ -672,7 +878,8 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton btnRepuestoModificar4;
     private javax.swing.JButton btnRepuestoModificar5;
     private javax.swing.JButton btnRepuestoModificar6;
-    private javax.swing.JButton btnRepuestoModificar8;
+    private javax.swing.JButton btnSeleccionarRepuesto;
+    private javax.swing.JButton btnSeleccionarVehiculo;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -680,7 +887,6 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -688,6 +894,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JPanel jpnlRegistro;
     private javax.swing.JPanel jpnlRegistro1;
     private javax.swing.JPanel jpnlRegistro2;
@@ -695,13 +902,13 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JPanel jpnlRegistro4;
     private javax.swing.JPanel jpnlRegistro5;
     private javax.swing.JPanel jpnlRegistro6;
-    private javax.swing.JPanel jpnlRegistro8;
     private javax.swing.JPanel jpnlRegistroRepuesto;
     private javax.swing.JPanel jpnlRegistroRepuestos;
     private javax.swing.JPanel jpnlRegistroRepuestos1;
     private javax.swing.JPanel jpnlRegistroRepuestos2;
     private javax.swing.JPanel jpnlRegistroRepuestos3;
     private javax.swing.JPanel jpnlRegistroVehiculos;
+    private javax.swing.JTable jtblListaRepuesto;
     private javax.swing.JTable jtblListaRepuestos;
     private javax.swing.JTable jtblListaRepuestos1;
     private javax.swing.JTable jtblListaRepuestos2;
@@ -709,7 +916,6 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JTable jtblListaRepuestos4;
     private javax.swing.JTable jtblListaRepuestos5;
     private javax.swing.JTable jtblListaRepuestos6;
-    private javax.swing.JTable jtblListaRepuestos8;
     private javax.swing.JLabel lblCantidadRepuesto;
     private javax.swing.JLabel lblCantidadRepuesto1;
     private javax.swing.JLabel lblCantidadRepuesto2;
@@ -717,7 +923,8 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel lblCantidadRepuesto4;
     private javax.swing.JLabel lblCantidadRepuesto5;
     private javax.swing.JLabel lblCantidadRepuesto6;
-    private javax.swing.JLabel lblCantidadRepuesto8;
+    private javax.swing.JLabel lblCantidadRepuestoR;
+    private javax.swing.JLabel lblMarcaRegistroR;
     private javax.swing.JLabel lblMarcaRepuesto;
     private javax.swing.JLabel lblMarcaRepuesto1;
     private javax.swing.JLabel lblMarcaRepuesto2;
@@ -725,7 +932,6 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel lblMarcaRepuesto4;
     private javax.swing.JLabel lblMarcaRepuesto5;
     private javax.swing.JLabel lblMarcaRepuesto6;
-    private javax.swing.JLabel lblMarcaRepuesto8;
     private javax.swing.JLabel lblNombreRepuesto;
     private javax.swing.JLabel lblNombreRepuesto1;
     private javax.swing.JLabel lblNombreRepuesto2;
@@ -733,7 +939,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombreRepuesto4;
     private javax.swing.JLabel lblNombreRepuesto5;
     private javax.swing.JLabel lblNombreRepuesto6;
-    private javax.swing.JLabel lblNombreRepuesto8;
+    private javax.swing.JLabel lblNombreRepuestoR;
     private javax.swing.JLabel lblPrecioRepuesto;
     private javax.swing.JLabel lblPrecioRepuesto1;
     private javax.swing.JLabel lblPrecioRepuesto2;
@@ -741,8 +947,11 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel lblPrecioRepuesto4;
     private javax.swing.JLabel lblPrecioRepuesto5;
     private javax.swing.JLabel lblPrecioRepuesto6;
-    private javax.swing.JLabel lblPrecioRepuesto8;
+    private javax.swing.JLabel lblPrecioRepuestoR;
+    private javax.swing.JLabel lblRegistroBotonRepuesto;
     private javax.swing.JLabel lblRegistroMatricula;
+    private javax.swing.JLabel lblRegistroVehiculo;
+    private javax.swing.JLabel lblRespuestaBoton;
     private javax.swing.JLabel lblVentaAnioFabricacion;
     private javax.swing.JLabel lblVentaAros;
     private javax.swing.JLabel lblVentaChasis;
@@ -759,6 +968,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel lblVentaTipoMotor;
     private javax.swing.JLabel lblVentaTransmision;
     private javax.swing.JPanel pnlRegistroVehiculo;
+    private javax.swing.JPanel pnlRepuesto;
     private javax.swing.JTable tblListaVehiculos;
     private javax.swing.JTextField txtRegistroAros;
     private javax.swing.JTextField txtRegistroChasis;
@@ -783,7 +993,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtRepuestoCantidad4;
     private javax.swing.JTextField txtRepuestoCantidad5;
     private javax.swing.JTextField txtRepuestoCantidad6;
-    private javax.swing.JTextField txtRepuestoCantidad8;
+    private javax.swing.JTextField txtRepuestoCantidadR;
     private javax.swing.JTextField txtRepuestoMarca;
     private javax.swing.JTextField txtRepuestoMarca1;
     private javax.swing.JTextField txtRepuestoMarca2;
@@ -791,7 +1001,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtRepuestoMarca4;
     private javax.swing.JTextField txtRepuestoMarca5;
     private javax.swing.JTextField txtRepuestoMarca6;
-    private javax.swing.JTextField txtRepuestoMarca8;
+    private javax.swing.JTextField txtRepuestoMarcaR;
     private javax.swing.JTextField txtRepuestoNombre;
     private javax.swing.JTextField txtRepuestoNombre1;
     private javax.swing.JTextField txtRepuestoNombre2;
@@ -799,7 +1009,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtRepuestoNombre4;
     private javax.swing.JTextField txtRepuestoNombre5;
     private javax.swing.JTextField txtRepuestoNombre6;
-    private javax.swing.JTextField txtRepuestoNombre8;
+    private javax.swing.JTextField txtRepuestoNombreR;
     private javax.swing.JTextField txtRepuestoPrecio;
     private javax.swing.JTextField txtRepuestoPrecio1;
     private javax.swing.JTextField txtRepuestoPrecio2;
@@ -807,6 +1017,6 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField txtRepuestoPrecio4;
     private javax.swing.JTextField txtRepuestoPrecio5;
     private javax.swing.JTextField txtRepuestoPrecio6;
-    private javax.swing.JTextField txtRepuestoPrecio8;
+    private javax.swing.JTextField txtRepuestoPrecioR;
     // End of variables declaration//GEN-END:variables
 }

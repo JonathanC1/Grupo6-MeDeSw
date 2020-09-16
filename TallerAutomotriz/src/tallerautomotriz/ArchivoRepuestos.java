@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -45,6 +46,22 @@ public class ArchivoRepuestos {
         }
         return listaR;
     }
+     public boolean  validarRepuesto(String repuesto) {
+            String s;
+            boolean b = true;
+            try {
+                BufferedReader br = new BufferedReader(new FileReader("ArchivoRepuesto.txt"));
+                while ((s = br.readLine()) != null) {
+                    String[] datos = s.split(",");
+                    if (repuesto.equalsIgnoreCase(datos[0])) {
+                    b = false;
+                }
+                }
+                br.close();
+            } catch (IOException e) {
+            }
+            return b;
+        }
         public ArrayList<Repuesto> buscarRepuesto(String repuesto) {
             ArrayList<Repuesto> lista = new ArrayList<>();
             String s;
@@ -63,4 +80,64 @@ public class ArchivoRepuestos {
             }
             return lista;
         }
-}
+            public Repuesto buscarRepuestoNombre(String chasis) {
+            String s;
+            Repuesto r1=null;
+            try {
+                BufferedReader br = new BufferedReader(new FileReader("ArchivoRepuesto.txt"));
+                while ((s = br.readLine()) != null) {
+                    String[] datos = s.split(",");
+                    if (chasis.equalsIgnoreCase(datos[0])) {
+                        r1 = new Repuesto(datos[0], datos[1], Double.parseDouble(datos[2]), Long.parseLong(datos[3]));
+                    }                
+                }
+                br.close();
+            } catch (IOException e) {
+            }       
+            return r1;
+        }
+        public void modificarRepuesto(Repuesto r) {
+        ArrayList<Repuesto> lista = new ArrayList<>();
+        String auxl = "";
+        lista = obtenerRepuesto();
+        Repuesto aux = new Repuesto();
+        Iterator it = lista.iterator();
+        try {
+            FileWriter fw = new FileWriter("ArchivoRepuesto.txt");
+                PrintWriter pw = new PrintWriter(fw);
+                while (it.hasNext()) {
+                    aux = (Repuesto) it.next();
+                    if (aux.getNombreP().equalsIgnoreCase(r.getNombreP())){
+                        auxl = aux.getNombreP()+","+r.getMarcaP()+","+r.getPrecioP()+","+r.getCantidad();
+                        pw.println(auxl);
+                    } else {
+                        auxl = aux.getNombreP()+","+aux.getMarcaP()+","+aux.getPrecioP()+","+aux.getCantidad();
+                        pw.println(auxl);
+                    }
+                }
+                pw.close();
+            } catch (IOException e) {
+            }
+        }
+        public void eliminarRepuesto(Repuesto r) {
+        ArrayList<Repuesto> lista = new ArrayList<>();
+        String auxl = "";
+        lista = obtenerRepuesto();
+        Repuesto aux = new Repuesto();
+        Iterator it = lista.iterator();
+        try {
+            FileWriter fw = new FileWriter("ArchivoRepuesto.txt");
+                PrintWriter pw = new PrintWriter(fw);
+                while (it.hasNext()) {
+                    aux = (Repuesto) it.next();
+                    if (aux.getNombreP().equalsIgnoreCase(r.getNombreP())) {
+                    } else {
+                       auxl = aux.getNombreP()+","+aux.getMarcaP()+","+aux.getPrecioP()+","+aux.getCantidad();
+                        pw.println(auxl);
+                    }
+                }
+                pw.close();
+            } catch (IOException e) {
+            }      
+    } 
+    }

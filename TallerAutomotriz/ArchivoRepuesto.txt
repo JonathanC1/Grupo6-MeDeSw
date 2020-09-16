@@ -1,0 +1,16 @@
+Discos Frenos,Ridex,80.0,264
+Aceite Motor,Valvoline,13.0,50
+Aceite Motor/Diesel,Kixx,19.9,80
+Bateria 34,Bosh,106.4,100
+Bateria 42,Bosh,85.6,107
+Liquido Freno,ATE,3.5,20
+Filtro Aceite,Kuboshi,1.35,50
+Bujia Standard,BKR5E,1.78,15
+Filtro Aire,Kuboshi,2.39,420
+Banda Tiempo,Gates,9.88,20
+Filtro Gasolina,Kuboshi,8.0,10
+Zapata Freno,Strong,8.79,20
+Pastilla Delantera,Silver,13.18,20
+Dt Lampara,Bosh,2.0,10
+Gurdafango,SKU,120.0,18
+Pluma limpiadora,GM_9,10.93,5

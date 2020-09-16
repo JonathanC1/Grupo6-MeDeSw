@@ -1,3 +1,7 @@
-chevrolet,aveo,rojo,sedan,8V,null,0001,cuero,PUJ131,estandar,niquelados,1200,4,2548.0,true,2015,2012
-
-cecds,fasdf,adas,fsa,23d,null,daadf,adfasd,weqwr,dsfas,qwfw,1231,3,1314.0,true,231,123
+chevrolet,aveo,rojo,sedan,8V,automatica,0001,cuero,PUJ131,estandar,niquelados,1200,4,2548.0,true,2015,2012
+Hyundai,Tucson,azul,T2019,6V,automatica,0002,cuero,PUJ123,Radiales,Aluminio,2200,5,11111.1,true,2020,2018
+Jeep,Compass,gris,Compass17,17V,manual,0003,Foamizada,PAA111,Tubuless,Aleacion,3200,5,2555.0,true,2018,2017
+Mazda,CX-3,azul,CX-32019,4V,automatica,0004,Alcantara,PBB001,runflat,Magnesio,2200,5,55555.0,true,2019,2017
+Toyota,Verso,rojo,verson2014,8V,manual,0005,Vinilo,PFF031,all seasons,acero,1200,4,3048.0,true,2020,2016
+Suzuki,Baleno,amarillo,Bal16,9V,manual,0006,Microfibra,PAS021,direccionales,aluminio,3200,4,2548.0,true,2015,2012
+Renault,Clio,blanco,ClioP,8V,automatica,0007,Alcantara,PEE101,asimétricos,aleación,5000,4,2849.0,true,2018,2017

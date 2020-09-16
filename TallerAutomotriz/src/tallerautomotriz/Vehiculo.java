@@ -36,6 +36,7 @@ public class Vehiculo {
         this.añoFabricacion = añoFabricacion;
         this.añoMatricula = añoMatricula;
         this.disponibilidad = disponibilidad;
+        this.precio = precio;
     }
 
     public Vehiculo() {
