@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import tallerautomotriz.ArchivoRepuestos;
 import tallerautomotriz.ArchivoVehiculos;
 import tallerautomotriz.Repuesto;
+import tallerautomotriz.Taller;
 import tallerautomotriz.Vehiculo;
 
 /**
@@ -29,6 +30,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     ArrayList<Vehiculo> lista = new ArrayList<>();
      ArrayList<Repuesto> listaR = new ArrayList<>();
      ArrayList<Repuesto> listaCarrito = new ArrayList<>();
+      ArrayList<Taller> listaTaller = new ArrayList<>();
     Vehiculo v1 = new Vehiculo();
     public frmPrincipal() {
         initComponents();
@@ -176,7 +178,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jPanelTalleres = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        Jtaller = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         txtBuscarTalleres = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
@@ -815,7 +817,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Talleres"));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        Jtaller.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -823,7 +825,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(Jtaller);
 
         jLabel12.setText("Listar Talleres:");
 
@@ -834,34 +836,41 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
 
         jButton2.setText("Mostrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabel12)
-                        .addGap(30, 30, 30)
+                        .addGap(18, 18, 18)
                         .addComponent(txtBuscarTalleres, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jButton2))))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel12)
-                        .addComponent(txtBuscarTalleres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtBuscarTalleres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
-                .addGap(18, 18, 18)
+                .addGap(74, 74, 74)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(320, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelTalleresLayout = new javax.swing.GroupLayout(jPanelTalleres);
@@ -1382,6 +1391,45 @@ public class frmPrincipal extends javax.swing.JFrame {
      
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+File archivo=null;
+        FileReader fr=null;
+        BufferedReader br=null;
+        try{
+        archivo=new File("ArchivoTalleres.txt");
+        fr = new FileReader(archivo);
+        br = new BufferedReader(fr);
+        String linea;
+        while((linea=br.readLine())!=null){
+            
+         String[] linea2 = linea.split(",");
+         Taller tl=new Taller(linea2[0],linea2[1],linea2[2]);
+         listaTaller.add(tl);
+         String matriz[][]=new String[listaTaller.size()][3];
+          for(int i=0;i<listaTaller.size();i++){
+           matriz[i][0]=listaTaller.get(i).getNombre();
+    matriz[i][1]=listaTaller.get(i).getEspecialidad();
+    matriz[i][2]=listaTaller.get(i).getUbicacion();
+  
+          }
+         Jtaller.setModel(new javax.swing.table.DefaultTableModel(
+     matriz,
+     new String[]{"NOMBRE","ESPECIALIDAD","UBICACION"}));
+        }
+  }catch(Exception e){
+       e.printStackTrace();
+       
+       }finally{
+        try{
+        fr.close();
+        }
+        catch(Exception e2){
+            e2.printStackTrace();
+        }       
+        
+        }   
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1419,6 +1467,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Comprar;
+    private javax.swing.JTable Jtaller;
     private javax.swing.JButton btbBuscar;
     private javax.swing.JButton btnAceptarOferta;
     private javax.swing.JButton btnBuscarVehiculo;
@@ -1483,7 +1532,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jtblCarritoRespuestos;
     private javax.swing.JTable jtblRepuestos;
     private javax.swing.JTable jtblVehiculos;
