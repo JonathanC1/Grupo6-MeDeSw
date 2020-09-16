@@ -53,25 +53,52 @@ public class ArchivoVehiculos {
         return listaP;
     }
         public ArrayList<Vehiculo> buscarVehiculo(String vehiculo) {
-            ArrayList<Vehiculo> lista = new ArrayList<>();
+            ArrayList<Vehiculo> lista = new ArrayList<Vehiculo>();
             String s;
             boolean b = true;
             try {
                 BufferedReader br = new BufferedReader(new FileReader("ArchivoVehiculo.txt"));
                 while ((s = br.readLine()) != null) {
                     String[] datos = s.split(",");
-                    if ((vehiculo.equalsIgnoreCase(datos[0]) || vehiculo.equalsIgnoreCase(datos[1]))&&Boolean.parseBoolean(datos[14])) {
+                    if (vehiculo.equalsIgnoreCase(datos[0])) {
                         Vehiculo v1 = new Vehiculo(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], datos[6], datos[7], datos[8], datos[9],
                                 datos[10], Integer.parseInt(datos[11]), Integer.parseInt(datos[12]), Float.parseFloat(datos[13]), Boolean.parseBoolean(datos[14]),
                                 Integer.parseInt(datos[15]), Integer.parseInt(datos[16]));
                         lista.add(v1);
+                        
                     }
+                    
                 }
                 br.close();
             } catch (IOException e) {
             }
             return lista;
         }
+        
+        public Vehiculo buscarVehiculoChasis(String chasis) {
+            ArrayList<Vehiculo> lista = new ArrayList<Vehiculo>();
+            String s;
+            boolean b = true;
+            Vehiculo v1=null;
+            try {
+                BufferedReader br = new BufferedReader(new FileReader("ArchivoVehiculo.txt"));
+                while ((s = br.readLine()) != null) {
+                    String[] datos = s.split(",");
+                    if (chasis.equalsIgnoreCase(datos[6])) {
+                        v1 = new Vehiculo(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5], datos[6], datos[7], datos[8], datos[9],
+                                datos[10], Integer.parseInt(datos[11]), Integer.parseInt(datos[12]), Float.parseFloat(datos[13]), Boolean.parseBoolean(datos[14]),
+                                Integer.parseInt(datos[15]), Integer.parseInt(datos[16]));
+                        
+                    }
+                    
+                }
+                br.close();
+            } catch (IOException e) {
+            }
+        
+            return v1;
+        }
+        
         public ArrayList<Vehiculo> actualizarVehiculo(String chasis,String color,String tipoT,String tapiceria,String llantas,String aros) {
             ArrayList<Vehiculo> lista = new ArrayList<>();
             String auxl = "";
