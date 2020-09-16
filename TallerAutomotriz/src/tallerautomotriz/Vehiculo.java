@@ -322,4 +322,11 @@ public class Vehiculo {
                 + ", a\u00f1oFabricacion=" + sdf.format(añoFabricacion) + ", a\u00f1oMatricula=" + sdf.format(añoMatricula) + '}';
     }
 
+    @Override
+    public String toString() {
+        return "Vehiculo{" + "marca=" + marca + ", modelo=" + modelo + ", color=" + color + ", tipoVehiculo=" + tipoVehiculo + ", tipoMotor=" + tipoMotor + ", tipoTransmision=" + tipoTransmision + ", chasis=" + chasis + ", materialInterior=" + materialInterior + ", placa=" + placa + ", tipoLLanta=" + tipoLLanta + ", tipoAros=" + tipoAros + ", cilindraje=" + cilindraje + ", numeroPuerta=" + numeroPuerta + ", a\u00f1oFabricacion=" + añoFabricacion + ", a\u00f1oMatricula=" + añoMatricula + ", precio=" + precio + ", disponibilidad=" + disponibilidad + '}';
+    }
+    
+    
+
 }
