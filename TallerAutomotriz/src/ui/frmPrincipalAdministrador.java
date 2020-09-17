@@ -16,6 +16,7 @@ import tallerautomotriz.Vehiculo;
 
 public class frmPrincipalAdministrador extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
+    DefaultTableModel modelo3 = new DefaultTableModel();
     ArchivoVehiculos arcVehiculo = new ArchivoVehiculos();
     ArchivoRepuestos arcRepuestos = new ArchivoRepuestos();
     ArrayList<Vehiculo> lista = new ArrayList<>();
@@ -696,8 +697,8 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         r1.setPrecioP(Double.parseDouble(txtRepuestoPrecioR.getText()));
         if(arcRepuestos.validarRepuesto(txtRepuestoNombreR.getText())){
         arcRepuestos.adicionarRepuesto(r1);   
-          for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
-            modelo.removeRow(i);
+          for (int i = modelo3.getRowCount() - 1; i >= 0; i--) {
+            modelo3.removeRow(i);
             }
           lblRegistroBotonRepuesto.setText("EL REPUESTO HA SIDO AGREGADO");
           mostrarR();
@@ -709,7 +710,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
     private void btnSeleccionarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarRepuestoActionPerformed
          int fila=jtblListaRepuesto.getSelectedRow();
         if(fila>=0){
-            String a = String.valueOf(modelo.getValueAt(fila, 0));
+            String a = String.valueOf(modelo3.getValueAt(fila, 0));
             Repuesto r1 = arcRepuestos.buscarRepuestoNombre(a);
             txtRepuestoNombreR.setText(r1.getNombreP());
             txtRepuestoMarcaR.setText(r1.getMarcaP());
@@ -728,8 +729,8 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         r1.setPrecioP(Double.parseDouble(txtRepuestoPrecioR.getText()));
         r1.setCantidad(Long.parseLong(txtRepuestoCantidadR.getText()));
         arcRepuestos.modificarRepuesto(r1);
-           for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
-            modelo.removeRow(i);
+           for (int i = modelo3.getRowCount() - 1; i >= 0; i--) {
+            modelo3.removeRow(i);
         }
         mostrarR();
         lblRegistroBotonRepuesto.setText("EL REPUESTO HA SIDO MODIFICADO");
@@ -742,8 +743,8 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
         r1.setCantidad(Long.parseLong(txtRepuestoCantidadR.getText()));
         r1.setPrecioP(Double.parseDouble(txtRepuestoPrecioR.getText()));
         arcRepuestos.eliminarRepuesto(r1);
-              for (int i = modelo.getRowCount() - 1; i >= 0; i--) {
-        modelo.removeRow(i);
+              for (int i = modelo3.getRowCount() - 1; i >= 0; i--) {
+        modelo3.removeRow(i);
         }
         mostrarR();
         lblRegistroBotonRepuesto.setText("EL REPUESTO HA SIDO ELIMINADO");
@@ -790,15 +791,15 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
             datos[1] = r1.getMarcaP();
             datos[2] = String.valueOf(r1.getCantidad());
             datos[3] = String.valueOf(r1.getPrecioP());
-            modelo.addRow(datos);
+            modelo3.addRow(datos);
         }
     }
       public void mostrarDatosRepuestos(){
-        modelo.addColumn("NOMBRE");
-        modelo.addColumn("MARCA");
-        modelo.addColumn("CANTIDAD");
-        modelo.addColumn("PRECIO");
-        jtblListaRepuesto.setModel(modelo);
+        modelo3.addColumn("NOMBRE");
+        modelo3.addColumn("MARCA");
+        modelo3.addColumn("CANTIDAD");
+        modelo3.addColumn("PRECIO");
+        jtblListaRepuesto.setModel(modelo3);
         String [] datos = new String [4];
         listaR = arcRepuestos.obtenerRepuesto();
         Iterator it = listaR.iterator();
@@ -808,7 +809,7 @@ public class frmPrincipalAdministrador extends javax.swing.JFrame {
             datos[1] = r1.getMarcaP();
             datos[2] = String.valueOf(r1.getCantidad());
             datos[3] = String.valueOf(r1.getPrecioP());
-            modelo.addRow(datos);
+            modelo3.addRow(datos);
         }
     }
  

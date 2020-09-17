@@ -19,7 +19,7 @@ public class Taller {
         this.ubicacion = ubicacion;
     }
 
-    Taller() {
+   public Taller() {
    }
     public String getNombre() {
         return nombre;

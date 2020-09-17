@@ -11,6 +11,6 @@ Banda Tiempo,Gates,9.88,20
 Filtro Gasolina,Kuboshi,8.0,10
 Zapata Freno,Strong,8.79,20
 Pastilla Delantera,Silver,13.18,20
-Dt Lampara,Bosh,2.0,10
 Gurdafango,SKU,120.0,18
 Pluma limpiadora,GM_9,10.93,5
+rqwrqwe,repuesto modificado,1231.0,213

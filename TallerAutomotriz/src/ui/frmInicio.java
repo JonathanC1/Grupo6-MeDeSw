@@ -37,6 +37,8 @@ public class frmInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        pnlNombreTaller = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         pnlCrearCuenta = new javax.swing.JPanel();
         lblNombre3 = new javax.swing.JLabel();
         lblCedula3 = new javax.swing.JLabel();
@@ -60,8 +62,6 @@ public class frmInicio extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         lblMensajeError = new javax.swing.JLabel();
         lblTipoIngreso = new javax.swing.JLabel();
-        pnlNombreTaller = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -73,6 +73,30 @@ public class frmInicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setLayout(new java.awt.CardLayout());
+
+        jLabel1.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel1.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel1.setText("Taller Automotriz");
+
+        javax.swing.GroupLayout pnlNombreTallerLayout = new javax.swing.GroupLayout(pnlNombreTaller);
+        pnlNombreTaller.setLayout(pnlNombreTallerLayout);
+        pnlNombreTallerLayout.setHorizontalGroup(
+            pnlNombreTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNombreTallerLayout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(117, Short.MAX_VALUE))
+        );
+        pnlNombreTallerLayout.setVerticalGroup(
+            pnlNombreTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNombreTallerLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(241, Short.MAX_VALUE))
+        );
+
+        jPanel2.add(pnlNombreTaller, "card4");
 
         pnlCrearCuenta.setBorder(javax.swing.BorderFactory.createTitledBorder("Crear Cuenta"));
 
@@ -229,30 +253,6 @@ public class frmInicio extends javax.swing.JFrame {
         );
 
         jPanel2.add(pnlLogin, "card2");
-
-        jLabel1.setBackground(new java.awt.Color(102, 102, 255));
-        jLabel1.setFont(new java.awt.Font("Engravers MT", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
-        jLabel1.setText("Taller Automotriz");
-
-        javax.swing.GroupLayout pnlNombreTallerLayout = new javax.swing.GroupLayout(pnlNombreTaller);
-        pnlNombreTaller.setLayout(pnlNombreTallerLayout);
-        pnlNombreTallerLayout.setHorizontalGroup(
-            pnlNombreTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNombreTallerLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
-        );
-        pnlNombreTallerLayout.setVerticalGroup(
-            pnlNombreTallerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNombreTallerLayout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(241, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(pnlNombreTaller, "card4");
 
         jMenu1.setText("Inicio");
 
